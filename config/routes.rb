@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
-# routes
 Rails.application.routes.draw do
-  get 'companies_dashboards/index'
   devise_for :companies, controllers: {
     sessions: 'companies/sessions'
   }
+  resources :companies do
+    resources :job_posts
+  end
+  
+  get 'companies_dashboards/index'
+  
   root 'dashboards#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions'
