@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# company model 
 class Company < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,4 +8,5 @@ class Company < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  enum status: %i[inactive active]
 end
