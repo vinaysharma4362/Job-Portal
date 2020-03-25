@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_title: MyString
+  description: MyString
+  job_type: MyString
+  location: MyString
+  required_skill: MyString
+  extra_skill: MyString
+  salary_min: 1
+  salary_max: 1
+  last_apply_date: 2020-03-25
+  language: MyString
+  job_field: MyString
+  vacancy: 1
+  status: 1
+
+two:
+  job_title: MyString
+  description: MyString
+  job_type: MyString
+  location: MyString
+  required_skill: MyString
+  extra_skill: MyString
+  salary_min: 1
+  salary_max: 1
+  last_apply_date: 2020-03-25
+  language: MyString
+  job_field: MyString
+  vacancy: 1
+  status: 1
