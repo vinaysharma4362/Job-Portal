@@ -4,14 +4,17 @@
 class JobPostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy]
 
-  def index; end
+  def index
+    @posts = Post.all
+  end
 
   def new
     @post = Post.new
   end
 
   def create
-    @post = House.new(post_params)
+    @post = Post.new(post_params)
+    @post.company_id = current_company.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to company_job_posts_path }
@@ -29,13 +32,16 @@ class JobPostsController < ApplicationController
   def update
     if @post.update(post_params)
       redirect_to company_job_posts_path,
-                  notice: 'House Profile was successfully updated.'
+                  notice: 'Job Post was successfully updated.'
     else
       render :edit
     end
   end
 
-  def destroy; end
+  def destroy
+    @post.destroy
+    redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
+  end
 
   private
 

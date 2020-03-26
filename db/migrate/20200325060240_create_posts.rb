@@ -15,7 +15,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.string :language
       t.string :job_field
       t.integer :vacancy
-      t.integer :status
+      t.string :status
       t.references :company, foreign_key: true
 
       t.timestamps
