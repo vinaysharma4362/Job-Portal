@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     create_table :posts do |t|
       t.string :job_title
       t.string :description
-      t.string :job_type
+      t.integer :job_type
       t.string :location
       t.string :required_skill
       t.string :extra_skill
@@ -17,7 +17,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.integer :vacancy
       t.string :status
       t.references :company, foreign_key: true
-
       t.timestamps
     end
   end

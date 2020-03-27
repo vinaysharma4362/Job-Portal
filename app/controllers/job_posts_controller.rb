@@ -2,21 +2,22 @@
 
 # dashboard controller
 class JobPostsController < ApplicationController
-  before_action :set_post, only: %i[edit update destroy]
+  before_action :set_post, only: %i[edit update destroy show]
 
   def index
-    @posts = Post.all
+    @job_posts = JobPost.all
   end
 
   def new
-    @post = Post.new
+    @company  = Company.find(params[:company_id])
+    @job_post = JobPost.new(company_id: @company.id)
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.company_id = current_company.id
+    @job_post = JobPost.new(post_params)
+    @job_post.company_id = current_company.id
     respond_to do |format|
-      if @post.save
+      if @job_post.save
         format.html { redirect_to company_job_posts_path }
       else
         format.html { render :new }
@@ -24,13 +25,12 @@ class JobPostsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def edit; end
 
   def update
-    if @post.update(post_params)
+    if @job_post.update(post_params)
       redirect_to company_job_posts_path,
                   notice: 'Job Post was successfully updated.'
     else
@@ -39,22 +39,23 @@ class JobPostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
+    @job_post.destroy
     redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
   end
 
   private
 
   def set_post
-    @post = Post.find_by(id: params[:id])
+    @company = Company.find(current_company.id)
+    @job_post = JobPost.find_by(id: params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list
   # through.
   def post_params
-    params.require(:post).permit(:job_title, :description, :job_type, :location,
-                                 :required_skill, :extra_skill, :salary_min,
-                                 :salary_max, :last_apply_date, :language,
-                                 :job_field, :vacancy, :status)
+    params.require(:job_post).permit(:job_title, :description, :job_type,
+                                     :location, :required_skill, :extra_skill,
+                                     :salary_max, :last_apply_date, :language,
+                                     :job_field, :vacancy, :status, :salary_min)
   end
 end

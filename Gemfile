@@ -2,9 +2,11 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'hirb'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
@@ -17,7 +19,6 @@ gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'twitter-bootstrap-rails'
 
 gem 'turbolinks', '~> 5'
 

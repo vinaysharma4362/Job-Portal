@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_070551) do
+ActiveRecord::Schema.define(version: 2020_03_27_064506) do
 
   create_table "apply_jobs", force: :cascade do |t|
     t.date "entry_date"
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 2020_03_25_070551) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "job_posts", force: :cascade do |t|
     t.string "job_title"
     t.string "description"
-    t.string "job_type"
+    t.integer "job_type"
     t.string "location"
     t.string "required_skill"
     t.string "extra_skill"
@@ -68,11 +68,11 @@ ActiveRecord::Schema.define(version: 2020_03_25_070551) do
     t.string "language"
     t.string "job_field"
     t.integer "vacancy"
-    t.string "status"
+    t.integer "status"
     t.integer "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_posts_on_company_id"
+    t.index ["company_id"], name: "index_job_posts_on_company_id"
   end
 
   create_table "resumes", force: :cascade do |t|
@@ -95,10 +95,10 @@ ActiveRecord::Schema.define(version: 2020_03_25_070551) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "apply_jobs", "posts"
+  add_foreign_key "apply_jobs", "job_posts", column: "post_id"
   add_foreign_key "apply_jobs", "users"
-  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "job_posts", column: "post_id"
   add_foreign_key "comments", "users"
-  add_foreign_key "posts", "companies"
+  add_foreign_key "job_posts", "companies"
   add_foreign_key "resumes", "users"
 end

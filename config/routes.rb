@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   resources :companies do
     resources :job_posts
   end
-  
   get 'companies_dashboards/index'
-  
   root 'dashboards#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions'
