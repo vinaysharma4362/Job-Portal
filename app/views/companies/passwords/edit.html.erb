@@ -4,7 +4,6 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
-
   <div class="form-group">
     <%= f.label :password, "New password" %><br />
     <% if @minimum_password_length %>
@@ -24,4 +23,5 @@
 <% end %>
 
 <%= render "companies/shared/links" %>
-</dvi>
+</div>
+

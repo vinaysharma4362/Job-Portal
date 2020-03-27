@@ -4,13 +4,9 @@
 class JobPostsController < ApplicationController
   before_action :set_post, only: %i[edit update destroy show]
 
-<<<<<<< Updated upstream
-  def index; end
-=======
   def index
     @job_posts = JobPost.all
   end
->>>>>>> Stashed changes
 
   def new
     @company  = Company.find(params[:company_id])
@@ -18,12 +14,8 @@ class JobPostsController < ApplicationController
   end
 
   def create
-<<<<<<< Updated upstream
-    @post = House.new(post_params)
-=======
     @job_post = JobPost.new(post_params)
     @job_post.company_id = current_company.id
->>>>>>> Stashed changes
     respond_to do |format|
       if @job_post.save
         format.html { redirect_to company_job_posts_path }
@@ -40,20 +32,16 @@ class JobPostsController < ApplicationController
   def update
     if @job_post.update(post_params)
       redirect_to company_job_posts_path,
-                  notice: 'House Profile was successfully updated.'
+                  notice: 'Job Post was successfully updated.'
     else
       render :edit
     end
   end
 
-<<<<<<< Updated upstream
-  def destroy; end
-=======
   def destroy
     @job_post.destroy
     redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
   end
->>>>>>> Stashed changes
 
   private
 
