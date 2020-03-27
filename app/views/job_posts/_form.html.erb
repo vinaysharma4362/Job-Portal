@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
+=======
+<%= form_with(model:[@company, @job_post]) do |form| %>
+  <% if job_post.errors.any? %>
+>>>>>>> Stashed changes
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this demodb from being saved:</h2>
       <ul>
@@ -22,7 +27,11 @@
 
   <div class="form-group">
     <%= form.label :Job_Type %>
+<<<<<<< Updated upstream
     
+=======
+    <%= form.select(:job_type, JobPost.job_types.keys) %>
+>>>>>>> Stashed changes
   </div>
 
   <div class="form-group">
@@ -70,6 +79,14 @@
     <%= form.number_field :vacancy, class: "form-control" %>
   </div>
 
+<<<<<<< Updated upstream
+=======
+  <div class="form-group">
+    <%= form.label :Status %>
+    <%= form.select(:status, JobPost.statuses.keys) %>
+  </div>
+
+>>>>>>> Stashed changes
   <div class="actions">
     <%= form.submit %>
   </div>
