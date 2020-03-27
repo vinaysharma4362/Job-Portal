@@ -1,28 +1,10 @@
+<nav class="navbar">
+<ul class="nav">
+  <li><%= link_to "Comapny logout", destroy_user_session_path, method: :delete, class: "btn btn-primary"%></li>
+</ul>
+</nav>
 <%= link_to 'Post Job', new_company_job_post_path(current_company.id), class: 'btn btn-primary'%>
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th>House Type</th>
-      <th>Category</th>
-      <th>Square Feet</th>
-      <th>Amount</th>
-      <th>View</th>
-      <th>Edit</th>
-      <th>Destroy</th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @job_posts.each do |post| %>
-      <tr>
-        <td><%= post.job_title %></td>
-        <td><%= post.job_type %></td>
-        <td><%= post.location %></td>
-        <td><%= post.language %></td>
-        <td><%= link_to 'View', company_job_post_path(current_company.id, post), class: "btn btn-outline-primary" %>
-        <td><%= link_to 'Edit', edit_company_job_post_path(current_company.id, post), class: "btn btn-outline-primary" %></td>
-        <td><%= link_to 'Destroy', company_job_post_path(current_company.id,post), method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-outline-primary"%></td>
-      </tr>
+      
     <% end %>
-  </tbody>
-</table>

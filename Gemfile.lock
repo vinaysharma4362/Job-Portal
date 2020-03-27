@@ -236,7 +236,6 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  devise-bootstrap-views
   hirb
   jbuilder (~> 2.7)
   jquery-rails

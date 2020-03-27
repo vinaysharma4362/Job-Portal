@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_064506) do
   create_table "job_posts", force: :cascade do |t|
     t.string "job_title"
     t.string "description"
-    t.integer "job_type"
+    t.string "job_type"
     t.string "location"
     t.string "required_skill"
     t.string "extra_skill"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_03_27_064506) do
     t.string "language"
     t.string "job_field"
     t.integer "vacancy"
-    t.integer "status"
+    t.string "status"
     t.integer "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

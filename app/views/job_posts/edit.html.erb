@@ -1,3 +1,9 @@
+<nav class="navbar">
+<ul class="nav">
+  <li><%= link_to "Comapny logout", destroy_user_session_path, method: :delete, class: "btn btn-primary"%></li>
+</ul>
+</nav>
+
 <%= render 'form', job_post: @job_post %>
 
 <%= link_to 'Back', company_job_posts_path %>
