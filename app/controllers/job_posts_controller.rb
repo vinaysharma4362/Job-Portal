@@ -9,7 +9,7 @@ class JobPostsController < ApplicationController
   end
 
   def new
-    @company  = Company.find(params[:company_id])
+    @company  = Company.find_by(id: params[:company_id])
     @job_post = JobPost.new(company_id: @company.id)
   end
 
@@ -44,7 +44,7 @@ class JobPostsController < ApplicationController
   private
 
   def set_post
-    @company = Company.find(current_company.id)
+    @company = Company.find_by(id: current_company.id)
     @job_post = JobPost.find_by(id: params[:id])
   end
 
