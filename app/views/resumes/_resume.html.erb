@@ -1,0 +1,15 @@
+<%= form_with(model: [@user,@resume]) do |f| %>
+
+<div class="form-group">
+  <%= f.label :file_name %>
+  <%= f.text_field :file_name, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :resume_file %>
+  <%= f.file_field :resume_file, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.submit :Submit, class: "btn btn-primary" %>
+</div>
+<% end %>

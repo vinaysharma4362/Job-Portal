@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>filename</th>
+      <th>show</th>
+      <th>edit</th>
+      <th>delete</th>
+    </tr>
+  </thead>
+  <% @resumes.each do |resume|%>
+
+  <tr>
+    <td><%= resume.file_name %></td>
+      <td><%= link_to 'download', url_for(resume.resume_file) %></td>
+     <td><%= link_to "edit", edit_user_resume_path(current_user.id, resume) %></td>
+    <td>
+      <%= link_to "delete", user_resume_path( current_user.id, resume), method: :delete, data: {confirm:"Are you sure?"}%>
+    </td>
+    
+  </tr>
+  <% end%>
+
+</table>
+<div class="btn btn-info">
+  <%= link_to "create new ", new_user_resume_path, :class => "btn" %>
+</div>
