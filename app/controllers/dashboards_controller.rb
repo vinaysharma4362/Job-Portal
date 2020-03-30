@@ -3,5 +3,7 @@
 # dashboard controller
 class DashboardsController < ApplicationController
 
-  def index; end
+  def index
+    @job_post = JobPost.all
+  end
 end
