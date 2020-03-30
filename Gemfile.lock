@@ -239,7 +239,6 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  devise-bootstrap-views
   font-awesome-rails
   hirb
   jbuilder (~> 2.7)

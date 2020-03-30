@@ -5,6 +5,6 @@ class JobPost < ApplicationRecord
   has_many :comments
   has_many :apply_job
 
-  enum job_type: %i[Parttime Fulltime Infulencer]
-  enum status: %i[Enable Disable]
+  JOB_TYPE = %W[Part-time Full-time Infulencer]
+  STATUS = %w[Enable Disable]
 end

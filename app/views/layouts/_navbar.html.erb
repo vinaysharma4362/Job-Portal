@@ -16,14 +16,14 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item active"><%= link_to 'Home', root_path, class: "nav-link" %> </a></li>
 	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            <li class="nav-item cta mr-md-2"><%= link_to "Post a JOb", new_company_session_path, class: "nav-link"%></li>
-
-            <li class= "nav-item cta me-md-2"><%= link_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-primary"%></li>
-
+            <li class="nav-item cta mr-md-2"><%= link_to "Post a Job", new_company_session_path, class: "nav-link"%></li>
+            <% if current_user %>
+              <li class= "nav-item cta me-md-2"><%= link_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-primary"%></li>
+            <% end %>
 	        </ul>
 	      </div>
 	    </div>

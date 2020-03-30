@@ -16,13 +16,11 @@ class JobPostsController < ApplicationController
   def create
     @job_post = JobPost.new(post_params)
     @job_post.company_id = current_company.id
-    respond_to do |format|
       if @job_post.save
-        format.html { redirect_to company_job_posts_path }
+        redirect_to company_job_posts_path
       else
-        format.html { render :new }
+        render :new
       end
-    end
   end
 
   def show; end

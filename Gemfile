@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
-gem 'devise-bootstrap-views'
 gem 'font-awesome-rails'
 gem 'hirb'
 
