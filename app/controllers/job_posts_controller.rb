@@ -2,23 +2,23 @@
 
 # dashboard controller
 class JobPostsController < ApplicationController
-  before_action :set_post, only: %i[edit update destroy show]
+  before_action :find_post, only: %i[edit update destroy show ]
+  before_action :find_company, only: %i[new edit create]
 
   def index
-    @job_posts = JobPost.all
+    @job_posts = current_company.job_posts
   end
 
   def new
-    @company  = Company.find_by(id: params[:company_id])
-    @job_post = JobPost.new(company_id: @company.id)
+    @job_post = JobPost.new
   end
 
   def create
-    @job_post = JobPost.new(post_params)
-    @job_post.company_id = current_company.id
-    if @job_post.save
-      redirect_to company_job_posts_path
+    @job_post = JobPost.new(job_post_params)
+    if @job_post.save!
+      redirect_to company_job_posts_path, notice: 'Job added'
     else
+      flash[:alert] = 'Not added'
       render :new
     end
   end
@@ -28,7 +28,7 @@ class JobPostsController < ApplicationController
   def edit; end
 
   def update
-    if @job_post.update(post_params)
+    if @job_post.update(job_post_params)
       redirect_to company_job_posts_path,
                   notice: 'Job Post was successfully updated.'
     else
@@ -41,19 +41,27 @@ class JobPostsController < ApplicationController
     redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
   end
 
+  def job_post_apply
+    @job_posts = JobPost.all
+  end
+
   private
 
-  def set_post
-    @company = Company.find_by(id: current_company.id)
-    @job_post = JobPost.find_by(id: params[:id])
+  def find_post
+    @job_post = JobPost.find(params[:id])
+  end
+
+  def find_company
+    @company = Company.find(params[:company_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list
   # through.
-  def post_params
+  def job_post_params
     params.require(:job_post).permit(:job_title, :description, :job_type,
                                      :location, :required_skill, :extra_skill,
                                      :salary_max, :last_apply_date, :language,
-                                     :job_field, :vacancy, :status, :salary_min)
+                                     :job_field, :vacancy, :status,
+                                     :company_id, :salary_min)
   end
 end

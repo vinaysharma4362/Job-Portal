@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   }
   resources :companies do
     resources :job_posts
+    resources :apply_jobs
   end
   get 'companies_dashboards/index'
   root 'dashboards#index'
@@ -17,7 +18,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :resumes
+    resources :job_posts do 
+      resources :apply_jobs
+      get 'job_post_apply', on: :member
+    end
   end
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

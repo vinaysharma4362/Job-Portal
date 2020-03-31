@@ -21,6 +21,10 @@
   <% end%>
 
 </table>
+
+
+<% if @resumes.empty? %>
 <div class="btn btn-info">
-  <%= link_to "create new ", new_user_resume_path, :class => "btn" %>
+<%= link_to "create new ", new_user_resume_path, :class => "btn" %>
 </div>
+<% end %>

@@ -1,6 +1,8 @@
 <div class="float-right mt-3 mr-4">
   <%= link_to 'Post a New Job', new_company_job_post_path(current_company.id), class: "btn btn-primary"%>
 </div>
+<%= link_to "Edit company", edit_company_registration_path(current_company.id) %>
+
 <br><br>
 
 <div class="row">

@@ -1,4 +1,7 @@
-<%= form_with(model: [@user,@resume]) do |f| %>
+<%= form_with(model:[@user, @resume]) do |f| %>
+<div class="field">
+  <%= f.hidden_field :user_id, value: @user.id %>
+</div>
 
 <div class="form-group">
   <%= f.label :file_name %>
