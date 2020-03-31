@@ -41,6 +41,10 @@ class JobPostsController < ApplicationController
     redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
   end
 
+  def search
+    @job_posts = JobPost.eager_load(:company).where("job_posts.job_title=? AND job_posts.job_type=? AND job_posts.location=?", params[:job_title], params[:job_type], params[:location])
+  end
+
   private
 
   def set_post
