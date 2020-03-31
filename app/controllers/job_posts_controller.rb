@@ -43,6 +43,8 @@ class JobPostsController < ApplicationController
 
   def job_post_apply
     @job_posts = JobPost.all
+  def search
+    @job_posts = JobPost.eager_load(:company).where("job_posts.job_title=? AND job_posts.job_type=? AND job_posts.location=?", params[:job_title], params[:job_type], params[:location])
   end
 
   private

@@ -1,4 +1,4 @@
-<%= form_with(local: true) do |form| %>
+<%= form_with do |form| %>
 <div class="hero-wrap js-fullheight" style="background-image: url(assets/bg_2.jpg);"
   data-stellar-background-ratio="0.5">
   <div class="overlay"></div>
@@ -34,8 +34,7 @@
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <div class="icon"><span class="icon-briefcase"></span></div>
-                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {prompt: "Job Post"}, class: "form-control" %>
+                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {}, class: "form-control" %>
                           </div>
                         </div>
                       </div>
@@ -44,7 +43,7 @@
                           <div class="form-field">
                             <div class="select-wrap">
                               <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                              <%= form.select :job_type, JobPost::JOB_TYPE, {prompt: "Category"}, class: "form-control"%>
+                              <%= form.select :job_type, JobPost::JOB_TYPE, {}, class: "form-control"%>
                             </div>
                           </div>
                         </div>
@@ -52,62 +51,14 @@
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <div class="icon"><span class="icon-map-marker"></span></div>
-                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location), {prompt: "Location"}, class: "form-control" %>
+                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location),{}, class: "form-control" %>
                           </div>
                         </div>
                       </div>
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <input type="submit" value="Search" class="form-control btn btn-primary">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-
-                <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                  <form action="#" class="search-job">
-                    <div class="row">
-                      <div class="col-md">
-                        <div class="form-group">
-                          <div class="form-field">
-                            <div class="icon"><span class="icon-user"></span></div>
-                            <input type="text" class="form-control" placeholder="eg. Adam Scott">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md">
-                        <div class="form-group">
-                          <div class="form-field">
-                            <div class="select-wrap">
-                              <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                              <select name="" id="" class="form-control">
-                                <option value="">Category</option>
-                                <option value="">Full Time</option>
-                                <option value="">Part Time</option>
-                                <option value="">Freelance</option>
-                                <option value="">Internship</option>
-                                <option value="">Temporary</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md">
-                        <div class="form-group">
-                          <div class="form-field">
-                            <div class="icon"><span class="icon-map-marker"></span></div>
-                            <input type="text" class="form-control" placeholder="Location">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md">
-                        <div class="form-group">
-                          <div class="form-field">
-                            <input type="submit" value="Search" class="form-control btn btn-primary">
+                            <%= link_to 'Search', job_posts_search_path, class: "form-control btn btn-primary", id: "search" %>
                           </div>
                         </div>
                       </div>
