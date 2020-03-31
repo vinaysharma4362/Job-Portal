@@ -3,19 +3,18 @@
 # Resume for user controller
 class ResumesController < ApplicationController
   before_action :find_resume, only: %i[edit update destroy show]
+  before_action :find_user, only: %i[new edit create]
 
   def index
-    @resume = Resume.find_by(user_id: current_user.id)
+    @resumes = current_user.resume
   end
 
   def new
-    @user = User.find_by(id: params[:user_id])
-    @resume = Resume.new(user_id: current_user.id)
+    @resume = Resume.new
   end
 
   def create
     @resume = Resume.new(resume_params)
-    @resume.user_id = current_user.id
     if @resume.save
       redirect_to user_resumes_path, notice: 'Resume created.'
     else
@@ -43,13 +42,16 @@ class ResumesController < ApplicationController
   private
 
   def find_resume
-    @user = User.find_by(id: current_user.id)
-    @resume = Resume.find_by(id: params[:id])
+    @resume = Resume.find(params[:id])
+  end
+  
+  def find_user
+    @user = User.find(params[:user_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list
   # through.
   def resume_params
-    params.require(:resume).permit(:file_name, :resume_file)
+    params.require(:resume).permit(:file_name, :resume_file, :user_id)
   end
 end
