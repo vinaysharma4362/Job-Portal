@@ -5,7 +5,7 @@ class ResumesController < ApplicationController
   before_action :find_resume, only: %i[edit update destroy show]
 
   def index
-    @resumes = Resume.all
+    @resume = Resume.find_by(user_id: current_user.id)
   end
 
   def new
