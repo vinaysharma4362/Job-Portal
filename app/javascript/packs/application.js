@@ -9,7 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require ("jquery-ui")
 // require("select2")
-require("packs/search")
+// require("packs/search")
 // require("packs/select2")
 
 import "bootstrap";
