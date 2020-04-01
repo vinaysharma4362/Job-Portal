@@ -1,0 +1,10 @@
+
+
+
+<% if !@job_posts.blank? %>
+  <% @job_posts.each do |job_post| %>
+    <tr>
+      Post Name : <td><%= job_post.job_title%></td>
+    </tr>
+  <% end %>
+<% end %>

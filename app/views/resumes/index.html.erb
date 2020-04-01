@@ -1,5 +1,5 @@
 <div class="container">
-  <% if !@resume.present? %>
+  <% if !@resumes.present? %>
     <center>
       <div class="mt-3 btn btn-info">
         <%= link_to "Upload Resume ", new_user_resume_path, class: "btn btn-info" %>
@@ -9,14 +9,12 @@
     <br>
     <h3>Your Resume</h3>
     <table class="table">
-
       <tr>
-        <td><%= @resume.file_name %></td>
-        <td><%= link_to 'download', url_for(@resume.resume_file) %></td>
-        <td><%= link_to "edit", edit_user_resume_path(current_user.id, @resume) %></td>
-        <td><%= link_to "delete", user_resume_path( current_user.id, @resume), method: :delete, data: {confirm:"Are you sure?"} %></td>
+        <td><%= @resumes.file_name %></td>
+        <td><%= link_to 'download', url_for(@resumes.resume_file) %></td>
+        <td><%= link_to "edit", edit_user_resume_path(current_user.id, @resumes) %></td>
+        <td><%= link_to "delete", user_resume_path( current_user.id, @resumes), method: :delete, data: {confirm:"Are you sure?"} %></td>
       </tr>
-
     </table>
-  <% end %>
+  <% end %>s
 </div>

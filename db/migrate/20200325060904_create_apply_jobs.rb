@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
+# Applyjobs table
 class CreateApplyJobs < ActiveRecord::Migration[6.0]
   def change
     create_table :apply_jobs do |t|
-      t.date :entry_date
       t.integer :status
-      t.references :user, null: false, foreign_key: true
-      t.references :post, null: false, foreign_key: true
-
+      t.references :user, foreign_key: true
+      t.references :job_post, foreign_key: true
+      t.references :company, foreign_key: true
       t.timestamps
     end
   end
