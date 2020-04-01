@@ -41,17 +41,8 @@ class JobPostsController < ApplicationController
     redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
   end
 
-<<<<<<< Updated upstream
-  def job_post_apply
-    @job_posts = JobPost.all
-=======
   def user_job_post
     @user_job_post = @job_post.users
-  end
-
->>>>>>> Stashed changes
-  def search
-    @job_posts = JobPost.eager_load(:company).where('job_posts.job_title=? AND job_posts.job_type=? AND job_posts.location=?', params[:job_title], params[:job_type], params[:location])
   end
 
   def apply_job
@@ -62,6 +53,10 @@ class JobPostsController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def search
+    @job_posts = JobPost.where(job_title: params[:job_title], location: params[:location])
   end
 
   private
