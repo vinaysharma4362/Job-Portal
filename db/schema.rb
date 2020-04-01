@@ -34,13 +34,11 @@ ActiveRecord::Schema.define(version: 2020_03_30_124608) do
   end
 
   create_table "apply_jobs", force: :cascade do |t|
-    t.integer "status"
+    t.boolean "apply"
     t.integer "user_id"
     t.integer "job_post_id"
-    t.integer "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_apply_jobs_on_company_id"
     t.index ["job_post_id"], name: "index_apply_jobs_on_job_post_id"
     t.index ["user_id"], name: "index_apply_jobs_on_user_id"
   end
@@ -123,7 +121,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_124608) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "apply_jobs", "companies"
   add_foreign_key "apply_jobs", "job_posts"
   add_foreign_key "apply_jobs", "users"
   add_foreign_key "comments", "posts"

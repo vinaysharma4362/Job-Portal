@@ -2,8 +2,8 @@
 
 # dashboard controller
 class JobPostsController < ApplicationController
-  before_action :find_post, only: %i[edit update destroy show ]
-  before_action :find_company, only: %i[new edit create]
+  before_action :find_post, only: %i[edit update destroy show user_job_post]
+  before_action :find_company, only: %i[new edit create user_job_post]
 
   def index
     @job_posts = current_company.job_posts
@@ -41,8 +41,18 @@ class JobPostsController < ApplicationController
     redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
   end
 
-  def job_post_apply
-    @job_posts = JobPost.all
+  def user_job_post
+    @user_job_post = @job_post.users
+  end
+
+  def apply_job
+    @apply_job = ApplyJob.new(user_id: current_user.id,
+                              job_post_id: params[:id], apply: true)
+    if @apply_job.save!
+      redirect_to user_job_post_path, notice: 'Job Appllied successful'
+    else
+      render 'new'
+    end
   end
   
   def search

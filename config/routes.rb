@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     sessions: 'companies/sessions'
   }
   resources :companies do
-    resources :job_posts
-    resources :apply_jobs
+    resources :job_posts do
+      get 'user_job_post', on: :member
+    end
   end
   get 'companies_dashboards/index'
   root 'dashboards#index'
@@ -18,9 +19,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :resumes
-    resources :job_posts do 
-      resources :apply_jobs
-      get 'job_post_apply', on: :member
+    resources :job_posts, only: %i[index show] do
+      get 'apply_job', on: :member
+      get 'apply_job_destroy', on: :member
     end
   end
 
