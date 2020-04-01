@@ -102,10 +102,19 @@
               <div><span class="icon-my_location"></span> <span><%= job.location %></span></div>
             </div>
           </div>
-
+          <% if user_signed_in? %>
           <div class="ml-auto d-flex">
-          <%= link_to "Show more",job_post_apply_user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
+          <%= link_to "Show more", user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
           </div>
+          <% else %>
+          <div class="ml-auto d-flex">
+<<<<<<< Updated upstream
+          <%= link_to "Show more",job_post_apply_user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
+=======
+          <%= link_to "Show more",new_user_session_path, class:"btn btn-primary py-2 mr-1" %>
+>>>>>>> Stashed changes
+          </div>
+          <% end %>
         </div>
       </div><!-- end -->
       <% end %>

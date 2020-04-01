@@ -7,11 +7,13 @@
         <a href="#" class="dropdown-toggle btn btn-dark" data-toggle="dropdown">
           <%= current_company.title %><b class="caret"></b>
         </a>
+        <div ">
         <ul class="dropdown-menu">
           <li class="divider"></li>
           <li><%= link_to "Edit Company Profile",edit_company_registration_path, class: "dropdown-item" %></li>
           <li><%= link_to "Sign out",destroy_company_session_path, method: :delete, class: "dropdown-item" %></li>
         </ul>
+        </div>
       </li>
     </ul>
   </div>
@@ -38,6 +40,7 @@
         </div>
 
         <div class="ml-auto d-flex">
+          <%= link_to 'View candidates', user_job_post_company_job_post_path(current_company.id, post), class: "btn btn-info py-2 mr-1"%>
           <%= link_to 'View Post', company_job_post_path(current_company.id, post), class: "btn btn-info py-2 mr-1" %>
           <%= link_to 'Edit', edit_company_job_post_path(current_company.id, post), class: "btn btn-info py-2 mr-1" %>
           <%= link_to 'Delete', company_job_post_path(current_company.id, post), method: "delete", class: "btn btn-danger py-2 mr-1" %>

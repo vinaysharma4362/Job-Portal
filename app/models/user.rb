@@ -8,6 +8,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum active: %i[Online Offline]
-
+  has_many :apply_job
+  has_many :job_posts, through: :apply_job
   has_one :resume
 end
