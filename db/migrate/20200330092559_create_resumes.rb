@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+# Resume table
 class CreateResumes < ActiveRecord::Migration[6.0]
   def change
     create_table :resumes do |t|
-      t.string :resume_file
-      t.references :user, foreign_key: true
+      t.string :file_name
+      t.references :user
 
       t.timestamps
     end

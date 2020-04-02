@@ -4,8 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
-gem 'devise-bootstrap-views'
+gem 'font-awesome-rails'
 gem 'hirb'
+gem 'select2-rails'
+gem 'jquery-ui-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'

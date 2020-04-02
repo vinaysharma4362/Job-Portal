@@ -1,15 +1,15 @@
 <div class= "container">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Company Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <%= render "devise/shared/error_messages", resource: resource %>
 
 <div class="form-group">
-  <%= f.label :title%>
+  <%= f.label :Name %>
   <%= f.text_field :title, autofocus: true, autocomplete: "title", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :email %><br />
+  <%= f.label :Email %><br />
   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
 </div>
 
@@ -18,7 +18,7 @@
 <% end %>
 
 <div class="form-group">
-  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <%= f.label :Password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, autocomplete: "new-password", class: 'form-control'%>
   <% if @minimum_password_length %>
   <br />
@@ -27,51 +27,50 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :password_confirmation %><br />
+  <%= f.label :Password_confirmation %><br />
   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'%>
 </div>
 
 <div class="form-group">
-  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.label :Current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :about%>
-  <%= f.text_field :about, autofocus: true, autocomplete: "about", class: 'form-control' %>
+  <%= f.label :About %>
+  <%= f.text_area :about, autofocus: true, autocomplete: "about", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :address%>
-  <%= f.text_field :address, autofocus: true, autocomplete: "address", lass: 'form-control' %>
+  <%= f.label :Address %>
+  <%= f.text_area :address, autofocus: true, autocomplete: "address", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :city%>
+  <%= f.label :City %>
   <%= f.text_field :city, autofocus: true, autocomplete: "city", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :state%>
+  <%= f.label :State %>
   <%= f.text_field :state, autofocus: true, autocomplete: "state", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :countyr%>
+  <%= f.label :Countyr %>
   <%= f.text_field :country, autofocus: true, autocomplete: "country", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :pincode%>
+  <%= f.label :Pincode %>
   <%= f.text_field :pincode, autofocus: true, autocomplete: "pincode", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :contact_no%>
+  <%= f.label :Contact_no %>
   <%= f.text_field :contact_no, autofocus: true, autocomplete: "contact_no", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :website%>
+  <%= f.label :Website %>
   <%= f.text_field :website, autofocus: true, autocomplete: "website", class: 'form-control' %>
 </div>
 <div class="form-group">
-  <%= f.label :status%>
-  <%= f.select(:status, Company.statuses.keys),class: 'form-control' %>
+  <%= f.label :status %>
+  <%= f.select(:status, Company.statuses.keys, {prompt: 'Select Field'}, class: 'form-control' )%>
 </div>
-
 
 <div class="form-group">
   <%= f.submit "Update", class: 'btn btn-group' %>
