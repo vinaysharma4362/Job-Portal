@@ -10,5 +10,8 @@ class DashboardsController < ApplicationController
   def user_job_post
     @job_posts = JobPost.all
   end
-end
 
+  def company_list
+    @companies = Company.all
+  end
+end
