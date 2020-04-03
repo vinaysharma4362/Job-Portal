@@ -1,4 +1,5 @@
-<%= form_with(model: [@company,@review]) do |f| %>
+<%= form_with(model: [@company,@review], validate: true) do |f| %>
+  <%= f.hidden_field :user_id, value: @review.user_id %>
 
   <div class="form-group">
     <%= f.label :Rating %>

@@ -8,6 +8,5 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
-    @review = Review.new
   end
 end
