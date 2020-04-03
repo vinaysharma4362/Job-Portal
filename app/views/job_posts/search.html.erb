@@ -41,9 +41,7 @@
     <% if !@job_posts.blank? %>
       <% @job_posts.each do |job| %>
         <div class="col-md-12 ftco-animate">
-
           <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
             <div class="mb-4 mb-md-0 mr-5">
               <div class="job-post-item-header d-flex align-items-center">
                 <h2 class="mr-3 text-black h3"><%= job.job_title %></h2>
@@ -56,7 +54,6 @@
                 <div><span class="icon-my_location"></span> <span><%= job.location %></span></div>
               </div>
             </div>
-
             <div class="ml-auto d-flex">
               <%= link_to "Show more", company_job_post_path(job.company.id,job), class:"btn btn-primary py-2 mr-1" %>
             </div>

@@ -10,6 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum active: %i[Online Offline]
   has_many :apply_job
+  has_many :reviews, dependent: :destroy
   has_many :job_posts, through: :apply_job
   has_one :resume
 end

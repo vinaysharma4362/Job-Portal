@@ -1,0 +1,5 @@
+<% @companies.each do |company| %>
+  <%= company.email %><br/>
+  <%= company.title %><br/>
+  <%= link_to 'View', company_path(company)%>
+<% end %>
