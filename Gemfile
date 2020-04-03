@@ -8,6 +8,7 @@ gem 'font-awesome-rails'
 gem 'hirb'
 gem 'select2-rails'
 gem 'jquery-ui-rails'
+gem 'rolify'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'
