@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :companies do
     resources :reviews
     resources :job_posts do
-      get 'user_job_post', on: :member
+      get 'view_candidates', on: :member
     end
   end
  
