@@ -1,0 +1,29 @@
+<%= render 'nav' %>
+<div class="container">
+  <center>
+    <div class="mt-4">
+      <h2>Candidates</h2>
+    </div>
+  </center>
+  <table class="table">
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Contact No.</th>
+      <th>Resume</th>
+    </tr>
+    <% if !@candidates.blank? %>
+      <% @candidates.each do |user| %>
+        <tr>
+          <td><%= user.first_name %> <%= user.last_name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.mobile %></td>
+          <td><%= link_to 'Resume', url_for(user.resume.resume_file) %></td>
+        </tr>
+      <% end %>
+      <br>
+      <% else %>
+        <h1>Data not found</h1>
+    <% end %>
+  </table>
+</div>

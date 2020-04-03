@@ -1,3 +1,4 @@
+<%= render 'nav' %>
 <center>
 <div class="mt-4">
   <h1>Job Details</h1>
@@ -23,7 +24,7 @@
               <b>Last date to apply is <%= @job_post.last_apply_date.strftime("%d %b, %Y") %>.</b><br><br>
 
               <% if current_user %>
-                <% if !current _company %>
+                <% if !current_company %>
                   <center><%= link_to 'Apply_Job', apply_job_user_job_post_path(current_user, @job_post), class: "btn btn-primary" %></center>
                 <% end %>
               <% end %>
@@ -37,10 +38,13 @@
                 <p class="mb-4"><%= @job_post.company.address %>, <%= @job_post.company.city %></p>
 
                 <p class="mb-0 font-weight-bold">Phone</p>
-                <p class="mb-4"><a href="#"><%= @job_post.company.contact_no %></a></p>
+                <p class="mb-4"><%= @job_post.company.contact_no %></p>
 
                 <p class="mb-0 font-weight-bold">Email Address</p>
-                <p class="mb-0"><a href="#"><%= @job_post.company.email %></a></p>
+                <p class="mb-4"><%= @job_post.company.email %></p>
+
+                <p class="mb-0 font-weight-bold">Website</p>
+                <p class="mb-0"><a href="https://<%= @job_post.company.website %>"><%= @job_post.company.website %></a></p>
 
               </div>
             </div>
