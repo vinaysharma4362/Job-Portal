@@ -79,7 +79,7 @@
               </div>
             </div>
             <div class="job-post-item-body d-block d-md-flex">
-              <div class="mr-3"><span class="icon-layers"></span> <a href="#"><%= job.company.title%></a></div>
+              <div class="mr-3"><span class="icon-layers"></span> <%= link_to "#{job.company.title}", company_path(job.company_id)%></div>
               <div><span class="icon-my_location"></span> <span><%= job.location %></span></div>
             </div>
           </div>
