@@ -7,8 +7,8 @@
 
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
 </head>
-
 <body>
+<div class="dark-bg sticky-top">
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="/">JobPortal</a>
@@ -19,22 +19,35 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to 'Home', root_path, class: "nav-link" %></li>
+          <% if current_user %>
+          <li class="nav-item"><%= link_to 'Company', companies_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
-          <li class="nav-item"><%= link_to 'Upload Resume',user_resumes_path(current_user.id),  class: 'nav-link' %></li>
-          <li class="nav-item "><%= link_to "Employers / Post Job", new_company_session_path, class: "nav-link"%></li>
+          <li class="nav-item"><%= link_to 'Upload Resume',user_resumes_path(current_user.id),  class: 'nav-link' %>
+          </li>
           <li class="nav-item cta me-md-2">
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary"%></li>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary py-2 mr-1" %></li>
+          <%end %>
+          <% elsif company_signed_in? %>
+          <% if current_company %>
+          <li class="nav_item"><%= link_to "Post a job ",company_job_posts_path(current_company.id), class: "nav-link" %>
+          </li>
+          <li class="nav_item"><%= link_to "Edit Company Profile",edit_company_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item cta me-md-2"><%= link_to "Sign out",destroy_company_session_path, method: :delete, class: "btn btn-primary py-2 mr-1"%></li>
+          <% end %>
           <% else %>
-          <li class="nav-item">
+          <li class="nav-item cta me-md-2">
             <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary"%></li>&nbsp;
-            <li class="nav-item">
+          <li class="nav-item cta me-md-2">
             <%= link_to "Sign in", new_user_session_path, class: "btn btn-primary"%></li>
+          <li class="nav-item "><%= link_to "Employers / Post Job", new_company_session_path, class: "nav-link"%></li>
           <% end %>
         </ul>
       </div>
     </div>
   </nav>
+</div>
   <!-- END nav -->
 </body>
+
 </html>

@@ -1,5 +1,7 @@
 <% @companies.each do |company| %>
+  <br>
   <%= company.email %><br/>
   <%= company.title %><br/>
-  <%= link_to 'View', company_path(company)%>
+  <%= link_to 'View', company_path(company)%><br>
+  ----------------------------------------------
 <% end %>

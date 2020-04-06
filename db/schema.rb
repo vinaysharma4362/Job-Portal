@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_130450) do
     t.index ["company_id"], name: "index_reviews_on_company_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
-  
+
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"

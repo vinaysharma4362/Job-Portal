@@ -1,8 +1,9 @@
-<%= render 'nav' %>
-<br><br>
+<div class="container">
+  <br>
+  <%= link_to 'New Post', new_company_job_post_path(current_company.id), class: "btn btn-primary" %>
 
-<div class="container row">
-  <% @job_posts.each do |post| %>
+  <div class="container row">
+    <% @job_posts.each do |post| %>
     <div class="col-md-12 ftco-animate">
 
       <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
@@ -11,7 +12,7 @@
           <div class="job-post-item-header d-flex align-items-center">
             <h2 class="mr-3 text-black h3"><%= post.job_title %></h2>
             <div class="badge-wrap">
-             <span class="bg-secondary text-white badge py-2 px-3"><%= post.job_type %></span>
+              <span class="bg-secondary text-white badge py-2 px-3"><%= post.job_type %></span>
             </div>
           </div>
           <div class="job-post-item-body d-block d-md-flex">
@@ -28,5 +29,6 @@
         </div>
       </div>
     </div><!-- end -->
-  <% end %>
+    <% end %>
+  </div>
 </div>

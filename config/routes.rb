@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get 'view_candidates', on: :member
     end
   end
- 
+  get 'admin_dashboard/index'
   get 'companies_dashboards/index'
   root 'dashboards#index'
   devise_for :users, controllers: {
@@ -28,6 +28,14 @@ Rails.application.routes.draw do
         get 'apply_job_destroy'
       end
     end
+  end
+
+  authenticated :user do
+    root 'dashboard#index', as: :authenticated_root
+  end
+
+  authenticated :user do
+    
   end
 
   post 'job_posts/search'

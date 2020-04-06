@@ -1,15 +1,14 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "JobPortal" %></title>
+    <title>Job-Portal</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_pack_tag "application" %>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet" />
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
   <body>
   <%= render "layouts/alert"%>
     <%= render 'layouts/navbar'%>
