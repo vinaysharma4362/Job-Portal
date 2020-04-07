@@ -3,7 +3,7 @@
 <h2>Reviews</h2>
 <% if user_signed_in? && current_user.id == @company.reviews %>
 <p><%= link_to 'Edit review', edit_company_review_path(@company, current_user.review)%></p>
-<%elsif current_user.review %>
+<% elsif user_signed_in? && !current_user.id == @company.reviews %>
 <p><%= link_to 'Add review', new_company_review_path(@company)%></p>
 <% end %>
 ----------------------------------

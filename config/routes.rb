@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     registrations: 'companies/registrations',
     sessions: 'companies/sessions'
   }
+
   resources :companies do
     resources :reviews
     resources :job_posts do
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :users  do
+  resources :users do
     resources :resumes
     resources :job_posts, only: %i[index show] do
       member do
@@ -30,13 +31,6 @@ Rails.application.routes.draw do
     end
   end
 
-  authenticated :user do
-    root 'dashboard#index', as: :authenticated_root
-  end
-
-  authenticated :user do
-    
-  end
-
+  get 'resumes/resume_list'
   post 'job_posts/search'
 end

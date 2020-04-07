@@ -5,6 +5,17 @@
  *= require dashboards
  *= require navbar
  *= require footer
+ *= require style
+ *= require animate
+ *= require aos
+ *= require bootstrap-datepicker
+ *= require flaticon
+ *= require icomoon
+ *= require ionicons.min
+ *= require jquery.timepicker
+ *= require magnific-popup
+ *= require owl.carousel.min
+ *= require owl.theme.default.min
  *= require_self
  *= require_tree .
 */
@@ -13,12 +24,11 @@
 @import "font-awesome.css";
 
 
-.alert{
-margin-bottom: 0px;
+.alert {
+  margin-bottom: 0px;
 }
+
 .message {
   color: red;
 }
-
-
 
