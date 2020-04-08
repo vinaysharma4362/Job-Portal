@@ -21,7 +21,7 @@
               <div class="tab-content p-4" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                   aria-labelledby="v-pills-nextgen-tab">
-                  <%= form_with(url: job_posts_search_path, method: :post) do |form| %>
+                  <%= form_with(url: job_posts_search_path, method: :post, local: true) do |form| %>
                     <div class="row">
                       <div class="col-md">
                         <div class="form-group">
