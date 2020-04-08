@@ -20,7 +20,7 @@
               <b>Preferred Language : </b><%= @job_post.language %><br><br>
               <b>Required Skills </b><br><br><%= @job_post.required_skill %><br><br>
               <b>Extra Skills </b><br><br><%= @job_post.extra_skill %><br><br>
-              <b>Last date to apply is <%= @job_post.last_apply_date.strftime("%d %b, %Y") %>.</b><br><br>
+              <b>Last date to apply is <%= @job_post.last_apply_date&.strftime("%d %b, %Y") %>.</b><br><br>
 
               <% if current_user %>
                 <% if !current_company %>

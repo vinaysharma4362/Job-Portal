@@ -1,9 +1,20 @@
 <p> User: <%= review.user.email %></p>
 
 <p> Rate : <%= review.rating%></p>
+<div class="star-rating" data-score=<%= review.rating %>></div>
 <p> <%= review.review_desc %></p>
 <p><%= time_ago_in_words(review.created_at)%> ago</p>
 <% if (user_signed_in? && (current_user.id == review.user_id)) %>
 <p><%= link_to 'Edit', edit_company_review_path(review.company,review)%></p>
 <%= link_to 'delete', company_review_path(review.company,review), method: :delete %>
 <% end %>
+
+<script>
+    $('.star-rating').raty({
+      readOnly: true,
+      score: function () {
+        return $(this).attr('data-score');
+      },
+      path: '/assets/'
+    });
+</script>

@@ -8,5 +8,12 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @reviews = Review.where(company_id: @company.id).order('created_at DESC')
+
+    @avg_review = if @reviews.blank?
+                    0
+                  else
+                    @reviews.average(:rating).round(2)
+                  end
   end
 end
