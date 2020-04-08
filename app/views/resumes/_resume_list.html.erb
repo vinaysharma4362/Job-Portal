@@ -1,0 +1,10 @@
+<div class="container">
+  <% @resumes.each do |resume| %>
+  <table class="table">
+    <tr>
+      <td><%= resume.file_name %></td>
+      <td><%= link_to 'download', url_for(resume.resume_file) %></td>
+    </tr>
+  </table>
+  <% end %>
+</div>

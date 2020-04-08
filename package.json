@@ -2,11 +2,9 @@
   "name": "job_portal",
   "private": true,
   "dependencies": {
-<<<<<<< Updated upstream
-=======
     "@client-side-validations/client-side-validations": "^0.1.2",
     "@fortawesome/fontawesome-free": "^5.13.0",
->>>>>>> Stashed changes
+    "@client-side-validations/client-side-validations": "^0.1.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",

@@ -1,8 +1,12 @@
 <%= @company.title%>
 
 <h2>Reviews</h2>
-  <%= render @company.reviews %>
+<% if user_signed_in? && current_user.id == @company.reviews %>
+<p><%= link_to 'Edit review', edit_company_review_path(@company, current_user.review)%></p>
+<% elsif user_signed_in? && !current_user.id == @company.reviews %>
+<p><%= link_to 'Add review', new_company_review_path(@company)%></p>
+<% end %>
+----------------------------------
+<%= render @company.reviews %><br>
 
-
-<h2>Add a comment:</h2>
-<%= render "reviews/form" %>
+----------------------------------

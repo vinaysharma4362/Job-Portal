@@ -21,11 +21,7 @@
               <div class="tab-content p-4" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                   aria-labelledby="v-pills-nextgen-tab">
-<<<<<<< Updated upstream
-                  <%= form_with(url: job_posts_search_path, local: true, method: :post) do |form| %>
-=======
                   <%= form_with(url: job_posts_search_path, method: :post, local: true) do |form| %>
->>>>>>> Stashed changes
                     <div class="row">
                       <div class="col-md">
                         <div class="form-group">
@@ -60,8 +56,6 @@
   </div>
 </div>
 
-<%= link_to 'Company', companies_path, class: "nav-link" %>
-
 <section class="ftco-section bg-light">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
@@ -83,7 +77,7 @@
               </div>
             </div>
             <div class="job-post-item-body d-block d-md-flex">
-              <div class="mr-3"><span class="icon-layers"></span> <a href="#"><%= job.company.title%></a></div>
+              <div class="mr-3"><span class="icon-layers"></span> <%= link_to "#{job.company.title}", company_path(job.company_id)%></div>
               <div><span class="icon-my_location"></span> <span><%= job.location %></span></div>
             </div>
           </div>

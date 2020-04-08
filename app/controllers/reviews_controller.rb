@@ -2,11 +2,16 @@
 
 # Review controller
 class ReviewsController < ApplicationController
-  before_action :find_review, only: %i[edit update destroy show]
   before_action :find_company
-
+  before_action :find_review, only: %i[edit update destroy show]
+ 
+  def new
+    @review = Review.new
+  end
+  
   def create
     @review = @company.reviews.build(review_params)
+    @review.user_id = current_user.id
     if @review.save!
       redirect_to @company
     else
@@ -20,7 +25,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to company_reviews_path(@company)
+      redirect_to @company
     else
       render :edit
     end
@@ -28,13 +33,13 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy!
-    redirect_to company_reviews_path(@company)
+    redirect_to @company
   end
 
   private
 
   def find_review
-    @review =@company.reviews.find(params[:id])
+    @review = @company.reviews.find(params[:id])
   end
   
   def find_company
@@ -42,6 +47,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :review_desc, :company_id)
+    params.require(:review).permit(:rating, :review_desc, :company_id, :user_id)
   end
 end
