@@ -31,4 +31,8 @@ Rails.application.routes.draw do
   end
 
   post 'job_posts/search'
+
+  get 'admins/companies'
+  get 'admins/jobseekers'
+  get 'admins/job_posts'
 end
