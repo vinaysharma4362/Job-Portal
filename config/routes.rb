@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+
   get 'resumes/resume_list'
   post 'job_posts/search'
 end

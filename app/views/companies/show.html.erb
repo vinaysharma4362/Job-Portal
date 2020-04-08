@@ -1,12 +1,106 @@
-<%= @company.title%>
+<!DOCTYPE html>
+<html lang="en">
 
-<h2>Reviews</h2>
-<% if user_signed_in? && current_user.id == @company.reviews %>
-<p><%= link_to 'Edit review', edit_company_review_path(@company, current_user.review)%></p>
-<% elsif user_signed_in? && !current_user.id == @company.reviews %>
-<p><%= link_to 'Add review', new_company_review_path(@company)%></p>
-<% end %>
-----------------------------------
-<%= render @company.reviews %><br>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
 
-----------------------------------
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<div class="container">
+
+  <%= @company.title%>
+  <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        <em><%= "#{@reviews.length} reviews" %></em>
+
+  <h2>Reviews</h2>
+  <% if user_signed_in? && current_user.id == @company.reviews %>
+  <p><%= link_to 'Edit review', edit_company_review_path(@company, current_user.review)%></p>
+  <% else %>
+  <p><%= link_to 'Add review', new_company_review_path(@company), class: 'btn btn-primary'%></p>
+  <% end %>
+  <%= render @company.reviews %><br>
+
+  <body>
+        <li><a href="#intro">About company</a></li>
+        <li><a href="#about">Onwer</a></li>
+        <li><a href="#images">Our works</a></li>
+        <li><a href="#contact_us">Contact Us</a></li>
+    <div id="intro">
+      <div class="jumbotron">
+        <div class="container text-center">
+          <h1><%= @company.title %></h1>
+          <p><%= @company.about %>
+          </p>
+        </div>
+      </div>
+    </div>
+   
+  
+    <div id="contact_us">
+      <footer class="container-fluid text-center">
+        <h3>Contact us</h3><br>
+        <div id="address">
+          <div class="row">
+            <div class="col-sm-4">
+              <h4>Home Address</h4>
+              <p>Street : <%= @company.address %></p>
+              <p>City : <%= @company.city %></p>
+              <p>State : <%= @company.state %></p>
+              <p>Country : <%= @company.country %></p>
+              <p>Pincode : <%= @company.pincode %></p>
+            </div>
+            <div class="col-sm-4">
+              <div class="social-links mt-3">
+                <li><span class="fa fa-facebook-f"></span>
+                  <%= link_to "Facebook",  target: :"_blank" %>
+                </li>
+                <li><span class="fa fa-instagram"></span>
+                  <%= link_to "Instagram",  target: :"_blank" %>
+                </li>
+                <li><span class="fa fa-envelope"></span>
+                  <%= @company.email %>
+                </li>
+                <li><span class="fa fa-envelope"></span>
+                  <%= @company.contact_no %>
+                </li>
+                <script>
+                $(document).ready(function () {
+                  $('.star-rating').raty({
+                    readOnly: true,
+                    score: function () {
+                      return $(this).attr('data-score');
+                    },
+                    path: '/assets/'
+                  });
+                });
+              </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+</div>
+<script>
+    $('.star-rating').raty({
+      readOnly: true,
+      score: function () {
+        return $(this).attr('data-score');
+      },
+      path: '/assets/'
+    });
+</script>
+</body>
+
+<div>
+</html>
