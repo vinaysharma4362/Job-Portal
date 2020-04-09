@@ -1,0 +1,29 @@
+<div class="container col-md-9">
+<div class="container">
+  <div class="mt-5 d-flex justify-content-center">
+    <h4>jobseekers</h4>
+  </div>
+  <table class="table mt-5">
+    <tr>
+      <th>Name</th>
+      <th>Contact No.</th>
+      <th>Gender</th>
+      <th>Status</th>
+      <th>Applied in jobs</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% @jobseekers.each do |jobseeker| %>
+    <tr>
+      <td><%= jobseeker.user.first_name %> <%= jobseeker.user.last_name %></td>
+      <td><%= jobseeker.user.mobile %></td>
+      <td><%= jobseeker.user.gender %></td>
+      <td><%= jobseeker.user.active %></td>
+      <td><%= link_to 'Applied job'  %></td>
+      <td><%= link_to 'Edit' %></td>
+      <td><%= link_to 'delete',admin_destroy_jobseeker_path(jobseeker.user.id), method: :delete  %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+</div>

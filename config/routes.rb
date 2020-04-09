@@ -39,4 +39,5 @@ Rails.application.routes.draw do
   get 'admins/companies'
   get 'admins/jobseekers'
   get 'admins/job_posts'
+  delete 'admins/destroy_jobseeker/:user_id' => 'admins#destroy_jobseeker', as: :admin_destroy_jobseeker
 end
