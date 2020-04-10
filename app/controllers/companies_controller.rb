@@ -2,10 +2,9 @@
 
 # companies controller
 class CompaniesController < ApplicationController
-<<<<<<< Updated upstream
-=======
+
   before_action :find_company, only: %i[edit update destroy]
->>>>>>> Stashed changes
+
   def index
     @companies = Company.all
   end
@@ -20,10 +19,10 @@ class CompaniesController < ApplicationController
                     @reviews.average(:rating).round(2)
                   end
   end
-<<<<<<< Updated upstream
-=======
+
 
   def edit; end
+
 
   def update
     if @company.update(company_params)
@@ -53,6 +52,7 @@ class CompaniesController < ApplicationController
                                     :city, :state, :country,
                                     :pincode, :contact_no, :website,
                                     :status)
+
   end
->>>>>>> Stashed changes
+
 end

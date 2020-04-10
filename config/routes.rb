@@ -34,16 +34,7 @@ Rails.application.routes.draw do
     end
   end
 
-<<<<<<< Updated upstream
 
-
-  get 'resumes/resume_list'
-  post 'job_posts/search'
-
-  get 'admins/companies'
-  get 'admins/jobseekers'
-  get 'admins/job_posts'
-=======
   resources :companies do
     resources :reviews do
       collection do
@@ -59,5 +50,4 @@ Rails.application.routes.draw do
       end
     end
   end
->>>>>>> Stashed changes
 end

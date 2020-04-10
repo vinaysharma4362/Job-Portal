@@ -29,8 +29,12 @@ class JobPostsController < ApplicationController
 
   def update
     if @job_post.update(job_post_params)
-      redirect_to company_job_posts_path,
+      if current_company
+        redirect_to company_job_posts_path,
                   notice: 'Job Post was successfully updated.'
+      elsif current_user
+        redirect_to admins_job_posts_path
+      end
     else
       render :edit
     end
@@ -38,7 +42,11 @@ class JobPostsController < ApplicationController
 
   def destroy
     @job_post.destroy
-    redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
+    if current_company
+      redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
+    elsif current_user
+      redirect_to admins_job_posts_path
+    end
   end
 
   def company_jobs_list

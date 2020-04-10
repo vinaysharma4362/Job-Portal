@@ -4,8 +4,16 @@ class AdminsController < ApplicationController
   end
 
   def jobseekers
+    @jobseekers = ApplyJob.eager_load(:user)
   end
 
   def job_posts
+    @job_posts = JobPost.all
+  end
+
+  def destroy_jobseeker
+    @user = User.find_by(id: params[:user_id])
+    @user.destroy
+    byebug
   end
 end
