@@ -49,8 +49,17 @@ class JobPostsController < ApplicationController
     end
   end
 
+  def company_jobs_list
+    @company = Company.find(params[:company_id])
+    @job_list = @company.job_posts
+  end
+
   def view_candidates
     @candidates = @job_post.users
+  end
+
+  def apply_job_list
+    @apply_job_list = ApplyJob.all
   end
 
   def apply_job

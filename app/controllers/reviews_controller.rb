@@ -4,11 +4,11 @@
 class ReviewsController < ApplicationController
   before_action :find_company
   before_action :find_review, only: %i[edit update destroy show]
- 
+
   def new
     @review = Review.new
   end
-  
+
   def create
     @review = @company.reviews.build(review_params)
     @review.user_id = current_user.id
@@ -17,6 +17,10 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def review_list
+    @reviews = Review.where(company_id: @company.id).order('created_at DESC')
   end
 
   def edit; end
@@ -41,7 +45,7 @@ class ReviewsController < ApplicationController
   def find_review
     @review = @company.reviews.find(params[:id])
   end
-  
+
   def find_company
     @company = Company.find(params[:company_id])
   end
