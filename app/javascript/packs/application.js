@@ -2,7 +2,7 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-
+require("packs/aos")
 require("jquery")
 
 require("@rails/ujs").start()
@@ -21,7 +21,6 @@ require("packs/bootstrap.min")
 require("packs/jquery.animateNumber.min")
 require("packs/jquery.easing.1.3")
 require("packs/jquery.magnific-popup.min")
-
 require("packs/jquery.min")
 
 require("packs/jquery.stellar.min")
@@ -41,8 +40,8 @@ require("packs/select2")
 
 // require ("packs/jquey.raty")
 import "bootstrap";
-var AOS = require('aos');
-AOS.init();
+import AOS from 'aos';
+
 
 
 $(document).ready(function () {

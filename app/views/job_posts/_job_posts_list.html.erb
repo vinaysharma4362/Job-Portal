@@ -6,8 +6,9 @@
       </div>
     </div>
     <div class="row">
-    <% if !@job_posts.blank? %>
-    <% @job_posts.each do |job| %>
+      <% if !@job_posts.blank? %>
+      <% @job_posts.each do |job| %>
+      <% if job.status == "active" %>
       <div class="col-md-12 ftco-animate">
         <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
           <div class="mb-4 mb-md-0 mr-5">
@@ -18,24 +19,26 @@
               </div>
             </div>
             <div class="job-post-item-body d-block d-md-flex">
-              <div class="mr-3"><span class="icon-layers"></span> <%= link_to "#{job.company.title}", company_path(job.company_id)%></div>
+              <div class="mr-3"><span class="icon-layers"></span>
+                <%= link_to "#{job.company.title}", company_path(job.company_id)%></div>
               <div><span class="icon-my_location"></span> <span><%= job.location %></span></div>
             </div>
           </div>
           <% if user_signed_in? %>
           <div class="ml-auto d-flex">
-          <%= link_to "Show more", user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
+            <%= link_to "Show more", user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
           </div>
           <% else %>
           <div class="ml-auto d-flex">
-          <%= link_to "Show more",company_job_post_path(job.company_id, job), class:"btn btn-primary py-2 mr-1" %>
+            <%= link_to "Show more",company_job_post_path(job.company_id, job), class:"btn btn-primary py-2 mr-1" %>
           </div>
           <% end %>
         </div>
       </div><!-- end -->
+      <%end%>
       <% end %>
       <% else %>
-        <span>Jobs not available</span>
+      <span>Jobs not available</span>
       <% end %>
     </div>
   </div>
