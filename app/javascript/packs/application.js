@@ -41,6 +41,8 @@ require("packs/select2")
 
 // require ("packs/jquey.raty")
 import "bootstrap";
+var AOS = require('aos');
+AOS.init();
 
 
 $(document).ready(function () {

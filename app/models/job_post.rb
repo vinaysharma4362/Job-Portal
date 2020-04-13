@@ -10,5 +10,5 @@ class JobPost < ApplicationRecord
   validates :job_title, presence: true
 
   JOB_TYPE = %w[Part-time Full-time Infulencer].freeze
-  STATUS = %w[Enable Disable].freeze
+  enum status: %i[inactive active]
 end
