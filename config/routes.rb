@@ -29,8 +29,10 @@ Rails.application.routes.draw do
         get 'apply_job_destroy'
       end
     end
-  end
 
+    
+  end
+  resources :charges
 
 
   get 'resumes/resume_list'

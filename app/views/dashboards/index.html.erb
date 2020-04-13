@@ -33,7 +33,7 @@
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location),{}, class: "form-control" %>
+                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location),{}, class: "form-control form-control-lg" %>
                           </div>
                         </div>
                       </div>

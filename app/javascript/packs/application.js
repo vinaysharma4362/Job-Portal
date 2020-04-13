@@ -10,6 +10,8 @@ require('@client-side-validations/client-side-validations')
 require("@rails/activestorage").start()
 require("channels")
 require("jquery-ui")
+require("packs/select2")
+require("select2")
 require("packs/owl.carousel.min")
 require("packs/aos")
 
@@ -32,8 +34,8 @@ require("packs/range")
 require("packs/main")
 
 require("packs/scrollax.min")
+require("packs/search")
 
-require("packs/select2")
 // require ("packs/jquey.raty")
 import "bootstrap";
 
