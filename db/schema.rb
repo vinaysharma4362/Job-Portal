@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_130450) do
     t.string "language"
     t.string "job_field"
     t.integer "vacancy"
-    t.string "status"
+    t.integer "status"
     t.integer "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

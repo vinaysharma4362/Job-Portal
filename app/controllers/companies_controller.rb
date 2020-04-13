@@ -2,7 +2,8 @@
 
 # companies controller
 class CompaniesController < ApplicationController
-  before_action :find_company, only: %i[edit update destroy] 
+  before_action :find_company, only: %i[edit update destroy]
+
   def index
     @companies = Company.all
   end
@@ -18,8 +19,7 @@ class CompaniesController < ApplicationController
                   end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @company.update(company_params)
@@ -45,8 +45,8 @@ class CompaniesController < ApplicationController
   # through.
   def company_params
     params.require(:company).permit(:title, :about, :address,
-                                     :city, :state, :country,
-                                     :pincode, :contact_no, :website,
-                                     :status)
+                                    :city, :state, :country,
+                                    :pincode, :contact_no, :website,
+                                    :status)
   end
 end
