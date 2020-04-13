@@ -10,6 +10,7 @@ gem 'hirb'
 gem 'jquery-ui-rails'
 gem 'rolify'
 gem 'select2-rails'
+gem 'stripe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'

@@ -14,6 +14,8 @@ require("channels")
 
 
 require("jquery-ui")
+require("packs/select2")
+require("select2")
 require("packs/owl.carousel.min")
 
 require("packs/bootstrap-datepicker")
@@ -35,9 +37,7 @@ require("packs/main")
 
 
 require("packs/scrollax.min")
-
-require("packs/select2")
-
+require("packs/search")
 // require ("packs/jquey.raty")
 import "bootstrap";
 import AOS from 'aos';

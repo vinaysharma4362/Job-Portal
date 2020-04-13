@@ -32,8 +32,10 @@ Rails.application.routes.draw do
         get 'apply_job'
       end
     end
-  end
 
+    
+  end
+  resources :charges
 
   resources :companies do
     resources :reviews do
