@@ -23,7 +23,7 @@
           <% if current_user %>
           <% if !current_company %>
           <center>
-            <%= link_to 'Apply_Job', apply_job_users_job_post_path(current_user, @job_post), class: "btn btn-primary" %>
+            <%= link_to 'Apply_Job', apply_job_user_job_post_path(current_user, @job_post), class: "btn btn-primary" %>
           </center>
           <% end %>
           <% end %>

@@ -83,6 +83,10 @@ class JobPostsController < ApplicationController
     @job_post.save
   end
 
+  def active_job_list
+    @job_posts = JobPost.all
+  end
+
   def search
     @job_posts = JobPost.where(job_title: params[:job_title], location: params[:location])
   end
