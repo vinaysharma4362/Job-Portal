@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     resources :job_posts do
       member do
         get 'view_candidates'
+        get 'change_job_post_status'
       end
       collection do
         get 'company_jobs_list'

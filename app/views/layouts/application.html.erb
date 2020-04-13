@@ -12,9 +12,14 @@
 </head>
 
 <body>
+
   <%= render "layouts/alert"%>
   <% header_redirect %>
   <%= yield %>
+  <script>
+    setTimeout("$('.error_msgs').fadeOut('slow')", 2000)
+    setTimeout("$('.success_msgs').fadeOut('slow')", 2000)
+</script>
 </body>
 
 </html>

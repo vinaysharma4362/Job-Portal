@@ -2,7 +2,6 @@
 
 # companies controller
 class CompaniesController < ApplicationController
-
   before_action :find_company, only: %i[edit update destroy]
 
   def index
@@ -20,9 +19,7 @@ class CompaniesController < ApplicationController
                   end
   end
 
-
   def edit; end
-
 
   def update
     if @company.update(company_params)
@@ -32,7 +29,6 @@ class CompaniesController < ApplicationController
       render :edit
     end
   end
-
 
   def destroy
     @company.destroy
@@ -52,7 +48,5 @@ class CompaniesController < ApplicationController
                                     :city, :state, :country,
                                     :pincode, :contact_no, :website,
                                     :status)
-
   end
-
 end

@@ -31,7 +31,7 @@ class JobPostsController < ApplicationController
     if @job_post.update(job_post_params)
       if current_company
         redirect_to company_job_posts_path,
-                  notice: 'Job Post was successfully updated.'
+                    notice: 'Job Post was successfully updated.'
       elsif current_user
         redirect_to admins_job_posts_path
       end
@@ -75,7 +75,14 @@ class JobPostsController < ApplicationController
       redirect_to user_resumes_path
     end
   end
-  
+
+  def change_job_post_status
+    @company = Company.find(params[:company_id])
+    @job_post = JobPost.find(params[:id])
+    @job_post.status = !@job_post.status
+    @job_post.save
+  end
+
   def search
     @job_posts = JobPost.where(job_title: params[:job_title], location: params[:location])
   end
