@@ -1,17 +1,23 @@
-<div class="container">
+<% if current_user %>
+  <% if current_user.has_role? :admin %>
+    <%= render 'layouts/admin_sidebar' %>
+  <% end %>
+<% end %>
+<div class="container" style="width:900px;">
   <center>
     <div class="mt-4">
       <h2>Candidates</h2>
     </div>
   </center>
   <table class="table">
+  <% if !@candidates.blank? %>
     <tr>
       <th>Username</th>
       <th>Email</th>
       <th>Contact No.</th>
       <th>Resume</th>
     </tr>
-    <% if !@candidates.blank? %>
+    
       <% @candidates.each do |user| %>
         <tr>
           <td><%= user.first_name %> <%= user.last_name %></td>
@@ -26,3 +32,4 @@
     <% end %>
   </table>
 </div>
+

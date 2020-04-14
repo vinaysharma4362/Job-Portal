@@ -11,6 +11,7 @@ gem 'jquery-ui-rails'
 gem 'rolify'
 gem 'select2-rails'
 gem 'stripe'
+gem 'bootstrap-datepicker-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'

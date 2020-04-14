@@ -1,10 +1,15 @@
+<% if current_user %>
+  <% if current_user.has_role? :admin %>
+    <%= render 'layouts/admin_sidebar' %>
+    <% end %>
+<% end %>
 <center>
   <div class="mt-4">
     <h1>Job Details</h1>
   </div>
 </center>
 
-<div class="container">
+<div class="container" style="width: 900px;">
   <div class="ftco-section bg-light">
     <div class="container">
       <div class="row">
@@ -21,11 +26,13 @@
           <b>Extra Skills </b><br><br><%= @job_post.extra_skill %><br><br>
           <b>Last date to apply is <%= @job_post.last_apply_date&.strftime("%d %b, %Y") %>.</b><br><br>
           <% if current_user %>
-          <% if !current_company %>
-          <center>
-            <%= link_to 'Apply_Job', apply_job_user_job_post_path(current_user, @job_post), class: "btn btn-primary" %>
-          </center>
-          <% end %>
+            <% if !current_company %>
+              <% if !current_user.has_role? :admin %>
+                <center>
+                  <%= link_to 'Apply_Job', apply_job_user_job_post_path(current_user, @job_post), class: "btn btn-primary" %>
+                </center>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
         <div class="col-lg-5">
