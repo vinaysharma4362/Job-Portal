@@ -31,7 +31,7 @@ class JobPostsController < ApplicationController
     if @job_post.update(job_post_params)
       if current_company
         redirect_to company_job_posts_path,
-                  notice: 'Job Post was successfully updated.'
+                    notice: 'Job Post was successfully updated.'
       elsif current_user
         redirect_to admins_job_posts_path
       end
@@ -49,8 +49,17 @@ class JobPostsController < ApplicationController
     end
   end
 
+  def company_jobs_list
+    @company = Company.find(params[:company_id])
+    @job_list = @company.job_posts
+  end
+
   def view_candidates
     @candidates = @job_post.users
+  end
+
+  def apply_job_list
+    @apply_job_list = ApplyJob.all
   end
 
   def apply_job
@@ -66,7 +75,18 @@ class JobPostsController < ApplicationController
       redirect_to user_resumes_path
     end
   end
-  
+
+  def change_job_post_status
+    @company = Company.find(params[:company_id])
+    @job_post = JobPost.find(params[:id])
+    @job_post.status = !@job_post.status
+    @job_post.save
+  end
+
+  def active_job_list
+    @job_posts = JobPost.all
+  end
+
   def search
     @job_posts = JobPost.where(job_title: params[:job_title], location: params[:location])
   end

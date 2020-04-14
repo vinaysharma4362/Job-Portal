@@ -12,5 +12,5 @@ class JobPost < ApplicationRecord
   validates :salary_max, numericality: { greater_than: 0, greater_than: :salary_min }
 
   JOB_TYPE = %w[Part-time Full-time Infulencer].freeze
-  STATUS = %w[Enable Disable].freeze
+  enum status: %i[inactive active]
 end

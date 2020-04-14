@@ -1,33 +1,51 @@
+
 <div class="container d-flex justify-content-end mt-5">
   <br>
-  <%= link_to 'New Post', new_company_job_post_path(current_company.id), class: "btn btn-primary" %>
+  <%= link_to 'New Post', new_charge_path	, class: "btn btn-primary" %>
 </div>
-  <div class="container row">
-    <% @job_posts.each do |post| %>
-    <div class="col-md-12 ftco-animate">
-
-      <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-        <div class="mb-4 mb-md-0 mr-5">
-          <div class="job-post-item-header d-flex align-items-center">
-            <h2 class="mr-3 text-black h3"><%= post.job_title %></h2>
-            <div class="badge-wrap">
-              <span class="bg-secondary text-white badge py-2 px-3"><%= post.job_type %></span>
-            </div>
-          </div>
-          <div class="job-post-item-body d-block d-md-flex">
-            <div><b>Salary : </b><%= post.salary_min %> - <%= post.salary_max %></div>
-            <div class="ml-3"><span class="icon-layers"></span><b>Location : </b><%= post.location %></div>
-          </div>
-        </div>
-
-        <div class="ml-auto d-flex">
-          <%= link_to 'View candidates', view_candidates_company_job_post_path(current_company.id, post), class: "btn btn-outline-info py-2 mr-1"%>
-          <%= link_to 'View Post', company_job_post_path(current_company.id, post), class: "btn btn-outline-info py-2 mr-1" %>
-          <%= link_to 'Edit', edit_company_job_post_path(current_company.id, post), class: "btn btn-outline-info py-2 mr-1" %>
-          <%= link_to 'Delete', company_job_post_path(current_company.id, post), method: "delete", class: "btn btn-danger py-2 mr-1" %>
-        </div>
+<div class='table-responsive'> 
+<div style="overflow-x:auto;">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Post Name</th>
+      <th>Location</th>
+      <th>Vacancy</th>
+      <th>View Candidates</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <% @job_posts.each do |job_post| %>
+  <tr>
+    <td><%= job_post.job_title %></td>
+    <td><%= job_post.location %></td>
+    <td><%= job_post.vacancy %></td>
+    <td>
+      <%= link_to 'Candidates', view_candidates_company_job_post_path(current_company.id,job_post), class: "btn btn-primary"%>
+    </td>
+    <td>
+      <%= link_to 'View', company_job_post_path(current_company.id,job_post), class: "btn btn-primary" %>
+    </td>
+    <td>
+      <%= link_to 'Edit', edit_company_job_post_path(current_company.id,job_post), class: "btn btn-primary" %>
+    </td>
+    <td>
+      <%= link_to 'Delete', company_job_post_path(current_company.id,job_post), method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-danger"%>
+    </td>
+    <td>
+      <%= form_for(job_post, url: company_job_post_path(job_post.company_id, job_post)) do |f| %>
+      <div class='form-group'>
+        <%= f.select :status, JobPost.statuses.keys, {}, { value: job_post.status, class: 'custom-select', onchange: 'this.form.submit();' } %>
       </div>
-    </div><!-- end -->
-  <% end %>
+      <% end %>
+    </td>
+    <% end %>
+  </tr>
+</table>
 </div>
+</div>
+
+

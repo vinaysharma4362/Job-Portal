@@ -4,9 +4,9 @@
     <% end %>
 <% end %>
 <center>
-<div class="mt-4">
-  <h1>Job Details</h1>
-</div>
+  <div class="mt-4">
+    <h1>Job Details</h1>
+  </div>
 </center>
 
 <div class="container" style="width: 900px;">
@@ -42,7 +42,7 @@
               <h3><%= @job_post.company.title %></h3>
               <p>
                 <p class="mb-0 font-weight-bold">Address</p>
-                <p class="mb-4"><%= @job_post.company.address %>, <%= @job_post.company.city %></p>
+                <p class="mb-4"><%= @job_post.company.address %> <%= @job_post.company.city %></p>
 
                 <p class="mb-0 font-weight-bold">Phone</p>
                 <p class="mb-4"><%= @job_post.company.contact_no %></p>
@@ -51,13 +51,14 @@
                 <p class="mb-4"><%= @job_post.company.email %></p>
 
                 <p class="mb-0 font-weight-bold">Website</p>
-                <p class="mb-0"><a href="https://<%= @job_post.company.website %>"><%= @job_post.company.website %></a></p>
-   
-              </div>
-            </div>
+                <p class="mb-0"><a href="https://<%= @job_post.company.website %>"><%= @job_post.company.website %></a>
+                </p>
+                <%= link_to "Show more ", company_path(@job_post.company_id), class: 'btn btn-primary'%>
+              </p>
           </div>
         </div>
       </div>
-
+    </div>
+  </div>
   <%= link_to 'Back' %>
 </div>

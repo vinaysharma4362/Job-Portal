@@ -1,61 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<title>Bootstrap Example</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<style>
-		/* Remove the navbar's default margin-bottom and rounded borders */
-		/* Add a gray background color and some padding to the footer */
-		footer {
-			background-color: #f2f2f2;
-			padding: 25px;
-		}
-
-		ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-			background-color: #343a40;
-			position: -webkit-sticky;
-			/* Safari */
-			position: sticky;
-			top: 70px;
-		}
-
-		li {
-			float: left;
-		}
-
-		li a {
-			display: block;
-			color: white;
-			text-align: center;
-			padding: 14px 16px;
-			text-decoration: none;
-		}
-
-		li a:hover {
-			background-color: #007bff;
-		}
-
-		.active {
-			background-color: #007bff;
-		}
-	</style>
-
-</head>
+<%= render 'companies/company_show_navbar'%>
 <div class="container">
 	<body>
-		<ul>
-			<li><a href="#intro">About company</a></li>
-			<li><a href="#owner">Onwer</a></li>
-			<li><a href="#review">Reviews</a></li>
-			<li><a href="#contact_us">Contact Us</a></li>
-		</ul>
-		<div id="intro">
+		<div id="intro" class="offset">
 			<div class="jumbotron">
 				<div class="container text-center">
 					<h1><%= @company.title %></h1>
@@ -66,55 +12,49 @@
 				</div>
 			</div>
 		</div>
-		<div id="owner">
 		<div class="jumbotron">
 			<div class="container ">
-			<div class="row">
-				<div class= "col" >
-				<div class="user-img mr-2"><img src="http://placehold.it/64x64" alt="" />logo</div>
-				</div>
-				<div class= "col" >
-					Here owner information 
-				</dic>
-			</div>
-			</div>
-		</div>
-	</div>
-		<div id="contact_us">
-				<h3>Contact us</h3><br>
-				<div id="address">
-					<div class="row">
-						<div class="col-sm-4">
-							<h4>Home Address</h4>
-							<p>Street : <%= @company.address %></p>
-							<p>City : <%= @company.city %></p>
-							<p>State : <%= @company.state %></p>
-							<p>Country : <%= @company.country %></p>
-							<p>Pincode : <%= @company.pincode %></p>
-						</div>
-						<div class="col-sm-4">
-								<li><span class="fa fa-envelope"></span>
-									<%= @company.email %>
-								</li>
-								<li><span class="fa fa-envelope"></span>
-									<%= @company.contact_no %>
-								</li>
-						</div>
+				<div class="row">
+					<div class="col-md-2">
+						<div class="user-img mr-2"><img src="http://placehold.it/64x64" alt="" /></div>
+					</div>
+					<div class="col-md-10">
+						Here owner information
 					</div>
 				</div>
+			</div>
+		</div>
+		<div id="contact_us" class="offset">
+			<h3>Contact us</h3><br>
+			<div id="address">
+				<div class="row">
+					<div class="col-sm-4">
+						<h4>Home Address</h4>
+						<p>Street : <%= @company.address %></p>
+						<p>City : <%= @company.city %></p>
+						<p>State : <%= @company.state %></p>
+						<p>Country : <%= @company.country %></p>
+						<p>Pincode : <%= @company.pincode %></p>
+					</div>
+					<div class="col-sm-4">
+						<li><span class="fa fa-envelope"></span>
+							<%= @company.email %>
+						</li>
+						<li><span class="fa fa-envelope"></span>
+							<%= @company.contact_no %>
+						</li>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
-	<div id="review">
-		
-
-		<h2>Reviews</h2>
-		<% if user_signed_in? && current_user.id == @company.reviews %>
-		<p><%= link_to 'Edit review', edit_company_review_path(@company, current_user.review)%></p>
-		<% else %>
-		<p><%= link_to 'Add review', new_company_review_path(@company), class: 'btn btn-primary'%></p>
-		<% end %>
-		<%= render @company.reviews %><br>
-	</div>
-</div>
-
-</html>
+<div>
+<script>
+	$('.star-rating').raty({
+		readOnly: true,
+		score: function () {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>

@@ -20,6 +20,9 @@
  *= require jquery.raty
  *= require_self
  *= require_tree .
+ *= require jquery-ui
+ *= require select2
+ *= require select2-bootstrap
 */
 
 @import 'bootstrap';
@@ -34,4 +37,5 @@
 .message {
   color: red;
 }
+
 

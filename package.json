@@ -4,12 +4,12 @@
   "dependencies": {
     "@client-side-validations/client-side-validations": "^0.1.2",
     "@fortawesome/fontawesome-free": "^5.13.0",
-    "@client-side-validations/client-side-validations": "^0.1.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
     "Select2": "^3.5.7",
+    "aos": "^2.3.4",
     "bootstrap": "^4.4.1",
     "datepicker": "^0.0.0",
     "font-awesome": "^4.7.0",
