@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :job_posts, only: %i[index show] do
       get 'apply_job', on: :member
       get 'apply_job_destroy', on: :member
+      member do
+        get 'apply_job'
+        resources :apply_job
+      end
     end
   end
 

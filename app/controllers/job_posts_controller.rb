@@ -42,7 +42,7 @@ class JobPostsController < ApplicationController
   end
 
   def view_candidates
-    @candidates = @job_post.users
+    @candidates = ApplyJob.eager_load(:user, :job_post).where("job_posts.id = ? ",params[:id])
   end
 
   def apply_job
