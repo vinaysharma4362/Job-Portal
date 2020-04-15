@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_04_03_130450) do
 
   create_table "apply_jobs", force: :cascade do |t|
     t.boolean "apply"
+    t.string "status", default: "not reviewed"
     t.integer "user_id"
     t.integer "job_post_id"
     t.datetime "created_at", precision: 6, null: false

@@ -1,4 +1,9 @@
+$(document).on('turbolinks:before-cache', function() { 
+  $('#location').select2('destroy');
+  $('#job_title').select2('destroy');
+} );
 document.addEventListener("turbolinks:load", function(){
+
   $("#location").select2({
     theme: "bootstrap",
     height: '196px'

@@ -16,14 +16,21 @@
       <th>Email</th>
       <th>Contact No.</th>
       <th>Resume</th>
+      <th>Status</th>
     </tr>
-    
-      <% @candidates.each do |user| %>
+      <% @candidates.each do |candidate| %>
         <tr>
-          <td><%= user.first_name %> <%= user.last_name %></td>
-          <td><%= user.email %></td>
-          <td><%= user.mobile %></td>
-          <td><%= link_to 'Resume', url_for(user.resume.resume_file) %></td>
+          <td><%= candidate.user.first_name %> <%= candidate.user.last_name %></td>
+          <td><%= candidate.user.email %></td>
+          <td><%= candidate.user.mobile %></td>
+          <td><%= link_to 'Resume', url_for(candidate.user.resume.resume_file) %></td>
+          <td>
+            <%= form_with(model: candidate, url: edit_user_apply_job_path(candidate.user.id,candidate.job_post.id, candidate)) do |f| %>
+              <div class='form-group'>
+                <%= f.select :status, ApplyJob::STATUS, {}, class: 'custom-select', onchange: 'this.form.submit();' %>
+              </div>
+            <% end %>
+          </td>
         </tr>
       <% end %>
       <br>
