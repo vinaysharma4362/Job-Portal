@@ -1,0 +1,23 @@
+<%= render 'layouts/admin_sidebar' %>
+<div class="container col-md-9">
+  <div class="mt-5 d-flex justify-content-center">
+    <h4>Companies</h4>
+  </div>
+  <table class="table mt-5">
+    <tr>
+      <th>Company</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% @companies.each do |company| %>
+    <tr>
+      <td><%= company.title %></td>
+      <td><%= link_to 'View', company_path(company)  %></td>
+      <td><%= link_to 'Edit', edit_company_path(company) %></td>
+      <td><%= link_to 'delete', company_path(company), method: :delete  %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+</div>

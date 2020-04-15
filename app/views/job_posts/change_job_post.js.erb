@@ -1,0 +1,5 @@
+<% if @job_post.status %>
+  $('#status-<%= @job_post.id %>').html("<%= escape_javascript(render partial: 'active_job_post', locals: {job_post: @job_post} ) %>");
+<%else%>
+  $('#status-<%= @job_post.id %>').html("<%= escape_javascript(render partial: 'inactive_job_post', locals: {job_post: @job_post} ) %>");
+<%end%>

@@ -1,0 +1,60 @@
+<%= render 'companies/company_show_navbar'%>
+<div class="container">
+	<body>
+		<div id="intro" class="offset">
+			<div class="jumbotron">
+				<div class="container text-center">
+					<h1><%= @company.title %></h1>
+					<div class="star-rating" data-score=<%= @avg_review %>></div>
+					<em><%= "#{@reviews.length} reviews" %></em>
+					<p><%= @company.about %>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="jumbotron">
+			<div class="container ">
+				<div class="row">
+					<div class="col-md-2">
+						<div class="user-img mr-2"><img src="http://placehold.it/64x64" alt="" /></div>
+					</div>
+					<div class="col-md-10">
+						Here owner information
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="contact_us" class="offset">
+			<h3>Contact us</h3><br>
+			<div id="address">
+				<div class="row">
+					<div class="col-sm-4">
+						<h4>Home Address</h4>
+						<p>Street : <%= @company.address %></p>
+						<p>City : <%= @company.city %></p>
+						<p>State : <%= @company.state %></p>
+						<p>Country : <%= @company.country %></p>
+						<p>Pincode : <%= @company.pincode %></p>
+					</div>
+					<div class="col-sm-4">
+						<li><span class="fa fa-envelope"></span>
+							<%= @company.email %>
+						</li>
+						<li><span class="fa fa-envelope"></span>
+							<%= @company.contact_no %>
+						</li>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+<div>
+<script>
+	$('.star-rating').raty({
+		readOnly: true,
+		score: function () {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
