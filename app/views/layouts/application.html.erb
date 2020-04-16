@@ -9,20 +9,20 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css"
+    rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
- 
+
 </head>
 
 <body>
-
-  <%= render "layouts/alert"%>
   <% header_redirect %>
+  <%= render "layouts/alert"%>
   <%= yield %>
   <script>
     setTimeout("$('.error_msgs').fadeOut('slow')", 2000)
     setTimeout("$('.success_msgs').fadeOut('slow')", 2000)
-</script>
+  </script>
 </body>
 
 </html>

@@ -1,60 +1,79 @@
 <%= render 'companies/company_show_navbar'%>
 <div class="container">
+
 	<body>
 		<div id="intro" class="offset">
 			<div class="jumbotron">
-				<div class="container text-center">
-					<h1><%= @company.title %></h1>
+				<div class="container ">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="user-img mr-2"><img src="http://placehold.it/64x64" alt="" /></div>
+						</div>
+						<div class="col-md-10">
+						<h1><%= @company.title %></h1>
 					<div class="star-rating" data-score=<%= @avg_review %>></div>
 					<em><%= "#{@reviews.length} reviews" %></em>
+							           ------------Here owner information
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="jumbotron">
+				<div class="container text-center">
+					
+					<h3 class="heading-2">About <%= @company.title%></h3>
+
 					<p><%= @company.about %>
 					</p>
 				</div>
 			</div>
 		</div>
-		<div class="jumbotron">
-			<div class="container ">
-				<div class="row">
-					<div class="col-md-2">
-						<div class="user-img mr-2"><img src="http://placehold.it/64x64" alt="" /></div>
-					</div>
-					<div class="col-md-10">
-						Here owner information
-					</div>
-				</div>
-			</div>
-		</div>
 		<div id="contact_us" class="offset">
-			<h3>Contact us</h3><br>
-			<div id="address">
-				<div class="row">
-					<div class="col-sm-4">
-						<h4>Home Address</h4>
-						<p>Street : <%= @company.address %></p>
-						<p>City : <%= @company.city %></p>
-						<p>State : <%= @company.state %></p>
-						<p>Country : <%= @company.country %></p>
-						<p>Pincode : <%= @company.pincode %></p>
-					</div>
-					<div class="col-sm-4">
-						<li><span class="fa fa-envelope"></span>
-							<%= @company.email %>
-						</li>
-						<li><span class="fa fa-envelope"></span>
-							<%= @company.contact_no %>
-						</li>
+			<div class="jumbotron">
+				<div class="container">
+					<div id="address">
+						<div class="row">
+							<div class="col-md-6">
+								<h3 class="heading-2">Address</h3>
+								<li><span class="icon icon-map-marker"></span><span class="text pl-3"><%= @company.address %><br></span>
+									<span class="text pl-4"><%= @company.city %><%= @company.state %></span><br><span
+										class="text pl-4"><%= @company.country %><%= @company.pincode %></span></li><br>
+							</div>
+							<div class="col-md-6">
+								<h3 class="heading-2">Contact us</h3>
+
+								<li><span class="fa fa-envelope"></span>&nbsp&nbsp
+									<%= @company.email %>
+								</li>
+								<br>
+								<li><span class="fa fa-phone"></span>&nbsp&nbsp&nbsp
+									<%= @company.contact_no %>
+								</li>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+
+
+
+
+
+
+
+
+
+
 	</body>
-<div>
-<script>
-	$('.star-rating').raty({
-		readOnly: true,
-		score: function () {
-			return $(this).attr('data-score');
-		},
-		path: '/assets/'
-	});
-</script>
+	<div>
+		<script>
+			$('.star-rating').raty({
+				readOnly: true,
+				score: function () {
+					return $(this).attr('data-score');
+				},
+				path: '/assets/'
+			});
+		</script>
