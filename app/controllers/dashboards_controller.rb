@@ -4,9 +4,7 @@
 class DashboardsController < ApplicationController
   def index
     if current_user
-      if current_user.has_role? :admin
-        redirect_to admin_dashboard_index_path
-      end
+      redirect_to admin_dashboard_index_path if current_user.has_role? :admin
     end
     @count = JobPost.all.count
     @job_posts = JobPost.order('created_at desc').limit(10)

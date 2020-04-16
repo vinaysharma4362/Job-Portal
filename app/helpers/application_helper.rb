@@ -4,7 +4,7 @@
 module ApplicationHelper
   def header_redirect
     if user_signed_in?
-      if !current_user.has_role? :admin
+      unless current_user.has_role? :admin
         concat(render(partial: 'layouts/user_navbar'))
       end
     elsif company_signed_in?
