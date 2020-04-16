@@ -25,9 +25,9 @@
           <td><%= candidate.user.mobile %></td>
           <td><%= link_to 'Resume', url_for(candidate.user.resume.resume_file) %></td>
           <td>
-            <%= form_with(model: candidate, url: edit_user_apply_job_path(candidate.user.id,candidate.job_post.id, candidate)) do |f| %>
+            <%= form_with(url: apply_job_path(candidate), method: :patch) do |f| %>
               <div class='form-group'>
-                <%= f.select :status, ApplyJob::STATUS, {}, class: 'custom-select', onchange: 'this.form.submit();' %>
+                <%= f.select :status, ApplyJob::STATUS,{ :selected =>  candidate[:status]}, class: 'custom-select', onchange: 'this.form.submit();' %>
               </div>
             <% end %>
           </td>
