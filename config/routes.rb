@@ -32,14 +32,11 @@ Rails.application.routes.draw do
       get 'apply_job_destroy', on: :member
       member do
         get 'apply_job'
-        resources :apply_job
       end
     end
-
-    
   end
   resources :charges
-
+  resources :apply_jobs
   resources :companies do
     resources :reviews do
       collection do

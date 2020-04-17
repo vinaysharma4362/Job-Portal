@@ -13,8 +13,8 @@ class ApplyJobsController < ApplicationController
     if @applyjob
       @jobpost = JobPost.eager_load(:company)
                         .where('job_posts.id=?', @applyjob.job_post_id)
-      redirect_to view_candidates_company_job_post_path(@jobpost.first.company
-                                                        .id, @jobpost.first.id)
+      redirect_to view_candidates_company_job_post_path(@jobpost.first.company.
+                                                        id, @jobpost.first.id)
     end
   end
 end

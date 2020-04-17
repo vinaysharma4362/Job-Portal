@@ -23,7 +23,12 @@ class JobPostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    if current_user
+      @applied = ApplyJob.where('user_id=? AND job_post_id=?',
+                                current_user.id, @job_post.id)
+    end
+  end
 
   def edit; end
 
@@ -43,7 +48,8 @@ class JobPostsController < ApplicationController
   def destroy
     @job_post.destroy
     if current_company
-      redirect_to company_job_posts_path, notice: 'Job Post was successfully destroyed.'
+      redirect_to company_job_posts_path,
+                  notice: 'Job Post was successfully destroyed.'
     elsif current_user
       redirect_to admins_job_posts_path
     end
@@ -55,7 +61,8 @@ class JobPostsController < ApplicationController
   end
 
   def view_candidates
-    @candidates = ApplyJob.eager_load(:user, :job_post).where("job_posts.id = ? ",params[:id])
+    @candidates = ApplyJob.eager_load(:user, :job_post)
+                          .where('job_posts.id = ? ', params[:id])
   end
 
   def apply_job_list
@@ -82,7 +89,8 @@ class JobPostsController < ApplicationController
   end
 
   def search
-    @job_posts = JobPost.where(job_title: params[:job_title], location: params[:location])
+    @job_posts = JobPost.where(job_title: params[:job_title],
+                               location: params[:location])
   end
 
   private
