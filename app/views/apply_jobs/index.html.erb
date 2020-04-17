@@ -1,7 +1,8 @@
 <div class="container col-md-9">
 <div class="container">
+  <% if !@apply_jobs.blank? %>
   <div class="mt-5 d-flex justify-content-center">
-    <h4>Job Posts</h4>
+    <h4>Applied Jobs</h4>
   </div>
     <% @apply_jobs.each do |job| %>
     <div class="col-md-12 ftco-animate">
@@ -29,6 +30,11 @@
         </div>
       </div>
     </div><!-- end -->
+    <% end %>
+  <% else %>
+    <div class="mt-5 d-flex justify-content-center">
+      <i><h2>You haven't applied in any job</h2></i>
+    </div>
   <% end %>
 </div>
 </div>

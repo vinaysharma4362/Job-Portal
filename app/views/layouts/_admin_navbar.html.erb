@@ -1,38 +1,16 @@
-<div class="wrapper">
-<nav id="sidebar">
-  <div class="sidenav">
-    <div class="sidenav-header">
-      <i class="fa fa-user-circle fa-4x" style="color: white;"></i>
-    </div>
-    <hr color="#616161">
-    <a><%= link_to 'Dashboard', admin_dashboard_index_path %></a>
-    <hr color="#616161">
-    <a><%= link_to 'Companies', admins_companies_path %></a>
-    <hr color="#616161">
-    <a><%= link_to 'Users', admins_jobseekers_path %></a>
-    <hr color="#616161">
-    <a><%= link_to 'Job Posts', admins_job_posts_path %></a>
-    <hr color="#616161">
-    <a><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></a>
-    <hr color="#616161">
-    <a><i class="fa fa-chevron-circle-left fa-2x" onclick="myFunction()" style="color: white;"></i></a>
-  </div>
-</nav>
-</div>
-    <!-- Page Content -->
-<div id="content">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <i class="fa fa-chevron-circle-right fa-2x" onclick="myFunction()"></i>
-        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-align-justify"></i>
-        </button>
-        <h3 class="pageheader_title" style="margin-left: 10px;" ><%= @page_title %></h3>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="nav navbar-nav ml-auto">
-            <% if user_signed_in?%>
+
+<div class="dark-bg sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span></button>
+
+    <div class="container">
+      <a class="navbar-brand" href="/">JobPortal</a>
+      
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in?%>
               <li class=nav-item><%= link_to "Account", edit_user_registration_path, class: "active"%> </li>
               <li class=nav-item><span class="fa fa-sign-out"></span>
                 <%= link_to "sign out", destroy_user_session_path , method: :delete %></li>
@@ -40,21 +18,9 @@
               <li class=nav-item><%= link_to "Sign Up", new_user_registration_path,class: "active" %></li>
               <li class=nav-item><%= link_to "Sign In", new_user_session_path,class: "active" %></li>
             <%end%>
-          </ul>
-        </div>
+
+        </ul>
       </div>
+    </div>
   </nav>
 </div>
-</div>
-    <!-- Page Content -->
-<!-- END nav -->
-<script>
-function myFunction() {
-    var x = document.getElementById("sidebar");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-</script>
