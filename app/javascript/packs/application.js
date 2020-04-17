@@ -33,16 +33,13 @@ require("packs/jquery.raty")
 
 require("packs/range")
 
-require("packs/main")
-
-
 require("packs/scrollax.min")
 require("packs/search")
-// require ("packs/jquey.raty")
+require("trix")
+require("@rails/actiontext")
+
+import 'cocoon-js';
 import "bootstrap";
-import AOS from 'aos';
-
-
 
 $(document).ready(function () {
   $(".alert").delay(2000).slideUp(300);
