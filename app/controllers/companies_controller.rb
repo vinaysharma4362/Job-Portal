@@ -49,6 +49,7 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:title, :about, :address,
                                     :city, :state, :country,
                                     :pincode, :contact_no, :website,
-                                    :status)
+                                    :status, :logo, :facebook,
+                                    :instagram, :linkedin)
   end
 end

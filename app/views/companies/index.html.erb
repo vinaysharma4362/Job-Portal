@@ -14,7 +14,7 @@
 
 						<div class="mb-1 mb-md-0 mr-3">
 							<div class="job-post-item-header d-flex align-items-center">
-								<div class="user-img mr-2"><img src="http://placehold.it/64x64" alt="" /></div>
+								<div class="user-img mr-2"><%= image_tag(company.thumbnail) if company.logo.attached?%></div>
 								
 								<h2 class="mr-3 text-black h3"></span><%= company.title %></h2>
 								<div><span class="icon-my_location"></span> <span><%= company.city%>, <%= company.state%></span></div>      
