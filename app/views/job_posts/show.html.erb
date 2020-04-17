@@ -3,6 +3,18 @@
     <%= render 'layouts/admin_sidebar' %>
     <% end %>
 <% end %>
+
+<% if current_user %>
+  <% if @applied.any? %>
+    <center>
+    <div class="mt-4">
+      <h3>Your application applied.</h3>
+
+    </div>
+  </center>
+  <% end %>
+<% end %>
+
 <center>
   <div class="mt-4">
     <h1>Job Details</h1>
@@ -26,12 +38,12 @@
           <b>Extra Skills </b><br><br><%= @job_post.extra_skill %><br><br>
           <b>Last date to apply is <%= @job_post.last_apply_date&.strftime("%d %b, %Y") %>.</b><br><br>
           <% if current_user %>
-            <% if !current_company %>
-              <% if !current_user.has_role? :admin %>
+            <% if !@applied.any? %>
+              <% if current_user.has_role? :job_seeker %>
                 <center>
                   <%= link_to 'Apply_Job', apply_job_user_job_post_path(current_user, @job_post), class: "btn btn-primary" %>
                 </center>
-              <% end %>
+                <% end %>
             <% end %>
           <% end %>
         </div>
@@ -60,5 +72,5 @@
       </div>
     </div>
   </div>
-  <%= link_to 'Back' %>
 </div>
+

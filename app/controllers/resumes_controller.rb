@@ -9,11 +9,7 @@ class ResumesController < ApplicationController
   end
 
   def new
-    if @resume = current_user.resume
-      redirect_to edit_user_resume_path
-    else
       @resume = Resume.new
-    end
   end
 
   def create

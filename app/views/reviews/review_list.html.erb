@@ -1,4 +1,6 @@
-<%= render 'companies/company_show_navbar'%>
+<%= render 'companies/company_show_navbar'%><br>
+<%= link_to 'Write review', new_company_review_path(@company), class: 'btn btn-primary'%>
+
 <div class="container">
   <%= render @company.reviews %><br>
 </div>

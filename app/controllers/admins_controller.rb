@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdminsController < ApplicationController
   def companies
     @companies = Company.all
@@ -17,6 +19,5 @@ class AdminsController < ApplicationController
   def destroy_jobseeker
     @user = User.find_by(id: params[:user_id])
     @user.destroy
-    byebug
   end
 end
