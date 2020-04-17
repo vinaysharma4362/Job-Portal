@@ -35,15 +35,15 @@ ActiveRecord::Schema.define(version: 20_200_403_130_450) do
     t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table 'apply_jobs', force: :cascade do |t|
-    t.boolean 'apply'
-    t.string 'status', default: 'not reviewed'
-    t.integer 'user_id'
-    t.integer 'job_post_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['job_post_id'], name: 'index_apply_jobs_on_job_post_id'
-    t.index ['user_id'], name: 'index_apply_jobs_on_user_id'
+  create_table "apply_jobs", force: :cascade do |t|
+    t.boolean "apply"
+    t.string "status", default: "not reviewed"
+    t.integer "user_id"
+    t.integer "job_post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["job_post_id"], name: "index_apply_jobs_on_job_post_id"
+    t.index ["user_id"], name: "index_apply_jobs_on_user_id"
   end
 
   create_table 'companies', force: :cascade do |t|

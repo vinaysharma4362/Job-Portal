@@ -4,6 +4,7 @@
   <div class="mt-5 d-flex justify-content-center">
     <h4>jobseekers</h4>
   </div>
+  <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
   <table class="table mt-5">
     <tr>
       <th>Name</th>
@@ -26,5 +27,6 @@
     </tr>
     <% end %>
   </table>
+  <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
 </div>
 </div>
