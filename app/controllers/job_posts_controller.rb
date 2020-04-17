@@ -54,8 +54,10 @@ class JobPostsController < ApplicationController
     @job_list = @company.job_posts
   end
 
-  def view_candidates
-    @candidates = @job_post.users
+  def view_candidate
+    @candidates = ApplyJob.eager_load(:user, :job_post)
+                          .where('job_posts.id = ? ', params[:id])
+    @pages = @candidates.paginate(page: params[:page])
   end
 
   def apply_job_list

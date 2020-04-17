@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    @pages = @companies.paginate(page: params[:page])
   end
 
   def show

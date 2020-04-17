@@ -12,6 +12,8 @@ gem 'rolify'
 gem 'select2-rails'
 gem 'stripe'
 gem 'bootstrap-datepicker-rails'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'

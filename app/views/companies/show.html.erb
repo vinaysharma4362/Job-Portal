@@ -1,4 +1,7 @@
-<%= render 'companies/company_show_navbar'%>
+<% if current_user.has_role? :admin %>
+  <%= render 'layouts/admin_sidebar' %>
+<% end %>
+<%= render 'companies/company_show_navbar' %>
 <div class="container">
 	<body>
 		<div id="intro" class="offset">

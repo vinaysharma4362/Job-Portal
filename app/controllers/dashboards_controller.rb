@@ -8,7 +8,7 @@ class DashboardsController < ApplicationController
         redirect_to admin_dashboard_index_path
       end
     end
-    @count = JobPost.all.count
+    @count = JobPost.where(status: :active).count
     @job_posts = JobPost.order('created_at desc').limit(10)
   end
 

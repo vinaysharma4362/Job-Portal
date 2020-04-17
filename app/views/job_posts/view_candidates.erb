@@ -11,6 +11,7 @@
   </center>
   <table class="table">
   <% if !@candidates.blank? %>
+    <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
     <tr>
       <th>Username</th>
       <th>Email</th>
@@ -27,9 +28,10 @@
         </tr>
       <% end %>
       <br>
-      <% else %>
-        <h1>Data not found</h1>
-    <% end %>
+      <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+  <% else %>
+    <h1>Data not found</h1>
+  <% end %>
   </table>
 </div>
 
