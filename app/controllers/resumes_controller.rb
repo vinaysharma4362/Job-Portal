@@ -9,11 +9,15 @@ class ResumesController < ApplicationController
   end
 
   def new
+<<<<<<< Updated upstream
     if @resume = current_user.resume
       redirect_to edit_user_resume_path
     else
       @resume = Resume.new
     end
+=======
+    @resume = Resume.new
+>>>>>>> Stashed changes
   end
 
   def create
