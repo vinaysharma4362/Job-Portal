@@ -83,12 +83,6 @@ class JobPostsController < ApplicationController
     end
   end
 
-  def change_job_post_status
-    @company = Company.find(params[:company_id])
-    @job_post = JobPost.find(params[:id])
-    @job_post.status = !@job_post.status
-    @job_post.save
-  end
 
   def active_job_list
     @job_posts = JobPost.all
