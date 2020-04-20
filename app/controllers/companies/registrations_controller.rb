@@ -51,8 +51,9 @@ class Companies::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: %i[title about address city state
                                                country pincode contact_no
-                                               website status password
-                                               password_confirmation])
+                                               website status password logo
+                                               password_confirmation
+                                               facebook instagram linkedin])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -60,8 +61,9 @@ class Companies::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update,
                                       keys: %i[title about address city state
                                                country pincode contact_no
-                                               website status password
-                                               password_confirmation])
+                                               website status password logo
+                                               password_confirmation
+                                               facebook instagram linkedin])
   end
 
   # The path used after sign up.

@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+# Admin controller
 class AdminsController < ApplicationController
   load_and_authorize_resource
+  def index; end
+  
   def companies
     @companies = Company.all.paginate(page: params[:page], per_page: 10)
   end

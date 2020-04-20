@@ -2,12 +2,12 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
+
  *= require dashboards
- *= require admin_sidebar
- *= require navbar
  *= require footer
  *= require style
  *= require animate
+ *= require navbar
  *= require aos
  *= require bootstrap-datepicker
  *= require flaticon
@@ -22,12 +22,17 @@
  *= require_tree .
  *= require jquery-ui
  *= require select2
+ *= require sidebar
  *= require select2-bootstrap
 */
+
+
+
 
 @import 'bootstrap';
 @import "font-awesome.css";
 @import 'font-awesome';
+@import "./actiontext.scss";
 
 
 .alert {

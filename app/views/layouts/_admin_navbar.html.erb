@@ -1,26 +1,72 @@
+<html>
 
-<div class="dark-bg sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span></button>
+<head>
+</head>
 
-    <div class="container">
-      <a class="navbar-brand" href="/">JobPortal</a>
-      
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <% if user_signed_in?%>
-              <li class=nav-item><%= link_to "Account", edit_user_registration_path, class: "active"%> </li>
-              <li class=nav-item><span class="fa fa-sign-out"></span>
-                <%= link_to "sign out", destroy_user_session_path , method: :delete %></li>
-            <%else%>
-              <li class=nav-item><%= link_to "Sign Up", new_user_registration_path,class: "active" %></li>
-              <li class=nav-item><%= link_to "Sign In", new_user_session_path,class: "active" %></li>
-            <%end%>
-
-        </ul>
+<body>
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Admin</h3>
       </div>
-    </div>
-  </nav>
-</div>
+      <ul class="list-unstyled components">
+        <li>
+          <%= link_to "Dashboard", "/admins/index" %>
+        </li>
+        <li>
+          <%= link_to "Companies", "/admins/companies/"%>
+        </li>
+        <li>
+          <%= link_to "Job seeker", "/admins/jobseekers/"%>
+        </li>
+        <li>
+          <%= link_to "Jos Posts", "/admins/job_posts/"%>
+        </li>
+        <li>
+          <%= link_to "Resumes", "#"%>
+        </li>
+      </ul>
+    </nav>
+    <!-- Page Content -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="myFunction()">
+            <i class="fa fa-align-left"></i>
+            <%# <span>Toggle Sidebar</span> %>
+          </button>
+                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+              aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span></button>
+
+          <div class="container">
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
+                <li class="nav-item cta me-md-2">
+                  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script>
+        (function ($) {
+          "use strict";
+          var fullHeight = function () {
+            $('.js-fullheight').css('height', $(window).height());
+            $(window).resize(function () {
+              $('.js-fullheight').css('height', $(window).height());
+            });
+          };
+          fullHeight();
+          $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+          });
+        })(jQuery);
+      </script>
+</body>
+
+</html>

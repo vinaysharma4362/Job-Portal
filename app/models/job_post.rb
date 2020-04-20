@@ -2,6 +2,7 @@
 
 # Job post model
 class JobPost < ApplicationRecord
+  has_rich_text :description
   belongs_to :company
   has_many :comments
   has_many :apply_job, dependent: :destroy

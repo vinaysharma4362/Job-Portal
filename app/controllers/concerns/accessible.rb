@@ -12,7 +12,7 @@ module Accessible
   def check_user
     if current_user&.has_role?(:admin)
       flash.clear
-      redirect_to(admin_dashboard_index_path) && return
+      redirect_to(admins_index_path) && return
     elsif current_company
       flash.clear
       redirect_to(companies_dashboards_index_path) && return
