@@ -1,5 +1,7 @@
-<% if current_user.has_role? :admin %>
-  <%= render 'layouts/admin_sidebar' %>
+<% if current_user %>
+  <% if current_user.has_role? :admin %>
+    <%= render 'layouts/admin_sidebar' %>
+  <% end %>
 <% end %>
 <%= render 'companies/company_show_navbar' %>
 <div class="container">
