@@ -20,7 +20,8 @@ class ReviewsController < ApplicationController
   end
 
   def review_list
-    @reviews = Review.where(company_id: @company.id).order('created_at DESC')
+    @reviews = Review.where(company_id: @company.id).order('created_at DESC').paginate(page: params[:page], per_page: 10)
+    # @pages = @reviews.paginate(page: params[:page], per_page: 10)
   end
 
   def edit; end
