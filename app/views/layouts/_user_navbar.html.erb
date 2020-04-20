@@ -13,7 +13,8 @@
           <li class="nav-item"><%= link_to 'Upload Resume',user_resumes_path(current_user.id),  class: 'nav-link' %>
           </li>
           <li class="nav-item"><%= link_to "Apply job list", apply_jobs_path, class: "nav-link"%></li>
-          <li class="nav-item cta me-md-2"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+          <li class="nav-item cta me-md-2">
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
           </li>
 
         </ul>

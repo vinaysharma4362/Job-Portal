@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_122016) do
+ActiveRecord::Schema.define(version: 2020_04_17_082922) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -129,16 +129,6 @@ ActiveRecord::Schema.define(version: 2020_04_17_122016) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
-  create_table "social_links", force: :cascade do |t|
-    t.string "facebook"
-    t.string "instagram"
-    t.string "linkedin"
-    t.integer "company_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_social_links_on_company_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -170,5 +160,4 @@ ActiveRecord::Schema.define(version: 2020_04_17_122016) do
   add_foreign_key "job_posts", "companies"
   add_foreign_key "reviews", "companies"
   add_foreign_key "reviews", "users"
-  add_foreign_key "social_links", "companies"
 end

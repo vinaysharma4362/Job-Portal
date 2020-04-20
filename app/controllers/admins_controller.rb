@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+# Admin controller
 class AdminsController < ApplicationController
+  def index; end
+
   def companies
     @companies = Company.all
     @pages = @companies.paginate(page: params[:page])
