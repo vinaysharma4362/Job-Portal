@@ -1,4 +1,4 @@
-<% if current_user.has_role? :admin %>
+<% if (user_signed_in? && (current_user.has_role? :admin)) %>
   <%= render 'layouts/admin_sidebar' %>
 <% end %>
 <%= render 'companies/company_show_navbar' %>

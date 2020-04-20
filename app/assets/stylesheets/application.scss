@@ -4,11 +4,10 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
 
  *= require dashboards
- *= require admin_sidebar
- *= require navbar
  *= require footer
  *= require style
  *= require animate
+ *= require navbar
  *= require aos
  *= require bootstrap-datepicker
  *= require flaticon
@@ -23,8 +22,12 @@
  *= require_tree .
  *= require jquery-ui
  *= require select2
+ *= require sidebar
  *= require select2-bootstrap
 */
+
+
+
 
 @import 'bootstrap';
 @import "font-awesome.css";
