@@ -17,6 +17,10 @@ class AdminsController < ApplicationController
     @job_posts = JobPost.all.paginate(page: params[:page], per_page: 10)
   end
 
+  def resumes
+    @resumes = Resume.all.paginate(page: params[:page], per_page: 10)
+  end
+
   def destroy_jobseeker
     @user = User.find_by(id: params[:user_id])
     @user.destroy

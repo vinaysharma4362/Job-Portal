@@ -1,10 +1,4 @@
 <% if current_user %>
-<% if current_user.has_role? :admin %>
-<%= render 'layouts/admin_sidebar' %>
-<% end %>
-<% end %>
-
-<% if current_user %>
 <% if @applied.any? %>
 <center>
   <div class="mt-4">
@@ -29,9 +23,7 @@
           <p>
             <h3><%= @job_post.job_title %></h3>
             </h4><%= @job_post.job_type %></h4>
-            <p>
-              <spam class="icon-location_city"></spam><%= @job_post.location %></b>
-            </p>
+            <spam class="icon-location_city"></spam><%= @job_post.location %>
           </p>
           <p><b>Profile Details</b></p>
           <p><%= @job_post.description %></p>

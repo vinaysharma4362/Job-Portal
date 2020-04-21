@@ -1,25 +1,28 @@
-<%= render 'layouts/admin_sidebar' %>
-<div class="container col-md-9">
-  <div class="mt-5 mb-5 d-flex justify-content-center">
     <h4>Companies</h4>
-  </div>
   <%= will_paginate @companies, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
-  <table class="table mt-5">
+  <table class="table table-sm">
+  <thead class="thead">
     <tr>
       <th>Company</th>
+      <th>city,state</th>
       <th>View</th>
       <th>Edit</th>
       <th>Delete</th>
+      <th>Status</th>
     </tr>
+    </thead>
     <% @companies.each do |company| %>
+    <tbody>
     <tr>
       <td><%= company.title %></td>
-      <td><%= link_to 'View', company_path(company)  %></td>
-      <td><%= link_to 'Edit', edit_company_path(company) %></td>
-      <td><%= link_to 'delete', company_path(company), method: :delete  %></td>
+      <td><%= company.city%> <%= company.state%></td>
+      <td><%= link_to '<span class= "icon-eye"></span>'.html_safe, company_path(company), class: "btn btn-outline-info"  %></td>
+      <td><%= link_to '<span class= "icon-edit"></span>'.html_safe, edit_company_path(company), class: "btn btn-outline-info" %></td>
+      <td><%= link_to '<span class= "icon-delete"></span>'.html_safe, company_path(company), method: :delete, class: "btn btn-outline-danger"  %></td>
+      <td><%= company.status %></td>
+
     </tr>
+    <tbody>
     <% end %>
   </table>
   <%= will_paginate @companies, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
-</div>
-</div>

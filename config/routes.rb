@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   root 'dashboards#index'
 
-  get 'resumes/resume_list'
   post 'job_posts/search'
 
   get 'admins/companies'
   get 'admins/jobseekers'
   get 'admins/job_posts'
   get 'admins/index'
+  get 'admins/resumes'
 
   delete 'admins/destroy_jobseeker/:user_id' => 'admins#destroy_jobseeker',
          as: :admin_destroy_jobseeker

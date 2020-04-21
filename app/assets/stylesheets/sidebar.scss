@@ -25,11 +25,8 @@ p {
     color: #000;
 }
 
-a{
-  text-decoration: none;
-  transition: all 0.3s;
-}
 
+a,
 a:hover,
 a:focus {
     color: inherit;
@@ -38,7 +35,7 @@ a:focus {
 }
 
 .navbar {
-    padding: 15px 10px;
+    padding: 5px 3px;
     background: #fff;
     border: none;
     border-radius: 0;
@@ -74,6 +71,7 @@ h3 {
 }
 
 #sidebar {
+    
     min-width: 175px;
     max-width: 175px;
     background: #343a40;
@@ -88,12 +86,20 @@ h3 {
 }
 
 #sidebar .sidebar-header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     padding: 20px;
     background: #343a40;
+    color: #fff;
+    border-bottom: 1px solid #406e9a;
 }
 
 #sidebar ul.components {
     border-bottom: 1px solid #343a40;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
 }
 
 #sidebar ul p {
@@ -103,7 +109,7 @@ h3 {
 
 #sidebar ul li a {
     padding: 10px;
-    font-size: 1.1em;
+    font-size: 0.9em;
     display: block;
 }
 
@@ -135,6 +141,7 @@ ul ul a {
     padding-left: 30px !important;
     background: #343a40;
 }
+
 
 ul.CTAs {
     padding: 20px;

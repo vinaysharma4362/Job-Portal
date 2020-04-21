@@ -1,11 +1,8 @@
-<%= render 'layouts/admin_sidebar' %>
-<div class="container col-md-9">
 
-  <div class="mt-5 d-flex justify-content-center">
     <h4>jobseekers</h4>
-  </div>
   <%= will_paginate @jobseekers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
-  <table class="table mt-5">
+  <table class="table">
+  <thead class="thead">
     <tr>
       <th>Name</th>
       <th>Contact No.</th>
@@ -18,6 +15,7 @@
       <th>Delete</th>
     </tr>
     <% @jobseekers.each do |jobseeker| %>
+    <tbody>
     <tr>
       <td><%= jobseeker.user.first_name %> <%= jobseeker.user.last_name %></td>
       <td><%= jobseeker.user.mobile %></td>
@@ -29,6 +27,7 @@
       <td><%= link_to 'Edit' %></td>
       <td><%= link_to 'delete',admin_destroy_jobseeker_path(jobseeker.user.id), method: :delete, class: "btn btn-danger"  %></td>
     </tr>
+    </tbody>
     <% end %>
   </table>
   <%= will_paginate @jobseekers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
