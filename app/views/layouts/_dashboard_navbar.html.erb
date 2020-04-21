@@ -1,5 +1,5 @@
 <div class="dark-bg sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="/">JobPortal</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -7,9 +7,8 @@
         <span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item"><%= link_to 'Company', companies_path, class: "nav-link" %></li>
-          <li class="nav-item "><%= link_to "Employers / Post Job", new_company_session_path, class: "nav-link"%></li>
+          <li class="nav-item <%if current_page?(companies_path)%>active<%end%>"><%= link_to 'COMPANY', companies_path, class: "nav-link" %></li>
+          <li class="nav-item <%if current_page?(new_company_session_path)%>active<%end%>"><%= link_to "EMPLOYER / POST JOB", new_company_session_path, class: "nav-link"%></li>
           <li class="nav-item cta me-md-2">
             <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary"%></li>&nbsp;
           <li class="nav-item cta me-md-2">
@@ -19,5 +18,6 @@
     </div>
   </nav>
 </div>
-<!-- END nav -->
+
+
 

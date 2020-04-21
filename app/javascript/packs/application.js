@@ -30,10 +30,7 @@ require("packs/jquery.stellar.min")
 
 require("packs/jquery.waypoints.min")
 
-
-
 require("packs/range")
-require("packs/main")
 
 require("packs/scrollax.min")
 require("packs/search")
