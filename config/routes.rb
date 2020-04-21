@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   root 'dashboards#index'
 
-  get 'resumes/resume_list'
   post 'job_posts/search'
 
   get 'admins/companies'

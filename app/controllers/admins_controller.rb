@@ -2,7 +2,7 @@
 
 # Admin controller
 class AdminsController < ApplicationController
-  load_and_authorize_resource
+
   def index; end
   
   def companies
@@ -10,7 +10,7 @@ class AdminsController < ApplicationController
   end
 
   def jobseekers
-    @jobseekers = ApplyJob.eager_load(:user).paginate(page: params[:page], per_page: 10)
+    @jobseekers = ApplyJob.eager_load(:job_post, user: :resume).paginate(page: params[:page], per_page: 10)
   end
 
   def job_posts

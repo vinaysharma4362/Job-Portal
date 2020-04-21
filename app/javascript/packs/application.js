@@ -14,8 +14,9 @@ require("channels")
 
 
 require("jquery-ui")
-require("packs/select2")
+require("packs/select2_raty_datepicker")
 require("select2")
+require("packs/jquery.raty")
 require("packs/owl.carousel.min")
 
 require("packs/bootstrap-datepicker")
@@ -29,9 +30,10 @@ require("packs/jquery.stellar.min")
 
 require("packs/jquery.waypoints.min")
 
-require("packs/jquery.raty")
+
 
 require("packs/range")
+require("packs/main")
 
 require("packs/scrollax.min")
 require("packs/search")
@@ -40,6 +42,7 @@ require("@rails/actiontext")
 
 import 'cocoon-js';
 import "bootstrap";
+import AOS from 'aos';
 
 $(document).ready(function () {
   $(".alert").delay(2000).slideUp(300);
@@ -50,39 +53,4 @@ $(document).ready(function () {
 // or the `imagePath` JavaScript helper below.
 //
 // const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-
-// Self Initialize DOM Factory Components
-domFactory.handler.autoInit()
-
-// Connect button(s) to drawer(s)
-var sidebarToggle = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="sidebar"]'))
-
-sidebarToggle.forEach(function (toggle) {
-  toggle.addEventListener('click', function (e) {
-    var selector = e.currentTarget.getAttribute('data-target') || '#default-drawer'
-    var drawer = document.querySelector(selector)
-    if (drawer) {
-      drawer.mdkDrawer.toggle()
-    }
-  })
-})
-
-
-let drawers = document.querySelectorAll('.mdk-drawer')
-drawers = Array.prototype.slice.call(drawers)
-drawers.forEach((drawer) => {
-  drawer.addEventListener('mdk-drawer-change', (e) => {
-    if (!e.target.mdkDrawer) {
-      return
-    }
-    document.querySelector('body').classList[e.target.mdkDrawer.opened ? 'add' : 'remove']('has-drawer-opened')
-    let button = document.querySelector('[data-target="#' + e.target.id + '"]')
-    if (button) {
-      button.classList[e.target.mdkDrawer.opened ? 'add' : 'remove']('active')
-    }
-  })
-})
-
-// ENABLE TOOLTIPS
-$('[data-toggle="tooltip"]').tooltip()
+// const imagePath = (name) => images(name, true)z

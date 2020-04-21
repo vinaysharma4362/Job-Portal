@@ -1,7 +1,9 @@
-$(document).on('turbolinks:before-cache', function() { 
+$(document).on('turbolinks:before-cache', function() {
   $('#location').select2('destroy');
   $('#job_title').select2('destroy');
-} );
+  $('#star-rating').raty('destroy');
+  $('.star-rating').raty('destroy');
+  } );
 document.addEventListener("turbolinks:load", function(){
 
   $("#location").select2({
@@ -17,5 +19,18 @@ document.addEventListener("turbolinks:load", function(){
     format: "dd-mm-yyyy",
     autoclose: true,
     startDate: 'd'
-    });
+  });
+
+  $('.star-rating').raty({
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
 })

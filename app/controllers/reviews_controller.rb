@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = @company.reviews.build(review_params)
     @review.user_id = current_user.id
     if @review.save!
-      redirect_to @company
+      redirect_to review_list_company_reviews_path(@company)
     else
       render :new
     end
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      redirect_to @company
+      redirect_to review_list_company_reviews_path(@company)
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy!
-    redirect_to @company
+    redirect_to review_list_company_reviews_path(@company)
   end
 
   private
