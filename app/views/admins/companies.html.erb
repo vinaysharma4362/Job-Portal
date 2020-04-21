@@ -1,8 +1,9 @@
 <%= render 'layouts/admin_sidebar' %>
 <div class="container col-md-9">
-  <div class="mt-5 d-flex justify-content-center">
+  <div class="mt-5 mb-5 d-flex justify-content-center">
     <h4>Companies</h4>
   </div>
+  <%= will_paginate @companies, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
   <table class="table mt-5">
     <tr>
       <th>Company</th>
@@ -19,5 +20,6 @@
     </tr>
     <% end %>
   </table>
+  <%= will_paginate @companies, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
 </div>
 </div>

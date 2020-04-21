@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# ApplyJob Controller
 class ApplyJobsController < ApplicationController
   def index
     @apply_jobs = ApplyJob.eager_load(:user, :job_post)

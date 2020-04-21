@@ -1,5 +1,6 @@
 <%= render 'companies/company_show_navbar'%>
 <div class="container">
+<%= will_paginate @job_list, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mt-3 mb-5) %>
   <div class="row">
     <% if !@job_list.blank? %>
     <% @job_list.each do |job| %>
@@ -19,14 +20,14 @@
           </div>
         </div>
         <% if user_signed_in? %>
-        <div class="ml-auto d-flex">
-          <%= link_to "Show more", user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
-        </div>
-        <% else %>
-        <div class="ml-auto d-flex">
-          <%= link_to "Show more",new_user_session_path, class:"btn btn-primary py-2 mr-1" %>
-        </div>
-        <% end %>
+          <div class="ml-auto d-flex">
+            <%= link_to "Show more", user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
+          </div>
+          <% else %>
+          <div class="ml-auto d-flex">
+            <%= link_to "Show more",company_job_post_path(job.company_id, job), class:"btn btn-primary py-2 mr-1" %>
+          </div>
+          <% end %>
       </div>
     </div><!-- end -->
     <% end %>
@@ -34,4 +35,5 @@
     <span>Jobs not available</span>
     <% end %>
   </div>
+<%= will_paginate @job_list, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mb-5 mt-4) %>
 </div>

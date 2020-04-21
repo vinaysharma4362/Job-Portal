@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(_resource)
     if current_user.has_role? :admin
-      admin_dashboard_index_path
+      admins_index_path
     else
       root_path
     end

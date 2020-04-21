@@ -5,6 +5,7 @@
 	<style>
 		body {
 			top-padding: 40px;
+			margin-bottom: 30px;
 		}
 
 		ul {
@@ -12,15 +13,20 @@
 			margin: 0;
 			padding: 0;
 			overflow: hidden;
-			background-color: #343a40;
 			position: -webkit-sticky;
 			/* Safari */
 			position: sticky;
-			top: 70px;
+      <% if current_company %>
+        top: 63px;
+      <% else %>
+			  top: 70px;
+      <% end %>
 			z-index: 1;
+
 		}
 
 		li {
+			list-style-type: none;
 			float: left;
 		}
 
@@ -31,6 +37,7 @@
 			text-align: center;
 			padding: 14px 16px;
 			text-decoration: none;
+
 
 		}
 
@@ -44,17 +51,12 @@
 			visibility: hidden;
 		}
 
-
-		li a:hover {
-			background-color: #007bff;
-		}
-
 		.active {
 			background-color: #007bff;
 		}
 	</style>
 </head>
-<ul>
+<ul style="background-color: #343a40;">
 	<li><%= link_to 'About', company_path(@company) %></li>
 	<li><%= link_to 'Review', review_list_company_reviews_path(@company)%></li>
 	<li><%= link_to 'Jobs', company_jobs_list_company_job_posts_path(@company)%></li>

@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    @pages = @companies.paginate(page: params[:page])
   end
 
   def show
@@ -49,6 +50,7 @@ class CompaniesController < ApplicationController
     params.require(:company).permit(:title, :about, :address,
                                     :city, :state, :country,
                                     :pincode, :contact_no, :website,
-                                    :status)
+                                    :status, :logo, :facebook,
+                                    :instagram, :linkedin)
   end
 end

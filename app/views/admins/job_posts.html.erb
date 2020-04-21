@@ -1,9 +1,11 @@
 <%= render 'layouts/admin_sidebar' %>
 <div class="container col-md-9">
 <div class="container">
-  <div class="mt-5 d-flex justify-content-center">
+  <div class="mt-5 mb-5 d-flex justify-content-center">
     <h4>Job Posts</h4>
   </div>
+    <%= will_paginate @job_posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+  
     <% @job_posts.each do |post| %>
     <div class="col-md-12 ftco-animate">
 
@@ -31,5 +33,6 @@
       </div>
     </div><!-- end -->
   <% end %>
+    <%= will_paginate @job_posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
 </div>
 </div>

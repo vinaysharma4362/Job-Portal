@@ -34,16 +34,13 @@ require("packs/jquery.waypoints.min")
 
 require("packs/range")
 
-require("packs/main")
-
-
 require("packs/scrollax.min")
 require("packs/search")
-// require ("packs/jquey.raty")
+require("trix")
+require("@rails/actiontext")
+
+import 'cocoon-js';
 import "bootstrap";
-import AOS from 'aos';
-
-
 
 $(document).ready(function () {
   $(".alert").delay(2000).slideUp(300);
@@ -55,3 +52,38 @@ $(document).ready(function () {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+// Self Initialize DOM Factory Components
+domFactory.handler.autoInit()
+
+// Connect button(s) to drawer(s)
+var sidebarToggle = Array.prototype.slice.call(document.querySelectorAll('[data-toggle="sidebar"]'))
+
+sidebarToggle.forEach(function (toggle) {
+  toggle.addEventListener('click', function (e) {
+    var selector = e.currentTarget.getAttribute('data-target') || '#default-drawer'
+    var drawer = document.querySelector(selector)
+    if (drawer) {
+      drawer.mdkDrawer.toggle()
+    }
+  })
+})
+
+
+let drawers = document.querySelectorAll('.mdk-drawer')
+drawers = Array.prototype.slice.call(drawers)
+drawers.forEach((drawer) => {
+  drawer.addEventListener('mdk-drawer-change', (e) => {
+    if (!e.target.mdkDrawer) {
+      return
+    }
+    document.querySelector('body').classList[e.target.mdkDrawer.opened ? 'add' : 'remove']('has-drawer-opened')
+    let button = document.querySelector('[data-target="#' + e.target.id + '"]')
+    if (button) {
+      button.classList[e.target.mdkDrawer.opened ? 'add' : 'remove']('active')
+    }
+  })
+})
+
+// ENABLE TOOLTIPS
+$('[data-toggle="tooltip"]').tooltip()

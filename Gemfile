@@ -7,14 +7,21 @@ ruby '2.6.3'
 gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap-datepicker-rails'
 gem 'client_side_validations'
+gem 'cocoon'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'hirb'
+gem 'image_processing'
 gem 'jquery-ui-rails'
+gem 'mini_magick'
 gem 'rolify'
 gem 'rubocop', require: false
 gem 'select2-rails'
 gem 'stripe'
+gem 'bootstrap-datepicker-rails'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap4'
+gem 'cancancan'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'
@@ -33,7 +40,7 @@ gem 'turbolinks', '~> 5'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
+# Use Redis adapter to run rails Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
