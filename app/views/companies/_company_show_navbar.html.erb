@@ -7,7 +7,6 @@
 			top-padding: 40px;
 			margin-bottom: 30px;
 		}
-
 		ul {
 			list-style-type: none;
 			margin: 0;
@@ -19,6 +18,8 @@
 			<% if current_company %>top: 50px;
 			<% else %>top: 50px;
 			<% end %>z-index: 1;
+			
+			
 		}
 
 		li {
@@ -28,16 +29,11 @@
 
 		li a {
 			display: block;
-			color: white;
+			color: #000;
 			position: relative;
 			text-align: center;
 			padding: 14px 16px;
 			text-decoration: none;
-		}
-
-		li a:hover {
-			color: #343a40;
-			background: #fff;
 		}
 
 		.offset:before {
@@ -55,8 +51,8 @@
 		}
 	</style>
 </head>
-<ul style="background-color: #343a40;">
-	<li><%= link_to 'About', company_path(@company) %></li>
-	<li><%= link_to 'Review', review_list_company_reviews_path(@company)%></li>
-	<li><%= link_to 'Jobs', company_jobs_list_company_job_posts_path(@company)%></li>
+<ul>
+	<li class="nav-item <%if current_page?(company_path(@company))%>active<%end%>"><%= link_to 'About', company_path(@company) %></li>
+	<li class="nav-item <%if current_page?(review_list_company_reviews_path(@company))%>active<%end%>"><%= link_to 'Review', review_list_company_reviews_path(@company)%></li>
+	<li class="nav-item <%if current_page?(company_jobs_list_company_job_posts_path(@company))%>active<%end%>"><%= link_to 'Jobs', company_jobs_list_company_job_posts_path(@company)%></li>
 </ul>
