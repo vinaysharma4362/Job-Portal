@@ -1,3 +1,4 @@
+<div class="container">
 <h4>Job Posts</h4>
 <%= will_paginate @job_posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
 <table class="table table-sm">
@@ -45,3 +46,4 @@
     <% end %>
 </table>
 <%= will_paginate @job_posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+</div>

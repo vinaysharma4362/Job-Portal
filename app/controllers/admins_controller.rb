@@ -21,8 +21,14 @@ class AdminsController < ApplicationController
     @resumes = Resume.all.paginate(page: params[:page], per_page: 10)
   end
 
+  def applied_job
+    @user = User.find_by(id: params[:user_id])
+    @posts = ApplyJob.eager_load(:job_post).where("apply_jobs.user_id=?", @user).paginate(page: params[:page], per_page: 10)
+  end
+
   def destroy_jobseeker
     @user = User.find_by(id: params[:user_id])
     @user.destroy
+    redirect_to admins_jobseekers_path
   end
 end
