@@ -14,8 +14,9 @@ require("channels")
 
 
 require("jquery-ui")
-require("packs/select2")
+require("packs/select2_raty_datepicker")
 require("select2")
+require("packs/jquery.raty")
 require("packs/owl.carousel.min")
 
 require("packs/bootstrap-datepicker")
@@ -29,7 +30,7 @@ require("packs/jquery.stellar.min")
 
 require("packs/jquery.waypoints.min")
 
-require("packs/jquery.raty")
+
 
 require("packs/range")
 

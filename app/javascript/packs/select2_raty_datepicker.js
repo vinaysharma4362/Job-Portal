@@ -17,5 +17,19 @@ document.addEventListener("turbolinks:load", function(){
     format: "dd-mm-yyyy",
     autoclose: true,
     startDate: 'd'
-    });
+  });
+
+  $('.star-rating').raty({
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+
 })
