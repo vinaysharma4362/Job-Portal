@@ -7,10 +7,18 @@
   </center>
 
   <%= form_with(model: @company) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :Company_logo %>
-    <%= f.file_field :logo %>
+<div class="form-group">
+    <%= f.label :Company_logo%>
+    <%= f.file_field :logo, class: "form-control"%>
+  </div>
+  <div class="form-group-row">
+    <%= f.label :Name%>
+    <%= f.text_field :title, autofocus: true, autocomplete: "title", class: 'form-control' %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :About %>
+    <%= f.rich_text_area :about %>
   </div>
   <div class="form-group">
     <%= f.label :Name %>
