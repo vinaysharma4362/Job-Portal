@@ -2,11 +2,12 @@
 
 # dashboard controller
 class JobPostsController < ApplicationController
+  load_and_authorize_resource
   before_action :find_post, only: %i[edit update destroy show view_candidates]
   before_action :find_company, only: %i[new edit create user_job_post]
 
   def index
-    @job_posts = current_company.job_posts
+    @job_posts = current_company.job_posts.paginate(page: params[:page], per_page: 10)
   end
 
   def new
@@ -57,7 +58,7 @@ class JobPostsController < ApplicationController
 
   def company_jobs_list
     @company = Company.find(params[:company_id])
-    @job_list = @company.job_posts
+    @job_list = @company.job_posts.paginate(page: params[:page], per_page: 10)
   end
 
   def view_candidates

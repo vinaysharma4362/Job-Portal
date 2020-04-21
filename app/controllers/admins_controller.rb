@@ -2,21 +2,19 @@
 
 # Admin controller
 class AdminsController < ApplicationController
+  load_and_authorize_resource
   def index; end
-
+  
   def companies
-    @companies = Company.all
-    @pages = @companies.paginate(page: params[:page])
+    @companies = Company.all.paginate(page: params[:page], per_page: 10)
   end
 
   def jobseekers
-    @jobseekers = ApplyJob.eager_load(:user)
-    @pages = @jobseekers.paginate(page: params[:page])
+    @jobseekers = ApplyJob.eager_load(:user).paginate(page: params[:page], per_page: 10)
   end
 
   def job_posts
-    @job_posts = JobPost.all
-    @pages = @job_posts.paginate(page: params[:page])
+    @job_posts = JobPost.all.paginate(page: params[:page], per_page: 10)
   end
 
   def resumes

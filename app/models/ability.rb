@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-# Ability class
 class Ability
   include CanCan::Ability
 
   def initialize(company)
-    company ||= Company.new # guest user (not logged in)
-    if company.present?
-      can :manage, JobPost, company_id: current_company.id
-    else
-      can :read, :all
-    end
+
+      company ||= Company.new # guest user (not logged in)
+      if company.present?
+        can :manage, JobPost, company_id: current_company.id
+      else
+        can :read, :all
+      end
   end
 
   def initialize(user)
