@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 class AdminsController < ApplicationController
+
+  def index; end
+  
   def companies
     @companies = Company.all
   end
 
   def jobseekers
-    @jobseekers = ApplyJob.eager_load(:user)
+    @jobseekers = ApplyJob.eager_load(:job_post, user: :resume).paginate(page: params[:page], per_page: 10)
   end
 
   def job_posts

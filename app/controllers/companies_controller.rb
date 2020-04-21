@@ -2,6 +2,7 @@
 
 # companies controller
 class CompaniesController < ApplicationController
+
   before_action :find_company, only: %i[edit update destroy]
 
   def index
