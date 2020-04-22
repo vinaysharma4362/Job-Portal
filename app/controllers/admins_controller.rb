@@ -2,7 +2,7 @@
 
 # Admin controller
 class AdminsController < ApplicationController
-
+  
   def index; end
   
   def companies
