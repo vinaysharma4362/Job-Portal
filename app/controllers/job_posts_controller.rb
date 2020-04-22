@@ -3,12 +3,15 @@
 # dashboard controller
 class JobPostsController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource only: %i[company_jobs_list view_candidates search active_job_list apply_job apply_job_list show]
+  skip_authorize_resource only: %i[company_jobs_list view_candidates search
+                                   active_job_list apply_job
+                                   apply_job_list show]
   before_action :find_post, only: %i[edit update destroy show view_candidates]
   before_action :find_company, only: %i[new edit create user_job_post]
 
   def index
-    @job_posts = current_company.job_posts.paginate(page: params[:page], per_page: 10)
+    @job_posts = current_company.job_posts.paginate(page: params[:page],
+                                                    per_page: 10)
   end
 
   def new
@@ -81,8 +84,7 @@ class JobPostsController < ApplicationController
       else
         render 'new'
       end
-    else
-      redirect_to user_resumes_path
+    else redirect_to user_resumes_path
     end
   end
 
