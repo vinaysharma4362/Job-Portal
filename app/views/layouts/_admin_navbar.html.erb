@@ -8,50 +8,52 @@
     <!-- Sidebar -->
     <nav id="sidebar">
       <div class="sidebar-header">
-        <h3>Admin</h3>
+        JobPortal
       </div>
       <ul class="list-unstyled components">
-        <li>
-          <%= link_to "Dashboard", "/admins/index" %>
+        <li class="<%if current_page?("/admins/index")%>active<%end%>" >
+          <%= link_to '<span class= "icon-home"></span> Dashboard'.html_safe, "/admins/index" %>
         </li>
-        <li>
-          <%= link_to "Companies", "/admins/companies/"%>
+        <li class="<%if current_page?("/admins/companies/")%>active<%end%>">
+          <%= link_to '<span class= "icon-layers"></span> Company'.html_safe, "/admins/companies/"%>
         </li>
-        <li>
-          <%= link_to "Job seeker", "/admins/jobseekers/"%>
+        <li class="<%if current_page?("/admins/jobseekers/")%>active<%end%>">
+          <%= link_to '<span class= "icon-business_center"></span> JobSeeker'.html_safe, "/admins/jobseekers/"%>
         </li>
-        <li>
-          <%= link_to "Jos Posts", "/admins/job_posts/"%>
+        <li class="<%if current_page?("/admins/job_posts/")%>active<%end%>">
+          <%= link_to '<span class= "icon-mail_outline"></span> JobPost'.html_safe, "/admins/job_posts/"%>
         </li>
-        <li>
-          <%= link_to "Resumes", "#"%>
+        <li class="<%if current_page?("/admins/resumes")%>active<%end%>">
+          <%= link_to '<span class= "flaticon-resume"></span> Resume'.html_safe, "/admins/resumes"%>
         </li>
       </ul>
     </nav>
     <!-- Page Content -->
     <div id="content">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="myFunction()">
-            <i class="fa fa-align-left"></i>
-            <%# <span>Toggle Sidebar</span> %>
-          </button>
-                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+      <div class="dark-bg sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="myFunction()">
+              <i class="fa fa-align-left"></i>
+              <%# <span>Toggle Sidebar</span> %>
+            </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
               aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span></button>
 
-          <div class="container">
-            <div class="collapse navbar-collapse" id="ftco-nav">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
-                <li class="nav-item cta me-md-2">
-                  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
-                </li>
-              </ul>
+            <div class="container">
+              <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item <%if current_page?(edit_user_registration_path)%>active<%end%>"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
+                  <li class="nav-item cta me-md-2">
+                    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
       <script>
         (function ($) {
           "use strict";
