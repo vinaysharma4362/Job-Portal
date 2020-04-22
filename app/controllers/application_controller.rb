@@ -10,4 +10,14 @@ class ApplicationController < ActionController::Base
       format.js   { head :forbidden, content_type: 'text/html' }
     end
   end
+
+  def current_ability
+    if current_company
+      @current_ability ||= CompanyAbility.new(current_company)
+    elsif current_user
+      @current_ability ||= UserAbility.new(current_user)
+    else
+      @current_ability ||= UserAbility.new(current_user)
+    end
+  end
 end

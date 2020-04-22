@@ -14,25 +14,10 @@
     <%= f.label :Name%>
     <%= f.text_field :title, autofocus: true, autocomplete: "title", class: 'form-control' %>
   </div>
-  <div class="form-group">
-    <%= f.label :Email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-  </div>
- 
-  <div class= "row">
-  <div class="col">
-    <%= f.label :Password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control'%>
-    <% if @minimum_password_length %>
-    <br />
-    <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
 
-  <div class="col">
-    <%= f.label :Password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'%>
-  </div>
+  <div class="field">
+    <%= f.label :About %>
+    <%= f.rich_text_area :about %>
   </div>
 
   <div class="form-group">
