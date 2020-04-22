@@ -3,6 +3,10 @@
 # dashboard controller
 class JobPostsController < ApplicationController
   load_and_authorize_resource
+<<<<<<< Updated upstream
+=======
+  skip_authorize_resource only: %i[company_jobs_list view_candidates search active_job_list apply_job apply_job_list show]
+>>>>>>> Stashed changes
   before_action :find_post, only: %i[edit update destroy show view_candidates]
   before_action :find_company, only: %i[new edit create user_job_post]
 
