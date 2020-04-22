@@ -11,15 +11,14 @@
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
+			color: #000;
 			overflow: hidden;
 			position: -webkit-sticky;
 			/* Safari */
 			position: sticky;
-			<% if current_company %>top: 50px;
-			<% else %>top: 50px;
-			<% end %>z-index: 1;
-			
-			
+			top: 50px;
+			z-index: 5;
+		
 		}
 
 		li {
@@ -51,7 +50,7 @@
 		}
 	</style>
 </head>
-<ul>
+<ul style='background: #fff'>
 	<li class="nav-item <%if current_page?(company_path(@company))%>active<%end%>"><%= link_to 'About', company_path(@company) %></li>
 	<li class="nav-item <%if current_page?(review_list_company_reviews_path(@company))%>active<%end%>"><%= link_to 'Review', review_list_company_reviews_path(@company)%></li>
 	<li class="nav-item <%if current_page?(company_jobs_list_company_job_posts_path(@company))%>active<%end%>"><%= link_to 'Jobs', company_jobs_list_company_job_posts_path(@company)%></li>

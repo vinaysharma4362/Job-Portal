@@ -11,6 +11,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum active: %i[Online Offline]
+  enum gender: %i[male female other]
 
   has_many :apply_job, dependent: :destroy
 
@@ -29,7 +30,8 @@ class User < ApplicationRecord
   validates :last_name, format: { with: /[a-zA-Z]/,
                                   message: 'Enter valid Last Name' }
   validates :password, length: { in: 6..20,
-                                 message: 'Password length (between 6-20)' }
+                                 message: 'Password length (between 6-20)' },
+                       if: :password
   validates :mobile, presence: { message: 'Enter valid Mobile' },
                      numericality: true,
                      length: { minimum: 10, maximum: 15 }
