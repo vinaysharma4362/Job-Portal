@@ -22,6 +22,10 @@ gem 'select2-rails'
 gem 'stripe'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
+gem 'cancancan'
+gem "chartkick"
+gem 'groupdate'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'
