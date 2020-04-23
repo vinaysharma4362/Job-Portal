@@ -35,7 +35,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company.destroy
     redirect_to admins_companies_path,
-                notice: 'Job Post was successfully destroyed.'
+                notice: 'Company was successfully destroyed.'
   end
 
   private

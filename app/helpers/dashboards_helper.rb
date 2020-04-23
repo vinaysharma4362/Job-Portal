@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-# Dashboard helper
+# Dashboard Halper
 module DashboardsHelper
 end

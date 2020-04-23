@@ -1,4 +1,3 @@
-
 <div class="container d-flex justify-content-center mt-5 mb-4">
   <br>
   <%= link_to 'Add New Post', new_charge_path	, class: "btn btn-success" %>
@@ -39,9 +38,9 @@
           </td>
           <td>
             <%= form_for(job_post, url: company_job_post_path(job_post.company_id, job_post)) do |f| %>
-            <div class='form-group'>
-              <%= f.select :status, JobPost.statuses.keys, {}, { value: job_post.status, class: 'custom-select', onchange: 'this.form.submit();' } %>
-            </div>
+              <div class='form-group'>
+                <%= f.select :status, JobPost.statuses.keys, {}, { value: job_post.status, class: 'custom-select', onchange: 'this.form.submit();' } %>
+              </div>
             <% end %>
           </td>
           <% end %>

@@ -12,6 +12,7 @@ class CreateActionTextTables < ActiveRecord::Migration[6.0]
 
       t.index %i[record_type record_id name],
               name: 'index_action_text_rich_texts_uniqueness', unique: true
+
     end
   end
 end

@@ -101,7 +101,7 @@ JobPost.create(
    'lorem ipsum' will uncover many web sites still in their infancy. Various
     versions have evolved over the years, sometimes by acciden.",
   salary_max: 20_000,
-  status: "active"
+  status: 'active'
 )
 
 JobPost.create(
@@ -118,8 +118,8 @@ JobPost.create(
    now use Lorem Ipsum as their default model text, and a search for
    'lorem ipsum' will uncover many web sites still in their infancy. Various
     versions have evolved over the years, sometimes by accident",
-  salary_max: 25_000, 
-  status: "active"
+  salary_max: 25_000,
+  status: 'active'
 )
 
 Review.create(
