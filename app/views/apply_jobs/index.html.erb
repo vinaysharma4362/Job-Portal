@@ -1,40 +1,37 @@
 <div class="container col-md-9">
-<div class="container">
-  <% if !@apply_jobs.blank? %>
-  <div class="mt-5 d-flex justify-content-center">
-    <h4>Applied Jobs</h4>
-  </div>
-    <% @apply_jobs.each do |job| %>
-    <div class="col-md-12 ftco-animate">
-
-      <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-        <div class="mb-4 mb-md-0 mr-5">
-          <div class="job-post-item-header d-flex align-items-center">
-            <h2 class="mr-3 text-black h3"><%= job.job_post.job_title %></h2>
-            <div class="badge-wrap">
-              <span class="bg-secondary text-white badge py-2 px-3"><%= job.job_post.job_type %></span>
+  <div class="container">
+    <% if !@apply_jobs.blank? %>
+      <div class="mt-5 d-flex justify-content-center">
+        <h4>Applied Jobs</h4>
+      </div>
+      <% @apply_jobs.each do |job| %>
+        <div class="col-md-12 ftco-animate">
+          <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+            <div class="mb-4 mb-md-0 mr-5">
+              <div class="job-post-item-header d-flex align-items-center">
+                <h2 class="mr-3 text-black h3"><%= job.job_post.job_title %></h2>
+                <div class="badge-wrap">
+                  <span class="bg-secondary text-white badge py-2 px-3"><%= job.job_post.job_type %></span>
+                </div>
+              </div>
+              <div class="job-post-item-body d-block d-md-flex">
+                <div><b>Salary : </b><%= job.job_post.salary_min %> - <%= job.job_post.salary_max %></div>
+                <div class="ml-3"><span class="icon-layers"></span><b>Location : </b><%= job.job_post.location %></div>
+              </div>
+            </div>
+            <div class="ml-auto d-flex">
+              <%= link_to 'View Job', company_job_post_path(job.job_post.company_id, job.job_post.id), class: "btn btn-outline-info py-2 mr-1" %>
+              <div class="ml-4 mt-2">
+                <b><i><%= job.status %></i></b>
+              </div>
             </div>
           </div>
-          <div class="job-post-item-body d-block d-md-flex">
-            <div><b>Salary : </b><%= job.job_post.salary_min %> - <%= job.job_post.salary_max %></div>
-            <div class="ml-3"><span class="icon-layers"></span><b>Location : </b><%= job.job_post.location %></div>
-          </div>
-        </div>
-
-        <div class="ml-auto d-flex">
-          <%= link_to 'View Job', company_job_post_path(job.job_post.company_id, job.job_post.id), class: "btn btn-outline-info py-2 mr-1" %>
-          <div class="ml-4 mt-2">
-            <b><i><%= job.status %></i></b>
-          </div>
-        </div>
+        </div><!-- end -->
+      <% end %>
+    <% else %>
+      <div class="mt-5 d-flex justify-content-center">
+        <i><h2>You haven't applied in any job</h2></i>
       </div>
-    </div><!-- end -->
     <% end %>
-  <% else %>
-    <div class="mt-5 d-flex justify-content-center">
-      <i><h2>You haven't applied in any job</h2></i>
-    </div>
-  <% end %>
-</div>
+  </div>
 </div>

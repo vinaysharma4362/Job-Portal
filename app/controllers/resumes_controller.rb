@@ -2,6 +2,7 @@
 
 # Resume for user controller
 class ResumesController < ApplicationController
+  load_and_authorize_resource
   before_action :find_resume, only: %i[edit update destroy show]
   before_action :find_user, only: %i[new edit create]
   def index
@@ -9,7 +10,7 @@ class ResumesController < ApplicationController
   end
 
   def new
-      @resume = Resume.new
+    @resume = Resume.new
   end
 
   def create

@@ -7,7 +7,9 @@ class DashboardsController < ApplicationController
       redirect_to admins_index_path if current_user.has_role? :admin
     end
     @count = JobPost.where(status: :active).count
-    @job_posts = JobPost.order('created_at desc').limit(10)
+    @job_posts = JobPost.order('created_at desc')
+                        .limit(10)
+                        .where(status: 'active')
   end
 
   def user_job_post

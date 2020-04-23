@@ -2,9 +2,10 @@
 
 # Review controller
 class ReviewsController < ApplicationController
+
+  before_action :authenticate_user!, except: %i[show review_list]
   before_action :find_company
   before_action :find_review, only: %i[edit update destroy show]
-
   def new
     @review = Review.new
   end
@@ -20,7 +21,8 @@ class ReviewsController < ApplicationController
   end
 
   def review_list
-    @reviews = Review.where(company_id: @company.id).order('created_at DESC').paginate(page: params[:page], per_page: 10)
+    @reviews = Review.where(company_id: @company.id).order('created_at DESC')
+                     .paginate(page: params[:page], per_page: 10)
     # @pages = @reviews.paginate(page: params[:page], per_page: 10)
   end
 

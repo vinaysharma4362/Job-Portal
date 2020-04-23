@@ -26,10 +26,7 @@ require("packs/jquery.stellar.min")
 require("packs/jquery.waypoints.min")
 <<<<<<< Updated upstream
 
-
-
 require("packs/range")
-require("packs/main")
 
 =======
 require("packs/range")

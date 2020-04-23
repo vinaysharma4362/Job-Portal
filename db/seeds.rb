@@ -15,7 +15,7 @@ User.create(
   email: 'admin@gmail.com',
   first_name: 'admin',
   last_name: 'panel',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
@@ -26,7 +26,7 @@ User.create(
   email: 'v@1.com',
   first_name: 'user1',
   last_name: 'v@1',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
@@ -34,7 +34,7 @@ User.create(
   email: 'v@2.com',
   first_name: 'user2',
   last_name: 'v@2',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
@@ -42,7 +42,7 @@ User.create(
   email: 'v@3.com',
   first_name: 'user3',
   last_name: 'v@3',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
@@ -101,7 +101,7 @@ JobPost.create(
    'lorem ipsum' will uncover many web sites still in their infancy. Various
     versions have evolved over the years, sometimes by acciden.",
   salary_max: 20_000,
-  status: "active"
+  status: 'active'
 )
 
 JobPost.create(
@@ -118,8 +118,8 @@ JobPost.create(
    now use Lorem Ipsum as their default model text, and a search for
    'lorem ipsum' will uncover many web sites still in their infancy. Various
     versions have evolved over the years, sometimes by accident",
-  salary_max: 25_000, 
-  status: "active"
+  salary_max: 25_000,
+  status: 'active'
 )
 
 Review.create(

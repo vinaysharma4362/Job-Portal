@@ -1,12 +1,17 @@
 # frozen_string_literal: true
 
-# dashboard controller
+# Job Post controller
 class JobPostsController < ApplicationController
+  load_and_authorize_resource
+  skip_authorize_resource only: %i[company_jobs_list view_candidates search
+                                   active_job_list apply_job apply_job_list
+                                   show]
   before_action :find_post, only: %i[edit update destroy show view_candidates]
   before_action :find_company, only: %i[new edit create user_job_post]
 
   def index
-    @job_posts = current_company.job_posts.paginate(page: params[:page], per_page: 10)
+    @job_posts = current_company.job_posts.paginate(page: params[:page],
+                                                    per_page: 10)
   end
 
   def new
@@ -75,15 +80,13 @@ class JobPostsController < ApplicationController
       @apply_job = ApplyJob.new(user_id: current_user.id,
                                 job_post_id: params[:id], apply: true)
       if @apply_job.save!
-        redirect_to user_job_post_path, notice: 'Job Appllied successfully'
+        redirect_to apply_jobs_path, notice: 'Job Appllied successfully'
       else
         render 'new'
       end
-    else
-      redirect_to user_resumes_path
+    else redirect_to user_resumes_path
     end
   end
-
 
   def active_job_list
     @job_posts = JobPost.all

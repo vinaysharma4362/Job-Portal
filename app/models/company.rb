@@ -11,11 +11,10 @@ class Company < ApplicationRecord
   accepts_nested_attributes_for :social_links,
                                 reject_if: :all_blank, allow_destroy: true
   has_rich_text :about
-
   has_one_attached :logo
-
   has_many :reviews, dependent: :destroy
   has_many :job_posts, dependent: :destroy
+
   enum status: %i[inactive active]
 
   validates :title, presence: true

@@ -10,7 +10,6 @@
 // blue normal : #343a40
 // grey : #6b7474 
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -120,8 +119,8 @@ h3 {
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
-    color: #fff;
-    background: #343a40;
+    color: #343a40;
+    background: #fff;
 }
 
 a[data-toggle="collapse"] {

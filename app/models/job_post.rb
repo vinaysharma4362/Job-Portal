@@ -17,5 +17,4 @@ class JobPost < ApplicationRecord
 
   JOB_TYPE = %w[Part-time Full-time Infulencer].freeze
   enum status: %i[inactive active]
-  
 end

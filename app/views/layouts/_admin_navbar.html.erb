@@ -11,19 +11,19 @@
         JobPortal
       </div>
       <ul class="list-unstyled components">
-        <li>
+        <li class="<%if current_page?("/admins/index")%>active<%end%>" >
           <%= link_to '<span class= "icon-home"></span> Dashboard'.html_safe, "/admins/index" %>
         </li>
-        <li>
+        <li class="<%if current_page?("/admins/companies/")%>active<%end%>">
           <%= link_to '<span class= "icon-layers"></span> Company'.html_safe, "/admins/companies/"%>
         </li>
-        <li>
+        <li class="<%if current_page?("/admins/jobseekers/")%>active<%end%>">
           <%= link_to '<span class= "icon-business_center"></span> JobSeeker'.html_safe, "/admins/jobseekers/"%>
         </li>
-        <li>
+        <li class="<%if current_page?("/admins/job_posts/")%>active<%end%>">
           <%= link_to '<span class= "icon-mail_outline"></span> JobPost'.html_safe, "/admins/job_posts/"%>
         </li>
-        <li>
+        <li class="<%if current_page?("/admins/resumes")%>active<%end%>">
           <%= link_to '<span class= "flaticon-resume"></span> Resume'.html_safe, "/admins/resumes"%>
         </li>
       </ul>
@@ -44,7 +44,7 @@
             <div class="container">
               <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
+                  <li class="nav-item <%if current_page?(edit_user_registration_path)%>active<%end%>"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
                   <li class="nav-item cta me-md-2">
                     <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
                   </li>

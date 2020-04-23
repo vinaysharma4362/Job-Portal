@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-# Company 
+# Company Dashboard Helper
 module CompaniesDashboardsHelper
 end

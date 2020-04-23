@@ -1,77 +1,77 @@
 <%= form_with(model:[@company, @job_post], validate: true) do |form| %>
 
-<div class="field">
-  <%= form.hidden_field :company_id, value: @company.id %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Post_name %>
-  <%= form.text_field :job_title, class: "form-control" %>
-</div>
-
-<div class="field">
-  <%= form.label :Description %>
-  <%= form.rich_text_area :description %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Job_Type %>
-  <%= form.select :job_type, JobPost::JOB_TYPE,{}, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Location %>
-  <%= form.text_field :location, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Required_Skills %>
-  <%= form.text_area :required_skill, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Extra_Skills %>
-  <%= form.text_area :extra_skill, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Minimum_Salary %>
-  <%= form.text_field :salary_min, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Maximum_Salary %>
-  <%= form.text_field :salary_max, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Last_Apply_Date %>
-  <%= form.text_field :last_apply_date, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Language %>
-  <%= form.text_field :language, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Job_Field %>
-  <%= form.text_field :job_field, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Vacancy %>
-  <%= form.number_field :vacancy, class: "form-control" %>
-</div>
-
-<div class="form-group">
-  <%= form.label :Status %>
-  <%= form.select(:status, JobPost.statuses.keys, {prompt: 'Select Field'}, class: 'form-control' )%>
-</div>
-
-<center>
-  <div class="form-group">
-    <%= form.submit :Submit, class: "btn btn-primary" %>
+  <div class="field">
+    <%= form.hidden_field :company_id, value: @company.id %>
   </div>
-</center>
+
+  <div class="form-group">
+    <%= form.label :Post_name %>
+    <%= form.text_field :job_title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Job_Type %>
+    <%= form.select :job_type, JobPost::JOB_TYPE,{}, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Location %>
+    <%= form.text_field :location, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Required_Skills %>
+    <%= form.text_area :required_skill, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Extra_Skills %>
+    <%= form.text_area :extra_skill, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Minimum_Salary %>
+    <%= form.text_field :salary_min, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Maximum_Salary %>
+    <%= form.text_field :salary_max, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Last_Apply_Date %>
+    <%= form.text_field :last_apply_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Language %>
+    <%= form.text_field :language, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Job_Field %>
+    <%= form.text_field :job_field, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Vacancy %>
+    <%= form.number_field :vacancy, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :Status %>
+    <%= form.select(:status, JobPost.statuses.keys, {prompt: 'Select Field'}, class: 'form-control' )%>
+  </div>
+
+  <center>
+    <div class="form-group">
+      <%= form.submit :Submit, class: "btn btn-primary" %>
+    </div>
+  </center>
 <% end %>
