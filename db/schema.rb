@@ -140,7 +140,11 @@ ActiveRecord::Schema.define(version: 2020_04_17_082922) do
     t.string "first_name"
     t.string "last_name"
     t.integer "mobile"
+<<<<<<< Updated upstream
     t.boolean "gender"
+=======
+    t.integer "gender"
+>>>>>>> Stashed changes
     t.integer "active"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

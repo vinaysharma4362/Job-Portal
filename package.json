@@ -12,6 +12,8 @@
     "Select2": "^3.5.7",
     "aos": "^2.3.4",
     "bootstrap": "^4.4.1",
+    "chart.js": "^2.9.3",
+    "chartkick": "^3.2.0",
     "cocoon-js": "^0.0.5",
     "datepicker": "^0.0.0",
     "font-awesome": "^4.7.0",
