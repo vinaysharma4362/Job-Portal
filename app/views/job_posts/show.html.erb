@@ -24,19 +24,27 @@
             </h4><%= @job_post.job_type %></h4>
             <spam class="icon-location_city"></spam><%= @job_post.location %>
           </p>
-          <p><b>Profile Details</b></p>
-          <p><%= @job_post.description %></p>
+          <div class= "card">
+          <div class= "card-header"><p><b>Profile Details</b></p></div>
+          <div class= "card-body"><p><%= @job_post.description %></p></div>
+          </div>
           <p><b>Salary : </b><%= @job_post.salary_min %> - <%= @job_post.salary_max %></p>
           <% if !@job_post.language.blank? %>
-            <p><b>Preferred Language : </b><%= @job_post.language %></p>
-          <% end%>
+          <p><b>Preferred Language : </b><%= @job_post.language %></p>
+          <% end %>
+          <% if !@job_post.required_skill.blank? %>
           <p><b>Required Skills </b><%= @job_post.required_skill %></p>
+          <% end %>
+          <% if !@job_post.extra_skill.blank? %>
           <p><b>Extra Skills </b><%= @job_post.extra_skill %></p>
+          <% end %>
+          <% if !@job_post.last_apply_date&.strftime("%d %b, %Y").blank? %>
           <p><b>Last date to apply is <%= @job_post.last_apply_date&.strftime("%d %b, %Y") %><p>
-          <% if current_user %>
-            <% if !@applied.any? %>
-              <% if current_user.has_role? :job_seeker %>
-                <center>
+          <% end %>
+           <% if current_user %>
+              <% if !@applied.any? %>
+                <% if current_user.has_role? :job_seeker %>
+                  center>
                   <%= link_to 'Apply_Job', apply_job_user_job_post_path(current_user, @job_post), class: "btn btn-primary" %>
                 </center>
               <% end %>
