@@ -2,9 +2,10 @@
 
 # Review controller
 class ReviewsController < ApplicationController
+
+  before_action :authenticate_user!, except: %i[show review_list]
   before_action :find_company
   before_action :find_review, only: %i[edit update destroy show]
-
   def new
     @review = Review.new
   end

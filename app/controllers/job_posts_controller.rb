@@ -84,8 +84,7 @@ class JobPostsController < ApplicationController
       else
         render 'new'
       end
-    else
-      redirect_to user_resumes_path
+    else redirect_to user_resumes_path
     end
   end
 
