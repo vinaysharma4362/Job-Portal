@@ -5,15 +5,15 @@
     </div>
   </center>
   <table class="table">
-  <% if !@candidates.blank? %>
-    <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
-    <tr>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Contact No.</th>
-      <th>Resume</th>
-      <th>Status</th>
-    </tr>
+    <% if !@candidates.blank? %>
+      <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Contact No.</th>
+        <th>Resume</th>
+        <th>Status</th>
+      </tr>
       <% @candidates.each do |candidate| %>
         <tr>
           <td><%= candidate.user.first_name %> <%= candidate.user.last_name %></td>
@@ -31,9 +31,9 @@
       <% end %>
       <br>
       <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
-  <% else %>
-    <h1>Data not found</h1>
-  <% end %>
+    <% else %>
+      <h1>Data not found</h1>
+    <% end %>
   </table>
 </div>
 
