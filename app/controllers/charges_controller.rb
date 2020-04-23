@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Charges Controller
 class ChargesController < ApplicationController
   def new; end
 

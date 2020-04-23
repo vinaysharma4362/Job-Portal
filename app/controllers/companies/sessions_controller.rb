@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Company controller
 class Companies::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   include Accessible

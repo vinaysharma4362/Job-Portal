@@ -10,7 +10,7 @@ class ResumesController < ApplicationController
   end
 
   def new
-      @resume = Resume.new
+    @resume = Resume.new
   end
 
   def create

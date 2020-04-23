@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_ability
-    if current_company
-      @current_ability ||= CompanyAbility.new(current_company)
-    elsif current_user
-      @current_ability ||= UserAbility.new(current_user)
-    else
-      @current_ability ||= UserAbility.new(current_user)
-    end
+    @current_ability ||= if current_company
+                           CompanyAbility.new(current_company)
+                         elsif current_user
+                           UserAbility.new(current_user)
+                         else
+                           UserAbility.new(current_user)
+                         end
   end
 end

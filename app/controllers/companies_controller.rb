@@ -2,7 +2,6 @@
 
 # companies controller
 class CompaniesController < ApplicationController
-
   before_action :find_company, only: %i[edit update destroy]
 
   def index
@@ -35,7 +34,7 @@ class CompaniesController < ApplicationController
   def destroy
     @company.destroy
     redirect_to admins_companies_path,
-                notice: 'Job Post was successfully destroyed.'
+                notice: 'Company was successfully destroyed.'
   end
 
   private

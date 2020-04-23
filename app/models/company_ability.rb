@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Company Ability
 class CompanyAbility
   include CanCan::Ability
 

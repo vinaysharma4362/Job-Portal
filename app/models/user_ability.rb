@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# User Ability
 class UserAbility
   include CanCan::Ability
 
@@ -5,9 +8,7 @@ class UserAbility
     can :read, :all
     if user.present?
       can :manage, Resume, user_id: user.id
-      if user.has_role? :admin
-        can :manage, :all
-      end
+      can :manage, :all if user.has_role? :admin
     end
   end
 end
