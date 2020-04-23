@@ -9,8 +9,8 @@ class CreateJobPosts < ActiveRecord::Migration[6.0]
       t.string :location
       t.string :required_skill
       t.string :extra_skill
-      t.integer :salary_min
-      t.integer :salary_max
+      t.bigint :salary_min
+      t.bigint :salary_max
       t.date :last_apply_date
       t.string :language
       t.string :job_field
