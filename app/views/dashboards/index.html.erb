@@ -26,26 +26,38 @@
 
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                   aria-labelledby="v-pills-nextgen-tab">
+<<<<<<< Updated upstream
                   <%= form_with(url: job_posts_search_path, local: true, method: :post) do |form| %>
+=======
+                  <%= form_with(url: job_posts_search_path, method: :get, local: true) do |form| %>
+>>>>>>> Stashed changes
                     <div class="row">
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {}, class: "form-control" %>
+                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {prompt: "Job Title"}, class: "form-control" %>
                           </div>
                         </div>
                       </div>
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
+<<<<<<< Updated upstream
                             <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location),{}, class: "form-control" %>
+=======
+                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location), {prompt: "Location", disabled: "Location"}, class: "form-control" %>
+>>>>>>> Stashed changes
                           </div>
                         </div>
                       </div>
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
+<<<<<<< Updated upstream
                             <%= form.submit 'Search', class: "form-control btn btn-primary", id: "search" %>
+=======
+                            <%= form.submit 'Search', class: "btn btn-primary btn-block btn-lg", id: "search" %>
+>>>>>>> Stashed changes
                           </div>
                         </div>
                       </div>

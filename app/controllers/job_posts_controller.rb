@@ -46,7 +46,23 @@ class JobPostsController < ApplicationController
   end
   
   def search
+<<<<<<< Updated upstream
     @job_posts = JobPost.where(job_title: params[:job_title], location: params[:location])
+=======
+    if params[:job_title] == ""
+      if params[:location] == ""
+        @job_posts = JobPost.all
+      else
+        @job_posts = JobPost.where(location: params[:location])
+      end
+    else
+      if params[:location] == ""
+        @job_posts = JobPost.where(job_title: params[:job_title])
+      else
+        @job_posts = JobPost.where(job_title: params[:job_title],location: params[:location])
+      end
+    end
+>>>>>>> Stashed changes
   end
 
   private
