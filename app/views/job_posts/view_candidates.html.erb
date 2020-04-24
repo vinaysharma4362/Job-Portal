@@ -1,0 +1,39 @@
+<div class="container" style="width:900px;">
+  <center>
+    <div class="mt-4">
+      <h2>Candidates</h2>
+    </div>
+  </center>
+  <table class="table">
+    <% if !@candidates.blank? %>
+      <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Contact No.</th>
+        <th>Resume</th>
+        <th>Status</th>
+      </tr>
+      <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.user.first_name %> <%= candidate.user.last_name %></td>
+          <td><%= candidate.user.email %></td>
+          <td><%= candidate.user.mobile %></td>
+          <td><%= link_to 'Resume', url_for(candidate.user.resume.resume_file) %></td>
+          <td>
+            <%= form_with(url: apply_job_path(candidate), method: :patch) do |f| %>
+              <div class='form-group'>
+                <%= f.select :status, ApplyJob::STATUS,{ :selected =>  candidate[:status]}, class: 'custom-select', onchange: 'this.form.submit();' %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      <br>
+      <%= will_paginate @pages, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+    <% else %>
+      <h1>Data not found</h1>
+    <% end %>
+  </table>
+</div>
+

@@ -1,21 +1,3 @@
-<<<<<<< Updated upstream
-
-<nav class="navbar navbar-expand-lg">
-  <div class="collapse navbar-collapse" id="ftco-nav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item cta mr-md-2"><%= link_to 'Post a New Job', new_company_job_post_path(current_company.id), class: "btn btn-success"%></li>
-      <li id="fat-menu" class="dropdown nav-item cta mr-md-2">
-        <a href="#" class="dropdown-toggle btn btn-dark" data-toggle="dropdown">
-          <%= current_company.title %><b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li class="divider"></li>
-          <li><%= link_to "Edit Company Profile",edit_company_registration_path, class: "dropdown-item" %></li>
-          <li><%= link_to "Sign out",destroy_company_session_path, method: :delete, class: "dropdown-item" %></li>
-        </ul>
-      </li>
-    </ul>
-=======
 <div class="container d-flex justify-content-center mt-5 mb-4">
   <br>
   <%= link_to 'Add New Post', new_company_job_post_path(current_company)	, class: "btn btn-success" %>
@@ -65,36 +47,8 @@
         </tr>
       </table>
     </div>
->>>>>>> Stashed changes
   </div>
-</nav>
-<br><br>
-
-<div class="container row">
-  <% @job_posts.each do |post| %>
-    <div class="col-md-12 ftco-animate">
-
-      <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-
-        <div class="mb-4 mb-md-0 mr-5">
-          <div class="job-post-item-header d-flex align-items-center">
-            <h2 class="mr-3 text-black h3"><%= post.job_title %></h2>
-            <div class="badge-wrap">
-             <span class="bg-secondary text-white badge py-2 px-3"><%= post.job_type %></span>
-            </div>
-          </div>
-          <div class="job-post-item-body d-block d-md-flex">
-            <div><b>Salary : </b><%= post.salary_min %> - <%= post.salary_max %></div>
-            <div class="ml-3"><span class="icon-layers"></span><b>Location : </b><%= post.location %></div>
-          </div>
-        </div>
-
-        <div class="ml-auto d-flex">
-          <%= link_to 'View Post', company_job_post_path(current_company.id, post), class: "btn btn-info py-2 mr-1" %>
-          <%= link_to 'Edit', edit_company_job_post_path(current_company.id, post), class: "btn btn-info py-2 mr-1" %>
-          <%= link_to 'Delete', company_job_post_path(current_company.id, post), method: "delete", class: "btn btn-danger py-2 mr-1" %>
-        </div>
-      </div>
-    </div><!-- end -->
-  <% end %>
+  <%= will_paginate @job_posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
 </div>
+
+

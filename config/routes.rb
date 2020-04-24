@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
+# Routes of project
 Rails.application.routes.draw do
-<<<<<<< Updated upstream
-=======
   get 'companies_dashboards/index'
 
   root 'dashboards#index'
@@ -19,17 +18,11 @@ Rails.application.routes.draw do
   delete 'admins/destroy_jobseeker/:user_id' => 'admins#destroy_jobseeker',
          as: :admin_destroy_jobseeker
 
->>>>>>> Stashed changes
   devise_for :companies, controllers: {
     registrations: 'companies/registrations',
     sessions: 'companies/sessions'
   }
-  resources :companies do
-    resources :job_posts
-    resources :apply_jobs
-  end
-  get 'companies_dashboards/index'
-  root 'dashboards#index'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -37,12 +30,31 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :resumes
-    resources :job_posts do 
-      resources :apply_jobs
-      get 'job_post_apply', on: :member
+    resources :job_posts, only: %i[index show] do
+      get 'apply_job', on: :member
+      get 'apply_job_destroy', on: :member
+      member do
+        get 'apply_job'
+      end
+    end
+  end
+  resources :charges
+  resources :apply_jobs
+  resources :companies do
+    resources :reviews do
+      collection do
+        get 'review_list'
+      end
+    end
+    resources :job_posts do
+      member do
+        get 'view_candidates'
+      end
+      collection do
+        get 'company_jobs_list'
+      end
     end
   end
 
-  post 'job_posts/search'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # match '*unmatched', to: 'application#route_not_found', via: :all
 end

@@ -1,0 +1,25 @@
+<div class="container">
+  <%= form_with(model: [@company,@review], validate: true) do |f| %>
+    <%= f.hidden_field :user_id, value: @review.user_id %>
+
+    <div class="form-group">
+      <%= f.label :Ratings %>
+      <div id="star-rating" ></div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :Review %>
+      <%= f.text_area :review_desc, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit :Submit, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

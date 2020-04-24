@@ -2,9 +2,9 @@
 
 # Resume for user controller
 class ResumesController < ApplicationController
+  load_and_authorize_resource
   before_action :find_resume, only: %i[edit update destroy show]
   before_action :find_user, only: %i[new edit create]
-
   def index
     @resumes = current_user.resume
   end
@@ -39,12 +39,16 @@ class ResumesController < ApplicationController
     redirect_to user_resumes_path, notice: 'Resume destroyed.'
   end
 
+  def resume_list
+    @resumes = Resume.all
+  end
+
   private
 
   def find_resume
     @resume = Resume.find(params[:id])
   end
-  
+
   def find_user
     @user = User.find(params[:user_id])
   end

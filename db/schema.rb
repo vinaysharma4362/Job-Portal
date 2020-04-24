@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_124608) do
+ActiveRecord::Schema.define(version: 2020_04_17_082922) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,25 +47,14 @@ ActiveRecord::Schema.define(version: 2020_03_30_124608) do
   end
 
   create_table "apply_jobs", force: :cascade do |t|
-    t.integer "status"
-    t.integer "user_id"
-    t.integer "job_post_id"
-    t.integer "company_id"
+    t.boolean "apply"
+    t.string "status", default: "not reviewed"
+    t.bigint "user_id"
+    t.bigint "job_post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_apply_jobs_on_company_id"
     t.index ["job_post_id"], name: "index_apply_jobs_on_job_post_id"
     t.index ["user_id"], name: "index_apply_jobs_on_user_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "comment"
-    t.integer "user_id"
-    t.integer "post_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -69,10 +71,13 @@ ActiveRecord::Schema.define(version: 2020_03_30_124608) do
     t.string "city"
     t.string "state"
     t.string "country"
-    t.integer "pincode"
-    t.integer "contact_no"
+    t.bigint "pincode"
+    t.bigint "contact_no"
     t.string "website"
     t.integer "status", default: 0
+    t.string "facebook"
+    t.string "instagram"
+    t.string "linkedin"
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
@@ -84,14 +89,14 @@ ActiveRecord::Schema.define(version: 2020_03_30_124608) do
     t.string "location"
     t.string "required_skill"
     t.string "extra_skill"
-    t.integer "salary_min"
-    t.integer "salary_max"
+    t.bigint "salary_min"
+    t.bigint "salary_max"
     t.date "last_apply_date"
     t.string "language"
     t.string "job_field"
     t.integer "vacancy"
-    t.string "status"
-    t.integer "company_id"
+    t.integer "status"
+    t.bigint "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_job_posts_on_company_id"
@@ -99,10 +104,32 @@ ActiveRecord::Schema.define(version: 2020_03_30_124608) do
 
   create_table "resumes", force: :cascade do |t|
     t.string "file_name"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_resumes_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "review_desc"
+    t.bigint "user_id"
+    t.bigint "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_reviews_on_company_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
+    t.index ["name"], name: "index_roles_on_name"
+    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,18 +142,25 @@ ActiveRecord::Schema.define(version: 2020_03_30_124608) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
-    t.integer "mobile"
-    t.boolean "gender"
+    t.bigint "mobile"
+    t.integer "gender"
     t.integer "active"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "apply_jobs", "companies"
   add_foreign_key "apply_jobs", "job_posts"
   add_foreign_key "apply_jobs", "users"
-  add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "users"
   add_foreign_key "job_posts", "companies"
+  add_foreign_key "reviews", "companies"
+  add_foreign_key "reviews", "users"
 end

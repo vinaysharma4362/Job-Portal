@@ -1,0 +1,29 @@
+<div class="container">
+  <h4>jobseekers</h4>
+  <%= will_paginate @jobseekers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>Name</th>
+        <th>Contact No.</th>
+        <th>Gender</th>
+        <th>Resume</th>
+        <th>Applied in jobs</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <% @jobseekers.each do |jobseeker| %>
+      <tbody>
+        <tr>
+          <td><%= jobseeker.user.first_name %> <%= jobseeker.user.last_name %></td>
+          <td><%= jobseeker.user.mobile %></td>
+          <td><%= jobseeker.user.gender %></td>
+          <td><%= link_to 'Resume', url_for(jobseeker.user.resume.resume_file), class: "btn btn-outline-primary" %></td>
+          <td><%= link_to 'Applied job', admin_applied_job_path(jobseeker.user.id), class: "btn btn-outline-primary"  %></td>
+          <td><%= link_to 'delete',admin_destroy_jobseeker_path(jobseeker.user.id), method: :delete, class: "btn btn-danger"  %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+  <%= will_paginate @jobseekers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+</div>

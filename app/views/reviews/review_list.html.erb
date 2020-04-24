@@ -1,0 +1,8 @@
+<%= render 'companies/company_show_navbar'%><br>
+<center><%= link_to 'Add review', new_company_review_path(@company), class: 'btn btn-success'%></center>
+<%= will_paginate @reviews, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mb-5 mt-4) %>
+
+<div class="container">
+  <%= render 'reviews', reviews: @reviews %><br>
+</div>
+<%= will_paginate @reviews, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mt-3) %>

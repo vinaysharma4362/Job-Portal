@@ -1,0 +1,16 @@
+<div class="jumbotron">
+	<div class="row">
+		<div class="col-md-2">
+			<p> User: <%= @review.user.email %></p>
+			<div class="star-rating" data-score=<%= @review.rating %>></div>
+			<p><%= time_ago_in_words(@review.created_at)%> ago</p>
+		</div>
+		<div class="col-md-10">
+			<%= @review.review_desc %>
+			<% if (user_signed_in? && (current_user.id == @review.user_id)) %>
+			<p><%= link_to 'Edit', edit_company_review_path(@review.company,@review)%>
+				<%= link_to 'delete', company_review_path(@review.company,@review), method: :delete %>
+				<% end %></p>
+		</div>
+	</div>
+</div>

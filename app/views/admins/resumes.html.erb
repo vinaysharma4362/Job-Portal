@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <table class="table table-sm">
+    <thead class="thead">
+      <tr>
+        <th>Field name</th>
+        <th>User name</th>
+        <th>Resume File</th>
+      </tr>
+    </thead>
+    <% @resumes.each do |resume| %>
+      <tbody>
+        <tr>
+          <td><%= resume.file_name %></td>
+          <td><%= resume.user.first_name%> <%= resume.user.last_name%></td>
+          <td><%= link_to 'download', url_for(resume.resume_file), class: "btn btn-outline-primary" %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>
