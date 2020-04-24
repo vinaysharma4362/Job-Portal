@@ -5,19 +5,19 @@
 require("packs/aos")
 require("jquery")
 require("@rails/ujs").start()
+require("jquery-ui")
 require("turbolinks").start()
 require('@client-side-validations/client-side-validations')
 require("@rails/activestorage").start()
 require("channels")
-require("jquery-ui")
+require("packs/jquery.raty")
 require("packs/select2_raty_datepicker")
 require("select2")
+require("packs/bootstrap.min")
 require("chartkick")
 require("chart.js")
-require("packs/jquery.raty")
 require("packs/owl.carousel.min")
 require("packs/bootstrap-datepicker")
-require("packs/bootstrap.min")
 require("packs/jquery.animateNumber.min")
 require("packs/jquery.easing.1.3")
 require("packs/jquery.magnific-popup.min")
@@ -43,4 +43,4 @@ $(document).ready(function () {
 // or the `imagePath` JavaScript helper below.
 //
 // const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)z
+// const imagePath = (name) => images(name, true)
