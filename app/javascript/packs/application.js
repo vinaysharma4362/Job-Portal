@@ -4,21 +4,18 @@
 // that code so it'll be compiled.
 require("packs/aos")
 require("jquery")
-
 require("@rails/ujs").start()
 require("turbolinks").start()
 require('@client-side-validations/client-side-validations')
 require("@rails/activestorage").start()
 require("channels")
-
-
-
 require("jquery-ui")
 require("packs/select2_raty_datepicker")
 require("select2")
+require("chartkick")
+require("chart.js")
 require("packs/jquery.raty")
 require("packs/owl.carousel.min")
-
 require("packs/bootstrap-datepicker")
 require("packs/bootstrap.min")
 require("packs/jquery.animateNumber.min")

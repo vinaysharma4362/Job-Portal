@@ -1,0 +1,48 @@
+<div class="container mt-3 mb-4">
+  <h4><b>Dashboard</b></h4><br>
+  <div class="row">
+  <div class="col-xl-3 col-sm-6 py-2">
+      <div class="card text-white bg-info h-100">
+        <div class="card-body bg-info d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4"><%= User.all.count-1 %></h1>
+          <h5 class="text">Users</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 py-2">
+      <div class="card text-white bg-danger h-100">
+        <div class="card-body bg-danger d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4"><%= Company.all.count %></h1>
+          <h5 class="text">Companies</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 py-2">
+      <div class="card text-white bg-warning h-100">
+        <div class="card-body bg-warning d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4"><%= JobPost.all.count %></h1>
+          <h5 class="text">Job Posts</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 py-2">
+      <div class="card text-white bg-success h-100">
+        <div class="card-body bg-success d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4"><%= ApplyJob.select(:user_id).distinct.count %></h1>
+          <h5 class="text">Jobseekers</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <center><b>Job Applied per Day</b></center>
+      <%= line_chart ApplyJob.group_by_minute(:created_at).count %>
+    </div>
+    <div class="col-md-6">
+      <center><b>Job Post Added per Day</b></center>
+      <%= line_chart JobPost.group_by_minute(:created_at).count %>
+    </div>  
+  </div>
+</div>
