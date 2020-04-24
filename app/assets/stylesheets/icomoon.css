@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'icomoon';
-  src:zz('icomoon.eot?6tt51o');
+  src:url('icomoon.eot?6tt51o');
   src:  url('icomoon.eot?6tt51o#iefix') format('embedded-opentype'),
     url('icomoon.ttf?6tt51o') format('truetype'),
     url('icomoon.woff?6tt51o') format('woff'),
