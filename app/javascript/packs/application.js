@@ -25,13 +25,9 @@ require("packs/jquery.animateNumber.min")
 require("packs/jquery.easing.1.3")
 require("packs/jquery.magnific-popup.min")
 require("packs/jquery.min")
-
 require("packs/jquery.stellar.min")
-
 require("packs/jquery.waypoints.min")
-
 require("packs/range")
-
 require("packs/scrollax.min")
 require("packs/search")
 require("trix")
