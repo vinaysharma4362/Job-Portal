@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center mt-5 mb-4">
   <br>
-  <%= link_to 'Add New Post', new_charge_path	, class: "btn btn-success" %>
+  <%= link_to 'Add New Post', new_company_job_post_path(current_company)	, class: "btn btn-success" %>
 </div>
 <div class="container">
   <%= will_paginate @job_posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>

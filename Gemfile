@@ -7,9 +7,7 @@ ruby '2.6.3'
 gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap-datepicker-rails'
 gem 'cancancan'
-gem 'chartkick'
 gem 'client_side_validations'
-gem "chartkick"
 gem 'cocoon'
 gem 'devise'
 gem 'font-awesome-rails'
@@ -27,7 +25,6 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 gem "chartkick"
 gem 'groupdate'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'

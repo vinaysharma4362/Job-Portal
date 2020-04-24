@@ -44,9 +44,9 @@
            <% if current_user %>
               <% if !@applied.any? %>
                 <% if current_user.has_role? :job_seeker %>
-                  center>
+                  <center>
                   <%= link_to 'Apply_Job', apply_job_user_job_post_path(current_user, @job_post), class: "btn btn-primary" %>
-                </center>
+                  </center>
               <% end %>
             <% end %>
           <% end %>
