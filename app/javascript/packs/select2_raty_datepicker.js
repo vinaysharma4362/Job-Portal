@@ -1,19 +1,8 @@
 $(document).on('turbolinks:before-cache', function() {
-  $('#location').select2('destroy');
-  $('#job_title').select2('destroy');
   $('#star-rating').raty('destroy');
   $('.star-rating').raty('destroy');
   } );
 document.addEventListener("turbolinks:load", function(){
-
-  $("#location").select2({
-    theme: "bootstrap",
-    height: '196px'
-  });
-
-  $("#job_title").select2({
-    theme: "bootstrap"
-  });
 
   $('#job_post_last_apply_date').datepicker({
     format: "dd-mm-yyyy",

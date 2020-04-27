@@ -1,39 +1,39 @@
 <%= render 'companies/company_show_navbar'%>
 <div class="container">
-<%= will_paginate @job_list, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mt-3 mb-5) %>
+  <%= will_paginate @job_list, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mt-3 mb-5) %>
   <div class="row">
     <% if !@job_list.blank? %>
-    <% @job_list.each do |job| %>
-    <div class="col-md-12 ftco-animate">
-      <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
-        <div class="mb-4 mb-md-0 mr-5">
-          <div class="job-post-item-header d-flex align-items-center">
-            <h2 class="mr-3 text-black h3"><%= job.job_title %></h2>
-            <div class="badge-wrap">
-              <span class="bg-primary text-white badge py-2 px-3"><%= job.job_type %></span>
+      <% @job_list.each do |job| %>
+        <div class="col-md-12 ftco-animate">
+          <div class="job-post-item bg-white p-4 d-block d-md-flex align-items-center">
+            <div class="mb-4 mb-md-0 mr-5">
+              <div class="job-post-item-header d-flex align-items-center">
+                <h2 class="mr-3 text-black h3"><%= job.job_title %></h2>
+                <div class="badge-wrap">
+                  <span class="bg-primary text-white badge py-2 px-3"><%= job.job_type %></span>
+                </div>
+              </div>
+              <div class="job-post-item-body d-block d-md-flex">
+                <div class="mr-3"><span class="icon-layers"></span>
+                  <%= link_to "#{job.company.title}", company_path(job.company_id)%></div>
+                <div><span class="icon-my_location"></span> <span><%= job.location %></span></div>
+              </div>
             </div>
+            <% if user_signed_in? %>
+              <div class="ml-auto d-flex">
+                <%= link_to "Show more", user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
+              </div>
+              <% else %>
+              <div class="ml-auto d-flex">
+                <%= link_to "Show more",company_job_post_path(job.company_id, job), class:"btn btn-primary py-2 mr-1" %>
+              </div>
+              <% end %>
           </div>
-          <div class="job-post-item-body d-block d-md-flex">
-            <div class="mr-3"><span class="icon-layers"></span>
-              <%= link_to "#{job.company.title}", company_path(job.company_id)%></div>
-            <div><span class="icon-my_location"></span> <span><%= job.location %></span></div>
-          </div>
-        </div>
-        <% if user_signed_in? %>
-          <div class="ml-auto d-flex">
-            <%= link_to "Show more", user_job_post_path(current_user, job), class:"btn btn-primary py-2 mr-1" %>
-          </div>
-          <% else %>
-          <div class="ml-auto d-flex">
-            <%= link_to "Show more",company_job_post_path(job.company_id, job), class:"btn btn-primary py-2 mr-1" %>
-          </div>
-          <% end %>
-      </div>
-    </div><!-- end -->
-    <% end %>
+        </div><!-- end -->
+      <% end %>`
     <% else %>
-    <span>Jobs not available</span>
+      <span>Jobs not available</span>
     <% end %>
   </div>
-<%= will_paginate @job_list, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mb-5 mt-4) %>
+  <%= will_paginate @job_list, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center mb-5 mt-4) %>
 </div>

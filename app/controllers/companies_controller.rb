@@ -2,7 +2,7 @@
 
 # companies controller
 class CompaniesController < ApplicationController
-  before_action :authenticate_company!, except: %i[index show]
+  load_and_authorize_resource
   before_action :find_company, only: %i[edit update destroy]
 
   def index
