@@ -1,73 +1,124 @@
 <% if current_user %>
-  <% if current_user.has_role? :admin %>
-    <div class="container mt-5" style="width:900px;">
-      <center>
-        <h3>Edit Company Profile</h3>
-      </center>
+<% if current_user.has_role? :admin %>
+<div class="container mt-5" style="width:900px;">
+  <center>
+    <h3>Edit Company Profile</h3>
+  </center>
 
-      <%= form_with(model: @company) do |f| %>
-        <div class="form-group">
-          <%= f.label :Company_logo%>
-          <%= f.file_field :logo, class: "form-control"%>
-        </div>
-        <div class="form-group-row">
-          <%= f.label :Name%>
-          <%= f.text_field :title, autofocus: true, autocomplete: "title", class: 'form-control' %>
-        </div>
-        <div class="field">
-          <%= f.label :About %>
-          <%= f.rich_text_area :about %>
-        </div>
-        <div class="form-group">
-          <%= f.label :Address %>
-          <%= f.text_area :address, autofocus: true, autocomplete: "address", class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :City %>
-          <%= f.text_field :city, autofocus: true, autocomplete: "city", class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :State %>
-          <%= f.text_field :state, autofocus: true, autocomplete: "state", class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :Countyr %>
-          <%= f.text_field :country, autofocus: true, autocomplete: "country", class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :Pincode %>
-          <%= f.text_field :pincode, autofocus: true, autocomplete: "pincode", class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :Contact_no %>
-          <%= f.text_field :contact_no, autofocus: true, autocomplete: "contact_no", class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :Website %>
-          <%= f.text_field :website, autofocus: true, autocomplete: "website", class: 'form-control' %>
-        </div>
-
-        <h3>Social Links</h3>
-        <div class="form-group">
-          <span class="icon-facebook"></span>
-          <%= f.text_field :facebook, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <span class="icon-instagram"></span>
-          <%= f.text_field :instagram, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <span class="icon-linkedin"></span>
-          <%= f.text_field :linkedin, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :status %>
-          <%= f.select(:status, Company.statuses.keys, {prompt: 'Select Field'}, class: 'form-control' )%>
-        </div>
-        <div class="form-group">
-          <%= f.submit "Update", class: 'btn btn-group' %>
-        </div>
-      <% end %>
+  <%= form_with(model: @company) do |f| %>
+  <div class="form-group row">
+    <%= f.label :Company_logo, class: "col-form-label col-sm-2"%>
+    <div class="col-sm-10">
+      <%= f.file_field :logo, class: "form-control"%>
     </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :Name, class: "col-form-label col-sm-2"%>
+    <div class="col-sm-10">
+      <%= f.text_field :title, autofocus: true, autocomplete: "title", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :About, class: "col-form-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.rich_text_area :about %>
+    </div>
+  </div>
+
+  <h3>Address Information</h3>
+
+  <div class="form-group row">
+    <%= f.label :Address, class: "col-form-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_area :address, autofocus: true, autocomplete: "address", class: 'form-control' %>
+    </div>
+
+  </div>
+  <div class="form-group row">
+    <%= f.label :City, class: "col-form-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_field :city, autofocus: true, autocomplete: "city", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :State, class: "col-form-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_field :state, autofocus: true, autocomplete: "state", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :County, class: "col-form-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_field :country, autofocus: true, autocomplete: "country", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <%= f.label :Pincode, class: "col-form-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_field :pincode, autofocus: true, autocomplete: "pincode", class: 'form-control' %>
+    </div>
+  </div>
+
+  <!--End of address----------------->
+
+  <!--Contact Information------------>
+  <h3>Contact Information</h3>
+
+  <div class="form-group row">
+    <div class="col-form-label col-sm-2">
+      <span class="icon-facebook"></span>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_field :facebook, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-form-label col-sm-2">
+      <span class="icon-instagram"></span>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_field :instagram, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-form-label col-sm-2">
+      <span class="icon-linkedin"></span>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_field :linkedin, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-form-label col-sm-2">
+      <span class="icon-phone"></span>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_field :contact_no, autofocus: true, autocomplete: "contact_no", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group row">
+
+    <div class="col-form-label col-sm-2">
+      website
+      <span class="icon-link2"></span>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_field :website, autofocus: true, autocomplete: "website", class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= f.select(:status, Company.statuses.keys, {prompt: 'Select Field'}, class: 'form-control' )%>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Update", class: 'btn btn-group' %>
+  </div>
   <% end %>
+</div>
+<% end %>
 <% end %>

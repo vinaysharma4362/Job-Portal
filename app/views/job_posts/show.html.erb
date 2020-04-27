@@ -41,7 +41,6 @@
           <% if !@job_post.last_apply_date&.strftime("%d %b, %Y").blank? %>
           <p><b>Last date to apply is <%= @job_post.last_apply_date&.strftime("%d %b, %Y") %><p>
           <% end %>
-          <% if user_signed_in? %>
            <% if current_user %>
               <% if !@applied.any? %>
                 <% if current_user.has_role? :job_seeker %>
@@ -51,9 +50,6 @@
               <% end %>
             <% end %>
             <%end%>
-          <% else %>
-            <%= link_to "Apply Job", new_user_session_path, class: "btn btn-primary"%>
-          <% end %>
         </div>
         <div class="col-lg-3">
           <div class="p-4 mb-3 bg-white">
