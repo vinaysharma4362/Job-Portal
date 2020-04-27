@@ -38,11 +38,11 @@
   <div class="row mt-5">
     <div class="col-md-6">
       <center><b>Job Applied per Day</b></center>
-      <%= line_chart ApplyJob.group_by_minute(:created_at).count %>
+      <%= line_chart ApplyJob.group_by_day(:created_at).count %>
     </div>
     <div class="col-md-6">
       <center><b>Job Post Added per Day</b></center>
-      <%= line_chart JobPost.group_by_minute(:created_at).count %>
+      <%= line_chart JobPost.group_by_day(:created_at).count %>
     </div>  
   </div>
 </div>

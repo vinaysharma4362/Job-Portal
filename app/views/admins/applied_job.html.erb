@@ -31,11 +31,7 @@
             <%= link_to '<span class= "icon-delete"></span>'.html_safe, company_job_post_path(post.job_post.company, post), method: "delete", class: "btn btn-outline-danger" %>
           </td>
           <td>
-            <%= form_for(post, url: company_job_post_path(post.job_post.company, post)) do |f| %>
-            <div class='form-group'>
-              <%= f.select :status, ApplyJob::STATUS, {}, { value: post.status, class: 'custom-select', onchange: 'this.form.submit();' } %>
-            </div>
-            <% end %>
+            <%= post.status%>
           </td>
         </tr>
       <tbody>

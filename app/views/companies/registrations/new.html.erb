@@ -137,8 +137,7 @@
   <!---end of social links --->
 
   <div class="form-group row">
-    <%= f.label :status %>
-    <%= f.select(:status, Company.statuses.keys, {prompt: 'Select Field'}, class: 'form-control' )%>
+    <%= f.hidden_field :status %>
   </div>
 
 
