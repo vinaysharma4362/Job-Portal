@@ -21,26 +21,26 @@
               <div class="tab-content p-4" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                   aria-labelledby="v-pills-nextgen-tab">
-                  <%= form_with(url: job_posts_search_path, method: :post, local: true) do |form| %>
+                  <%= form_with(url: job_posts_search_path, method: :get, local: true) do |form| %>
                     <div class="row">
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {}, class: "form-control" %>
+                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {prompt: "---Job Post---"}, class: "form-control" %>
                           </div>
                         </div>
                       </div>
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location),{}, class: "form-control form-control-lg" %>
+                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location), {prompt: "---Location---", disabled: "Location"}, class: "form-control" %>
                           </div>
                         </div>
                       </div>
                       <div class="col-md">
                         <div class="form-group">
                           <div class="form-field">
-                            <%= form.submit 'Search', class: "btn btn-primary btn-block", id: "search" %>
+                            <%= form.submit 'Search', class: "btn btn-primary btn-block btn-lg", id: "search" %>
                           </div>
                         </div>
                       </div>

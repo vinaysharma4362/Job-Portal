@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'dashboards#index'
 
-  post 'job_posts/search'
+  get 'job_posts/search'
 
   get 'admins/companies'
   get 'admins/jobseekers'
@@ -56,5 +56,5 @@ Rails.application.routes.draw do
     end
   end
 
-  match '*unmatched', to: 'application#route_not_found', via: :all
+  # match '*unmatched', to: 'application#route_not_found', via: :all
 end

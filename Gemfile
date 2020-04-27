@@ -6,28 +6,30 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap-datepicker-rails'
-gem 'bootstrap-datepicker-rails'
 gem 'cancancan'
 gem 'client_side_validations'
 gem 'cocoon'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'groupdate'
 gem 'hirb'
 gem 'image_processing'
 gem 'jquery-ui-rails'
 gem 'mini_magick'
+gem 'pg'
 gem 'rolify'
 gem 'rubocop', require: false
 gem 'select2-rails'
 gem 'stripe'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
+gem "chartkick"
+gem 'groupdate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'jquery-rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets

@@ -3,6 +3,10 @@
 # Job post model
 class JobPost < ApplicationRecord
   has_rich_text :description
+  has_rich_text :required_skill
+  has_rich_text :extra_skill
+  has_rich_text :language
+
   belongs_to :company
   has_many :comments
   has_many :apply_job, dependent: :destroy

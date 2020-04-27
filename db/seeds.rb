@@ -15,18 +15,19 @@ User.create(
   email: 'admin@gmail.com',
   first_name: 'admin',
   last_name: 'panel',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
 admin = User.find_by(email: 'admin@gmail.com')
 admin.add_role :admin
+admin.remove_role :job_seeker
 
 User.create(
   email: 'v@1.com',
   first_name: 'user1',
   last_name: 'v@1',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
@@ -34,7 +35,7 @@ User.create(
   email: 'v@2.com',
   first_name: 'user2',
   last_name: 'v@2',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
@@ -42,7 +43,7 @@ User.create(
   email: 'v@3.com',
   first_name: 'user3',
   last_name: 'v@3',
-  mobile: '9889989898',
+  mobile: '9974440354',
   password: '123456'
 )
 
