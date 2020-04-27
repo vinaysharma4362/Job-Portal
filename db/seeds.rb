@@ -21,6 +21,7 @@ User.create(
 
 admin = User.find_by(email: 'admin@gmail.com')
 admin.add_role :admin
+admin.remove_role :job_seeker
 
 User.create(
   email: 'v@1.com',
