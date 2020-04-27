@@ -1,20 +1,21 @@
 <div class="container">
   <h4>Job Posts</h4>
   <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
-  <table class="table table-sm">
-    <thead class="thead">
-      <tr>
-        <th>Profile</th>
-        <th>Type</th>
-        <th>Salary</th>
-        <th>Location</th>
-        <th>View</th>
-        <th>Edit</th>
-        <th>Delete</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <% @posts.each do |post| %>
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead class="thead">
+        <tr>
+          <th>Profile</th>
+          <th>Type</th>
+          <th>Salary</th>
+          <th>Location</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <% @posts.each do |post| %>
       <tbody>
         <tr>
           <td><%= post.job_post.job_title %></td>
@@ -22,20 +23,28 @@
           <td><%= post.job_post.salary_min %> - <%= post.job_post.salary_max %></td>
           <td><%= post.job_post.location %></td>
           <td>
-            <%= link_to '<span class= "icon-eye"></span>'.html_safe, company_job_post_path(post.job_post.company, post), class: "btn btn-outline-info" %>
+            <%= link_to company_job_post_path(post.job_post.company, post) do %>
+            <%= content_tag :span, "", class: "icon-eye btn btn-outline-primary"%>
+            <% end %>
           </td>
           <td>
-            <%= link_to '<span class= "icon-edit"></span>'.html_safe, edit_company_job_post_path(post.job_post.company, post), class: "btn btn-outline-info" %>
+            <%= link_to edit_company_job_post_path(post.job_post.company, post) do %>
+            <% content_tag :span, "", class: "icon-edit btn btn-outline-info" %>
+            <% end %>
           </td>
           <td>
-            <%= link_to '<span class= "icon-delete"></span>'.html_safe, company_job_post_path(post.job_post.company, post), method: "delete", class: "btn btn-outline-danger" %>
+            <%= link_to company_job_post_path(post.job_post.company, post) do %>
+            <% content_tag :span, "", class: "icon-delete btn btn-outline-danger", method: :delete ,data: {confirm:"Are you sure?"} %>
+            <% end %>
           </td>
+          s </td>
           <td>
             <%= post.status%>
           </td>
         </tr>
-      <tbody>
-    <% end %>
-  </table>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
   <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
 </div>
