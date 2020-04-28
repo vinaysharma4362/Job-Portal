@@ -1,0 +1,37 @@
+<h4>Users</h4>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Gender</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user|%>
+      <tr>
+        <td><%= user.first_name%></td>
+        <td><%= user.last_name%></td>
+        <td><%= user.email%></td>
+        <td><%= user.mobile%></td>
+        <td><%= user.gender%></td>
+         <td>
+            <%= link_to edit_user_path(user) do %>
+            <%= content_tag :span, "", class: "icon-edit btn btn-outline-info"%>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to user_path(user), method: :delete , data: {confirm:"Are you sure?"} do %>
+            <%= content_tag :span, "", class: "icon-delete btn btn-outline-danger"%>
+            <% end %>
+          </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
