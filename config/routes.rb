@@ -2,6 +2,7 @@
 
 # Routes of project
 Rails.application.routes.draw do
+
   get 'companies_dashboards/index'
 
   root 'dashboards#index'
@@ -13,8 +14,8 @@ Rails.application.routes.draw do
   get 'admins/job_posts'
   get 'admins/index'
   get 'admins/resumes'
+  get 'admins/user_list'
   get 'admins/applied_job/:user_id' => 'admins#applied_job', as: :admin_applied_job
-
   delete 'admins/destroy_jobseeker/:user_id' => 'admins#destroy_jobseeker',
          as: :admin_destroy_jobseeker
 

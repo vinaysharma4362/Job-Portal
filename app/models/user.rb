@@ -29,9 +29,9 @@ class User < ApplicationRecord
                                    message: 'Enter valid First Name' }
   validates :last_name, format: { with: /[a-zA-Z]/,
                                   message: 'Enter valid Last Name' }
-  validates :password, length: { in: 6..20,
-                                 message: 'Password length (between 6-20)' },
-                       if: :password
+  # validates :password, length: { in: 6..20,
+  #                                message: 'Password length (between 6-20)' },
+  #  if: :password
   validates :mobile, presence: { message: 'Enter valid Mobile' },
                      numericality: true,
                      length: { minimum: 10, maximum: 15 }
