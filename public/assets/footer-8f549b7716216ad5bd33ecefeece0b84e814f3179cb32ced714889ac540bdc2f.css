@@ -1,0 +1,76 @@
+/* line 1, app/assets/stylesheets/footer.scss */
+footer {
+  background: #222;
+  color: #aaa;
+  padding-top: 10px;
+}
+
+/* line 7, app/assets/stylesheets/footer.scss */
+footer a {
+  color: #aaa;
+}
+
+/* line 11, app/assets/stylesheets/footer.scss */
+footer a:hover {
+  color: #0894d1;
+}
+
+/* line 15, app/assets/stylesheets/footer.scss */
+footer h3 {
+  color: #0894d1;
+  letter-spacing: 1px;
+  margin: 30px 0 20px;
+}
+
+/* line 21, app/assets/stylesheets/footer.scss */
+footer .three-column {
+  overflow: hidden;
+}
+
+/* line 25, app/assets/stylesheets/footer.scss */
+footer .three-column li {
+  width: 33.3333%;
+  float: left;
+  padding: 5px 0;
+}
+
+/* line 31, app/assets/stylesheets/footer.scss */
+footer .socila-list {
+  overflow: hidden;
+  margin: 20px 0 10px;
+}
+
+/* line 36, app/assets/stylesheets/footer.scss */
+footer .socila-list li {
+  float: left;
+  margin-right: 3px;
+  opacity: 0.7;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+/* line 45, app/assets/stylesheets/footer.scss */
+footer .socila-list li:hover {
+  opacity: 1;
+}
+
+/* line 49, app/assets/stylesheets/footer.scss */
+footer .img-thumbnail {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid #444;
+  margin-bottom: 5px;
+}
+
+/* line 55, app/assets/stylesheets/footer.scss */
+footer .copyright {
+  padding: 15px 0;
+  background: #333;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+/* line 62, app/assets/stylesheets/footer.scss */
+footer .copyright span {
+  color: #0894d1;
+}
