@@ -5,9 +5,8 @@ $(document).on('turbolinks:before-cache', function() {
 document.addEventListener("turbolinks:load", function(){
 
   $('#job_post_last_apply_date').datepicker({
-    format: "dd-mm-yyyy",
-    autoclose: true,
-    startDate: 'd'
+    minDate:new Date(),
+    dateFormat: "dd-mm-yy"
   });
 
   $('.star-rating').raty({
