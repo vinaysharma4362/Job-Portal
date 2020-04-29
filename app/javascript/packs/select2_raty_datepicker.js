@@ -1,7 +1,7 @@
 $(document).on('turbolinks:before-cache', function() {
   $('#star-rating').raty('destroy');
   $('.star-rating').raty('destroy');
-  } );
+});
 document.addEventListener("turbolinks:load", function(){
 
   $('#job_post_last_apply_date').datepicker({
@@ -26,5 +26,13 @@ document.addEventListener("turbolinks:load", function(){
     theme: "bootstrap",
     tags: true,
     width: '100%'
+  });
+
+  $("#job_title").select2({
+    theme: "bootstrap"
+  });
+
+  $("#location").select2({
+    theme: "bootstrap"
   });
 })
