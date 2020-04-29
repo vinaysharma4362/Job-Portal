@@ -21,4 +21,10 @@ document.addEventListener("turbolinks:load", function(){
     path: '/assets/',
     scoreName: 'review[rating]'
   });
+
+  $("#job_post_location").select2({
+    theme: "bootstrap",
+    tags: true,
+    width: '100%'
+  });
 })
