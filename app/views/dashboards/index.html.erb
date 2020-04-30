@@ -26,14 +26,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <div class="form-field">
-                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {prompt: "---Job Post---"}, class: "form-control" %>
+                            <%= form.select :job_title, options_from_collection_for_select(JobPost.select(:job_title).distinct, :job_title, :job_title), {prompt: "JOBS(ALL)"}, class: "form-control" %>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <div class="form-field">
-                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location), {prompt: "---Location---", disabled: "Location"}, class: "form-control" %>
+                            <%= form.select :location, options_from_collection_for_select(JobPost.select(:location).distinct, :location, :location), {prompt: "LOCATION(ALL)", disabled: "Location"}, class: "form-control" %>
                           </div>
                         </div>
                       </div>
