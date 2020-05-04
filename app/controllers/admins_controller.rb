@@ -20,7 +20,7 @@ class AdminsController < ApplicationController
   end
 
   def job_posts
-    @job_posts = JobPost.all.paginate(page: params[:page], per_page: 10)
+    @job_posts = JobPost.all.order('created_at DESC').paginate(page: params[:page], per_page: 10)
   end
 
   def resumes
