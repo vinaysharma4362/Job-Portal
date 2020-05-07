@@ -28,7 +28,7 @@ class Users::SessionsController < Devise::SessionsController
     if current_user.has_role? :admin
       admins_index_path
     else
-      root_path
+      stored_location_for(:jobseeker) || super
     end
   end
 

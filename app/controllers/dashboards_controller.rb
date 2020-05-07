@@ -2,6 +2,7 @@
 
 # dashboard controller
 class DashboardsController < ApplicationController
+  before_action :set_path
   def index
     if current_user
       redirect_to admins_index_path if current_user.has_role? :admin
@@ -18,5 +19,10 @@ class DashboardsController < ApplicationController
 
   def company_list
     @companies = Company.all
+  end
+
+  private
+  def set_path
+    session[:return_to] = request.fullpath
   end
 end
