@@ -26,6 +26,9 @@
         <li class="<%if current_page?("/admins/resumes")%>active<%end%>">
           <%= link_to '<span class= "flaticon-resume"></span> Resume'.html_safe, "/admins/resumes"%>
         </li>
+         <li class="<%if current_page?("/admins/user_list")%>active<%end%>">
+          <%= link_to '<span class= "icon-person"></span> User'.html_safe, "/admins/user_list"%>
+        </li>
       </ul>
     </nav>
     <!-- Page Content -->

@@ -34,7 +34,7 @@
             <% end %>
           </td>
           <td>
-            <%= link_to company_job_post_path(post.company, post), method: "delete" do %>
+            <%= link_to company_job_post_path(post.company, post), method: "delete", data: {confirm:"Are you sure?"} do %>
             <%= content_tag :span, "", class: "icon-delete btn btn-outline-danger"%>
             <% end %>
           </td>

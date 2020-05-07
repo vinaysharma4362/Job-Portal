@@ -10,6 +10,10 @@ class AdminsController < ApplicationController
     @companies = Company.all.paginate(page: params[:page], per_page: 10)
   end
 
+  def user_list
+    @users = User.all
+  end
+
   def jobseekers
     @jobseekers = ApplyJob.eager_load(:job_post, user: :resume)
                           .paginate(page: params[:page], per_page: 10)

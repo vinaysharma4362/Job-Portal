@@ -1,4 +1,7 @@
 $(document).on('turbolinks:before-cache', function() {
+  $("#job_title").select2('destroy');
+  $("#location").select2('destroy');
+
   $('#star-rating').raty('destroy');
   $('.star-rating').raty('destroy');
   $('#location').select2('destroy');

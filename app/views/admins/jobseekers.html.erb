@@ -31,8 +31,8 @@
         <% end %>
       </table>
     </div>
-    <%= will_paginate @jobseekers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
-  </div>
+      <%= will_paginate @jobseekers, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+    </div>
 <% else %>
   <div class="mt-4 d-flex justify-content-center">
     <h4>No Jobseekers!!!</h4>
