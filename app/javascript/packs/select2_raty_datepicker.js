@@ -4,6 +4,8 @@ $(document).on('turbolinks:before-cache', function() {
 
   $('#star-rating').raty('destroy');
   $('.star-rating').raty('destroy');
+  $('#location').select2('destroy');
+  $('#job_title').select2('destroy');
 });
 document.addEventListener("turbolinks:load", function(){
 

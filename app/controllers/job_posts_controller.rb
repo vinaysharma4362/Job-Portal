@@ -30,6 +30,7 @@ class JobPostsController < ApplicationController
 
   def show
     if current_user
+      session[:return_to] = request.fullpath
       @applied = ApplyJob.where('user_id=? AND job_post_id=?',
                                 current_user.id, @job_post.id)
     end
@@ -80,11 +81,11 @@ class JobPostsController < ApplicationController
       @apply_job = ApplyJob.new(user_id: current_user.id,
                                 job_post_id: params[:id], apply: true)
       if @apply_job.save!
-        redirect_to apply_jobs_path, notice: 'Job Appllied successfully'
+        redirect_to user_job_post_path, notice: 'Job Appllied successfully'
       else
         render 'new'
       end
-    else redirect_to user_resumes_path
+    else redirect_to new_user_resume_path(current_user)
     end
   end
 

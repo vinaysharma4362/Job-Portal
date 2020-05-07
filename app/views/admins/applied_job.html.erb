@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
   <h4>Job Posts</h4>
   <%= will_paginate @posts, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
   <div class="table-responsive">
@@ -36,7 +36,6 @@
             <%= link_to company_job_post_path(post.job_post.company, post) do %>
             <% content_tag :span, "", class: "icon-delete btn btn-outline-danger", method: :delete ,data: {confirm:"Are you sure?"} %>
             <% end %>
-          </td>
           </td>
           <td>
             <%= post.status%>

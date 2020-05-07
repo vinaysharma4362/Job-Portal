@@ -4,7 +4,8 @@
 class ResumesController < ApplicationController
   load_and_authorize_resource
   before_action :find_resume, only: %i[edit update destroy show]
-  before_action :find_user, only: %i[new edit create]
+  before_action :find_user, only: %i[new edit create destroy]
+
   def index
     @resumes = current_user.resume
   end
@@ -14,11 +15,14 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume = Resume.new(resume_params)
-    if @resume.save
-      redirect_to user_resumes_path, notice: 'Resume created.'
-    else
-      render :new
+    @user = Resume.find_by(user_id: current_user)
+    if @user == nil
+      @resume = Resume.new(resume_params)
+      if @resume.save
+        redirect_to session[:return_to], notice: 'Resume Uploaded.'
+      else
+        render :new
+      end
     end
   end
 
@@ -36,6 +40,8 @@ class ResumesController < ApplicationController
 
   def destroy
     @resume.destroy
+    @apply_job = ApplyJob.where(user_id: @user)
+    @apply_job.delete_all
     redirect_to user_resumes_path, notice: 'Resume destroyed.'
   end
 
