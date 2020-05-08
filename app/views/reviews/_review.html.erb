@@ -6,22 +6,20 @@
 			<p><%= time_ago_in_words(review.created_at)%> ago</p>
 		</div>
 		<div class="col-md-10">
-			<%= truncate review.review_desc, length: 160 %>
+			<%= truncate review.review_desc, length: 250%>
 			<%= link_to 'read more', company_review_path(@company,review), class: 'text-success'%>
-			<% if (user_signed_in? && (current_user.id == review.user_id)) %>
-		  	<br><%= link_to 'Edit', edit_company_review_path(review.company,review)%>
-				<%= link_to 'delete', company_review_path(review.company,review), method: :delete %>
+			<p class="align-self-end pull-right">
+				<br>
+				<% if (user_signed_in? && (current_user.id == review.user_id)) %>
+				<%= link_to edit_company_review_path(review.company,review) do %>
+				<%= content_tag :span,"",class: "icon-edit btn btn-outline-info"%>
+				<%end%>
+				<%= link_to company_review_path(review.company,review), method: :delete do %>
+				<%= content_tag :span,"",class: "icon-delete btn btn-outline-danger"%>
+				<%end%>
 				<% end %>
+			</p>
 		</div>
 	</div>
 </div>
 
-<script>
-	$('.star-rating').raty({
-		readOnly: true,
-		score: function () {
-			return $(this).attr('data-score');
-		},
-		path: '/assets/'
-	});
-</script>
