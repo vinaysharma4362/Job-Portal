@@ -7,10 +7,17 @@
 		</div>
 		<div class="col-md-10">
 			<%= @review.review_desc %>
-			<% if (user_signed_in? && (current_user.id == @review.user_id)) %>
-			<p><%= link_to 'Edit', edit_company_review_path(@review.company,@review)%>
-				<%= link_to 'delete', company_review_path(@review.company,@review), method: :delete %>
-				<% end %></p>
+			<br>
+			<p class="align-self-end pull-right">
+				<% if (user_signed_in? && (current_user.id == @review.user_id)) %>
+				<%= link_to edit_company_review_path(@review.company,@review) do %>
+				<%= content_tag :span,"",class: "icon-edit btn btn-outline-info"%>
+				<% end %>
+				<%= link_to company_review_path(@review.company,@review), method: :delete do %>
+				<%= content_tag :span,"",class: "icon-delete btn btn-outline-danger"%>
+				<% end %>
+				<% end %>
+			</p>
 		</div>
 	</div>
 </div>

@@ -7,19 +7,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   after_create :assign_default_role
 
-  has_many :resume
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum active: %i[Online Offline]
   enum gender: %i[male female other]
-
-  has_many :apply_job, dependent: :destroy
-
-  has_one :review, dependent: :destroy
-
   has_many :apply_job, dependent: :destroy
   has_many :reviews, dependent: :destroy
-
   has_many :job_posts, through: :apply_job
   has_one :resume, dependent: :destroy
 
