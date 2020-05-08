@@ -7,9 +7,11 @@
       <span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-      <li class="nav_item <%if current_page?(company_job_posts_path(current_company.id))%>active<%end%>"><%= link_to "JOBPOST",company_job_posts_path(current_company.id), class: "nav-link" %>
+      <li class="nav_item <%if current_page?(company_path(current_company.id))%>active<%end%>"><%= link_to "Profile",company_path(current_company.id), class: "nav-link" %>
       </li>
-      <li class="nav_item <%if current_page?(edit_company_registration_path)%>active<%end%>"><%= link_to "PROFILE",edit_company_registration_path, class: "nav-link" %>
+      <li class="nav_item <%if current_page?(company_job_posts_path(current_company.id))%>active<%end%>"><%= link_to "JobPosts",company_job_posts_path(current_company.id), class: "nav-link" %>
+      </li>
+      <li class="nav_item <%if current_page?(edit_company_registration_path)%>active<%end%>"><%= link_to "Edit Profile",edit_company_registration_path, class: "nav-link" %>
       </li>
       <li class="nav-item cta me-md-2 ml-3"><%= link_to "Sign out",destroy_company_session_path, method: :delete, class: "btn btn-primary py-2 mr-1"%></li>
       </ul>

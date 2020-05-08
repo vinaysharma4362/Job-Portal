@@ -3,6 +3,7 @@
 # companies controller
 class CompaniesController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource only: %i[show]
   before_action :find_company, only: %i[edit update destroy]
 
   def index
