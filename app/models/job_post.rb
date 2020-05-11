@@ -15,7 +15,8 @@ class JobPost < ApplicationRecord
   validates :job_title, presence: true
   validates :description, presence: true
   validates :job_type, presence: true
-  validates :salary_min, numericality: { greater_than: 0 }
+  validates :salary_min, numericality: { greater_than: 0,
+                                         less_than: :salary_max }
   validates :salary_max, numericality: { greater_than: 0,
                                          greater_than: :salary_min }
 
