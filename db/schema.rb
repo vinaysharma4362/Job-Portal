@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 2020_04_17_082922) do
     t.string "last_name"
     t.bigint "mobile"
     t.integer "gender"
-    t.integer "active"
+    t.datetime "last_seen_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

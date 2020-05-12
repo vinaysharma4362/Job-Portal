@@ -48,9 +48,6 @@
           <%= f.select :gender, User.genders.keys, {}, class: "form-control" %>
         </div>
 
-        <div class="form-group">
-          <%= f.hidden_field :active %>
-        </div>
 
         <div class="form-group">
           <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>

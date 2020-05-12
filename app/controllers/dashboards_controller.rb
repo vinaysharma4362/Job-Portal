@@ -22,6 +22,7 @@ class DashboardsController < ApplicationController
   end
 
   private
+
   def set_path
     session[:return_to] = request.fullpath
   end

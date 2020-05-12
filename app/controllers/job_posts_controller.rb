@@ -29,11 +29,11 @@ class JobPostsController < ApplicationController
   end
 
   def show
-    if current_user
-      session[:return_to] = request.fullpath
-      @applied = ApplyJob.where('user_id=? AND job_post_id=?',
-                                current_user.id, @job_post.id)
-    end
+    return unless current_user
+
+    session[:return_to] = request.fullpath
+    @applied = ApplyJob.where('user_id=? AND job_post_id=?',
+                              current_user.id, @job_post.id)
   end
 
   def edit; end
