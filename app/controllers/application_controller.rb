@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :store_user_location!, if: :storable_location?
-  before_action :set_last_seen_at, if: :user_signed_in?
+  # before_action :set_last_seen_at, if: :user_signed_in?
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }
@@ -25,11 +25,11 @@ class ApplicationController < ActionController::Base
                          end
   end
 
-  protected
+  # protected
 
-  def set_last_seen_at
-    current_user.touch(:last_seen_at)
-  end
+  # def set_last_seen_at
+  #   current_user.touch(:last_seen_at)
+  # end
 
   private
 
