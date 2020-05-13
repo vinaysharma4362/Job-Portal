@@ -16,13 +16,13 @@ class ResumesController < ApplicationController
 
   def create
     @user = Resume.find_by(user_id: current_user)
-    if @user == nil
-      @resume = Resume.new(resume_params)
-      if @resume.save
-        redirect_to session[:return_to], notice: 'Resume Uploaded.'
-      else
-        render :new
-      end
+    return unless @user.nil?
+
+    @resume = Resume.new(resume_params)
+    if @resume.save
+      redirect_to session[:return_to], notice: 'Resume Uploaded.'
+    else
+      render :new
     end
   end
 

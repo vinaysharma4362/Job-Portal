@@ -3,6 +3,8 @@
 # Admin controller
 class AdminsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_last_seen_at, if: :user_signed_in?
+
 
   def index; end
 
@@ -39,5 +41,11 @@ class AdminsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     @user.destroy
     redirect_to admins_jobseekers_path
+  end
+
+  private
+
+  def set_last_seen_at
+    current_user.touch(:last_seen_at)
   end
 end

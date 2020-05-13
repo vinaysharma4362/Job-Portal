@@ -10,7 +10,7 @@ class UserAbility
       can :manage, Resume, user_id: user.id
       can :manage, :all if user.has_role? :admin
     else
-      can :read, :all 
+      can :read, :all
     end
   end
 end

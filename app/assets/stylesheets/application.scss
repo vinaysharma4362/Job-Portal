@@ -21,7 +21,6 @@
  *= require_tree .
  *= require jquery-ui
  *= require select2
- *= require sidebar
  *= require select2-bootstrap
 */
 
@@ -61,4 +60,9 @@ tbody td {
 
 tbody :hover {
   background-color: #DCDCDC;
+}
+
+
+.navbar {
+  z-index : 999;
 }

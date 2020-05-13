@@ -1,10 +1,10 @@
 <div class="container">
-	<div class="card">
-		<div class="card-header">
+	<div class="card mt-3">
+		<div class="card-header align-items-center">
 			<div class="row">
 				User: <%= @review.user.first_name %> <%= @review.user.last_name %>&nbsp;
-				<div class="star-rating" data-score=<%= @review.rating %>></div>&nbsp; -
-				<%= time_ago_in_words(@review.updated_at)%> ago
+				<div class="star-rating" data-score=<%= @review.rating %>></div>&nbsp; 
+				(<p class="small"><%= time_ago_in_words(@review.created_at)%> ago</p>)
 			</div>
 		</div>
 		<div class="card-body">

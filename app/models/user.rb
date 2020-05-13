@@ -29,6 +29,13 @@ class User < ApplicationRecord
                      numericality: true,
                      length: { minimum: 10, maximum: 15 }
 
+  scope :online, -> { where('last_seen_at > ?', 15.minutes.ago) }
+
+  def gravatar
+    hash = Digest::MD5.hexdigest(email.downcase)
+    "https://www.gravatar.com/avatar/#{hash}"
+  end
+
   private
 
   def assign_default_role
