@@ -4,7 +4,6 @@
 class ResumesController < ApplicationController
   load_and_authorize_resource
   before_action :find_resume, only: %i[edit update destroy show]
-  before_action :find_user, only: %i[new edit create destroy]
 
   def index
     @resumes = current_user.resume
@@ -19,6 +18,7 @@ class ResumesController < ApplicationController
     return unless @user.nil?
 
     @resume = Resume.new(resume_params)
+    @resume.user_id = current_user.id
     if @resume.save
       redirect_to session[:return_to], notice: 'Resume Uploaded.'
     else
@@ -32,7 +32,7 @@ class ResumesController < ApplicationController
 
   def update
     if @resume.update(resume_params)
-      redirect_to user_resumes_path, notice: 'Resume updated.'
+      redirect_to resumes_path, notice: 'Resume updated.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class ResumesController < ApplicationController
     @resume.destroy
     @apply_job = ApplyJob.where(user_id: @user)
     @apply_job.delete_all
-    redirect_to user_resumes_path, notice: 'Resume destroyed.'
+    redirect_to resumes_path, notice: 'Resume destroyed.'
   end
 
   def resume_list
@@ -55,13 +55,9 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
   end
 
-  def find_user
-    @user = User.find(params[:user_id])
-  end
-
   # Never trust parameters from the scary internet, only allow the white list
   # through.
   def resume_params
-    params.require(:resume).permit(:file_name, :resume_file, :user_id)
+    params.require(:resume).permit(:file_name, :resume_file)
   end
 end

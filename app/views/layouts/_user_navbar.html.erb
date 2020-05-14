@@ -10,7 +10,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav_item <%if current_page?(companies_path)%>active<%end%>"><%= link_to 'Company', companies_path, class: "nav-link" %></li>
           <li class="nav_item <%if current_page?(edit_user_registration_path)%>active<%end%>"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
-          <li class="nav_item <%if current_page?(user_resumes_path(current_user.id))%>active<%end%>"><%= link_to 'Upload Resume',user_resumes_path(current_user.id),  class: 'nav-link' %>
+          <li class="nav_item <%if current_page?(resumes_path)%>active<%end%>"><%= link_to 'Upload Resume', resumes_path, class: 'nav-link' %>
           </li>
           <li class="nav_item <%if current_page?(apply_jobs_path)%>active<%end%>"><%= link_to "Apply job list", apply_jobs_path, class: "nav-link"%></li>
           <li class="nav-item cta me-md-2">

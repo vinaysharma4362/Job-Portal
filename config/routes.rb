@@ -30,7 +30,6 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :resumes
     resources :job_posts, only: %i[index show] do
       get 'apply_job', on: :member
       get 'apply_job_destroy', on: :member
@@ -39,6 +38,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :resumes
   resources :charges
   resources :apply_jobs
   resources :companies do

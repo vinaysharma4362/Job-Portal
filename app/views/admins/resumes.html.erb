@@ -23,12 +23,12 @@
               <% end %>
             </td>
             <td>
-              <%= link_to edit_user_resume_path(resume.user, resume) do %>
+              <%= link_to edit_resume_path(resume) do %>
               <%= content_tag :span,"",class: 'icon-edit btn btn-outline-info' %>
               <% end %>
             </td>
             <td>
-              <%= link_to user_resume_path(resume.user, resume), method: :delete, data: {confirm:"Are you sure?"} do %>
+              <%= link_to resume_path(resume), method: :delete, data: {confirm:"Are you sure?"} do %>
               <%= content_tag :span,"",class: 'icon-delete btn btn-outline-danger' %>
               <% end %>
             </td>
