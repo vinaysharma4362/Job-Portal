@@ -8,9 +8,9 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><%= link_to 'Company', companies_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
-          <li class="nav-item"><%= link_to 'Upload Resume',user_resumes_path(current_user.id),  class: 'nav-link' %>
+          <li class="nav_item <%if current_page?(companies_path)%>active<%end%>"><%= link_to 'Company', companies_path, class: "nav-link" %></li>
+          <li class="nav_item <%if current_page?(edit_user_registration_path)%>active<%end%>"><%= link_to 'Profile', edit_user_registration_path, class: ' nav-link' %></li>
+          <li class="nav_item <%if current_page?(resumes_path)%>active<%end%>"><%= link_to 'Upload Resume',resumes_path,  class: 'nav-link' %>
           </li>
           <li class="nav-item"><%= link_to "Apply job list",class: "nav-link"%></li>
           <li class="nav-item"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>

@@ -1,0 +1,45 @@
+<% if !@resumes.blank? %>
+  <div class="container mt-4">
+    <h4>Resumes</h4>
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <thead class="thead">
+          <tr>
+            <th>Field Title</th>
+            <th>User name</th>
+            <th>Resume File</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <% @resumes.each do |resume| %>
+        <tbody>
+          <tr>
+            <td><%= resume.file_name %></td>
+            <td><%= resume.user.first_name%> <%= resume.user.last_name%></td>
+            <td>
+              <%= link_to url_for(resume.resume_file) do %>
+              <%= content_tag :span, "", class: 'icon-download btn btn-outline-success'%>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_user_resume_path(current_user.id, resume) do %>
+              <%= content_tag :span,"",class: 'icon-edit btn btn-outline-info' %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to user_resume_path( current_user.id, resume), method: :delete, data: {confirm:"Are you sure?"} do %>
+              <%= content_tag :span,"",class: 'icon-delete btn btn-outline-danger' %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <div class="mt-4 d-flex justify-content-center">
+    <h4>No Resumes!!!</h4>
+  </div>
+<% end %>

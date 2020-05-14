@@ -1,20 +1,45 @@
 <div class="container">
   <% if !@resumes.present? %>
     <center>
-      <div class="mt-3 btn btn-info">
-        <%= link_to "Upload Resume ", new_user_resume_path, class: "btn btn-info" %>
+      <div class="mt-3">
+        <%= link_to "Upload Resume ", new_resume_path, class: "btn btn-success btn-lg" %>
       </div>
     </center>
   <% else %>
-    <br>
-    <h3>Your Resume</h3>
-    <table class="table">
-      <tr>
-        <td><%= @resumes.file_name %></td>
-        <td><%= link_to 'download', url_for(@resumes.resume_file) %></td>
-        <td><%= link_to "edit", edit_user_resume_path(current_user.id, @resumes) %></td>
-        <td><%= link_to "delete", user_resume_path( current_user.id, @resumes), method: :delete, data: {confirm:"Are you sure?"} %></td>
-      </tr>
+  <br>
+  <h3>Your Resume</h3>
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead class="thead">
+        <tr>
+          <th>Field Title</th>
+          <th>User name</th>
+          <th>Resume File</th>
+          <th>Edit</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @resumes.file_name %></td>
+          <td><%= @resumes.user.first_name%> <%= @resumes.user.last_name%></td>
+          <td>
+            <%= link_to url_for(@resumes.resume_file) do %>
+            <%= content_tag :span, "", class: 'icon-download btn btn-outline-success'%>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_resume_path(@resumes) do %>
+            <%= content_tag :span,"",class: 'icon-edit btn btn-outline-info' %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to resume_path(@resumes), method: :delete, data: {confirm:"Are you sure?"} do %>
+            <%= content_tag :span,"",class: 'icon-delete btn btn-outline-danger' %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
     </table>
   <% end %>
 </div>

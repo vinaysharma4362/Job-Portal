@@ -3,7 +3,11 @@
 # Resume for user controller
 class ResumesController < ApplicationController
   before_action :find_resume, only: %i[edit update destroy show]
+<<<<<<< Updated upstream
   before_action :find_user, only: %i[new edit create]
+=======
+
+>>>>>>> Stashed changes
   def index
     @resumes = current_user.resume
   end
@@ -17,11 +21,15 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume = Resume.new(resume_params)
-    if @resume.save
-      redirect_to user_resumes_path, notice: 'Resume created.'
-    else
-      render :new
+    @user = Resume.find_by(user_id: current_user)
+    if @user == nil
+      @resume = Resume.new(resume_params)
+      @resume.user_id = current_user.id
+      if @resume.save
+        redirect_to session[:return_to], notice: 'Resume Uploaded.'
+      else
+        render :new
+      end
     end
   end
 
@@ -31,7 +39,7 @@ class ResumesController < ApplicationController
 
   def update
     if @resume.update(resume_params)
-      redirect_to user_resumes_path, notice: 'Resume updated.'
+      redirect_to resumes_path, notice: 'Resume updated.'
     else
       render :edit
     end
@@ -39,7 +47,13 @@ class ResumesController < ApplicationController
 
   def destroy
     @resume.destroy
+<<<<<<< Updated upstream
     redirect_to user_resumes_path, notice: 'Resume destroyed.'
+=======
+    @apply_job = ApplyJob.where(user_id: @user)
+    @apply_job.delete_all
+    redirect_to resumes_path, notice: 'Resume destroyed.'
+>>>>>>> Stashed changes
   end
 
   def resume_list
@@ -59,6 +73,6 @@ class ResumesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list
   # through.
   def resume_params
-    params.require(:resume).permit(:file_name, :resume_file, :user_id)
+    params.require(:resume).permit(:file_name, :resume_file)
   end
 end

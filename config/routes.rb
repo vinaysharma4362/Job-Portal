@@ -26,15 +26,16 @@ Rails.application.routes.draw do
   }
 
   resources :users do
-    resources :resumes
+    
     resources :job_posts, only: %i[index show] do
       member do
         get 'apply_job'
       end
     end
   end
-
-
+  resources :resumes
+  resources :charges
+  resources :apply_jobs
   resources :companies do
     resources :reviews do
       collection do
